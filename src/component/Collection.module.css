@@ -1,0 +1,515 @@
+.bookCltn,
+.noBooks {
+  position: relative;
+  display: flex;
+  align-items: center
+}
+
+#cltnWrp,
+.bookCltn,
+.cltnTitle,
+.noBooks {
+  position: relative
+}
+
+.cltnTitle,
+.noBooksGuide,
+.noBooksMessage {
+  text-align: center;
+  color: #fff
+}
+
+#backBtn,
+.noBooksGuide:hover {
+  opacity: .4
+}
+
+#backBtn,
+.filterItem,
+.noBooksGuide,
+.noBooksMessage {
+  font-family: "Lucida Sans"
+}
+
+#backBtn,
+#cltnWrp {
+  background-color: transparent
+}
+
+#noBooksGuide,
+.cltnTitle,
+.noBooksGuide {
+  text-decoration: underline
+}
+
+@font-face {
+  font-family: "Lucida Sans";
+  src: url(/public/font/LSANS.TTF)
+}
+
+@font-face {
+  font-family: "i pixel u";
+  src: url(/public/font/I-PIXEL-U.TTF)
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url(/public/font/SEGOEUI.TTF)
+}
+
+#cltnWrp {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  margin: 100px 0 500px;
+  left: -25px
+}
+
+.bookCltn {
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  background-color: #1A1A2E;
+  padding-bottom: 150px;
+}
+
+.cltnTitle {
+  top: 200px;
+  left: 0;
+  font-size: 70px;
+  font-weight: 500;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 100px
+}
+
+#backBtn {
+  position: absolute;
+  outline: 0;
+  border: none;
+  color: #e94560;
+  font-size: 40px;
+  top: 120px;
+  left: 80px;
+  cursor: pointer;
+  transition: .15s ease-in-out
+}
+
+.filterCtn,
+.filterCtnOff {
+  border-radius: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: #0f3460
+}
+
+#backBtn:hover {
+  opacity: 1;
+  transform: scale(1.1)
+}
+
+#backBtn:action {
+  transform: scale(.87);
+  color: red
+}
+
+.noBooks {
+  justify-content: center;
+  flex-direction: column;
+  top: 200px;
+  margin-bottom: 500px
+}
+
+.filter,
+.filterCtn {
+  display: flex;
+  align-items: center;
+  position: relative
+}
+
+.noBooksMessage {
+  font-size: 30px
+}
+
+.noBooksGuide {
+  font-size: 25px;
+  cursor: pointer
+}
+
+.filter {
+  justify-content: center;
+  top: 200px;
+  margin-bottom: 100px
+}
+
+.filterCtn {
+  justify-content: center
+}
+
+.filterCtnOff {
+  position: relative;
+  display: none;
+  align-items: center;
+  justify-content: center
+}
+
+.filterWrp {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%
+}
+
+.filterItem {
+  font-size: 40px;
+  color: #fff;
+  margin: 0 20px
+}
+
+.filterVal {
+  color: gold;
+  cursor: pointer
+}
+
+#noBooksGuide,
+.scrolldownItem {
+  color: #fff;
+  font-family: "Lucida Sans";
+  text-align: center
+}
+
+.filterVal:hover {
+  color: gold;
+  cursor: pointer;
+  opacity: .7
+}
+
+.scrolldown_off, .scrolldown_on {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f3460;
+  height: -moz-max-content;
+  height: fit-content;
+  width: 300px;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  z-index: 99;
+  box-shadow: 0 3px 7px .5px rgba(0, 0, 0, .3);
+  border-radius: 20px;
+  top: 550px;
+}
+
+.scrolldown_on {
+  display: flex;
+}
+
+.scrolldownWrp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  list-style: none;
+  font-size: 0px;
+  position: relative;
+  left: -10px
+}
+
+.scrolldownItem {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #fff;
+  height: 100px;
+  transition: .1s ease-in;
+  width: 180px;
+  cursor: pointer;
+  z-index: 99
+}
+
+.scrolldownItem:hover {
+  color: gold;
+  width: 200px
+}
+
+#genreScrolldown {
+  transform: translate(-120px, 0px);
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  align-items: baseline
+}
+
+#genreScrolldown::-webkit-scrollbar {
+  width: .3em
+}
+
+#genreScrolldown::-webkit-scrollbar-track {
+  width: 20px;
+  background-color: transparent;
+  border-radius: 100vw;
+  margin-block: 1em
+}
+
+#genreScrolldown::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 100vw;
+  width: auto
+}
+
+#genreScrolldownWrp {
+  transform: translate(0, 0)
+}
+
+#sortScrolldown {
+  transform: translate(120px, -0px);
+  z-index: 99
+}
+
+#sortScrolldownWrp {
+  position: relative;
+  left: -20px
+}
+
+.backdrop_on, .backdrop_off {
+  display: block;
+  background-color: #000;
+  opacity: .2;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 15;
+  top: 0;
+  left: 0
+}
+
+.backdrop_off {
+  display: none;
+}
+
+.motivation {
+  width: 720px;
+  border: 20px solid #e94560
+}
+
+#noBooksGuide {
+  font-size: 40px;
+  cursor: default
+}
+
+#popUp, .popUpControl {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--parent);
+  left: 50%;
+  top: 50vh;
+
+}
+
+.popUpWrp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popContainer_on, .popContainer_off {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c7c7c7;
+  width: 500px;
+  height: 300px;
+  border-radius: 30px;
+  box-shadow: 0px 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.popContainer_off {
+  display: none;
+}
+
+.popContentWrp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  background-color: var(--wrapper2);
+}
+
+.message {
+  position: relative;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  color: #1A1A2E;
+  font-weight: 300;
+  text-align: center;
+
+}
+
+
+.popBtnGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--wrapper3);
+  margin: 70px 0 0 0;
+  width: 100%;
+  top: -20px;
+}
+
+.popBtn {
+  aspect-ratio: 3/1;
+  width: 150px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0px 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+
+
+}
+
+#cancelPopBtn {
+  background-color: #2A2A4E;
+  color: #fff;
+  transition: all 0.3s ease-out;
+}
+
+#cancelPopBtn:hover {
+  background-color: rgb(86, 86, 138);
+}
+
+#confirmPopBtn {
+  background-color: #E94560;
+  color: #1A1A2E;
+  transition: all 0.3s ease-out;
+}
+
+#confirmPopBtn:hover {
+  background-color: #f16d83;
+}
+
+#popBTtl {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.backdrop_off, .backdrop_on {
+  display: none;
+  position: fixed;
+  z-index: 98;
+  background-color: black;
+  opacity: 0.5;
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+}
+
+.backdrop_on {
+  display: block;
+}
+
+@media screen and (max-width:1280px) {
+  #cltnWrp {
+    grid-template-columns: repeat(4, auto);
+    transform: translate(60px, 0)
+  }
+
+  .filter {
+    transform: scale(.67)
+  }
+
+  .cltnTitle {
+    font-size: 55px
+  }
+
+  .filterItem,
+  .filterVal {
+    font-size: 30px
+  }
+
+  #noBooksGuide,
+  .noBooksMessage {
+    font-size: 30px;
+    width: 70vw
+  }
+
+  #genreScrolldown {
+    transform: translate(-80px, -200px) scale(.72)
+  }
+
+  #sortScrolldown {
+    transform: translate(80px, -150px) scale(.72)
+  }
+
+  .motivation {
+    width: 612px
+  }
+
+  @media screen and (max-width:810px) {
+    #cltnWrp {
+      margin-top: 0;
+      transform: translate(10px, 0)
+    }
+
+    #backBtn {
+      left: 20px;
+      font-size: 30px
+    }
+
+    .cltnTitle {
+      font-size: 45px
+    }
+
+    #noBooksGuide,
+    .noBooksMessage {
+      font-size: 20px;
+      width: 70vw
+    }
+
+    #noBooksGuide {
+      text-align: center
+    }
+
+    .motivation {
+      width: 360px
+    }
+
+    #genreScrolldown {
+      transform: translate(-80px, -200px) scale(.72)
+    }
+
+    #sortScrolldown {
+      transform: translate(80px, -150px) scale(.72)
+    }
+  }
+
+  @media screen and (max-width:600px) {
+    #cltnWrp {
+      grid-template-columns: repeat(2, auto);
+      left: 10px
+    }
+
+    #genreScrolldown {
+      transform: translate(-80px, -200px) scale(.72)
+    }
+
+    #sortScrolldown {
+      transform: translate(80px, -180px) scale(.72)
+    }
+  }
+}

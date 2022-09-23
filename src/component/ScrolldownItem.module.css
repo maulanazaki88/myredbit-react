@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Lucida Sans";
+  src: url(/public/font/LSANS.TTF)
+}
+
+@font-face {
+  font-family: "I pixel u";
+  src: url(/public/font/I-PIXEL-U.TTF);
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url(/public/font/SEGOEUI.TTF);
+}
+
+.scrolldownItem {
+  font-family: "Lucida Sans";
+  color: #fff;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 2px solid #fff;
+  height: 100px;
+  transition: all 0.1s ease-in;
+  width: 180px;
+  cursor: pointer;
+}
+
+.scrolldownItem:hover {
+
+  color: gold;
+  width: 200px;
+
+}

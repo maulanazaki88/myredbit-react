@@ -1,0 +1,12 @@
+ Fact ---> if styles rule states that an element has width of x and at the same time
+ has animation that progressiong from 1/2x to x with the help of transition property of 
+ previous attached class, the element however will start from 1/2x and then JS will recognize
+ the end of the animation duration as long the animation are equal.
+
+ #1 Problem : How to make a reversible animation
+    -   If the animation is ireversible, we can make an element that applied AND class logic
+        that will animate if the combination is changed 
+    -   If an element attached 1 class lets say s1, as a result of changing state the element now attached two class of s1 s2 which 
+        s2 animate the element prolonging its width. Its possible since the transition and animation has same property.
+    -   But to make it reverse to state 1, or to reduce the classes to s1 only, the element will have buggy animation.
+        The element 

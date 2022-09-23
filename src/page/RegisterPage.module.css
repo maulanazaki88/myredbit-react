@@ -1,0 +1,681 @@
+.background,
+.regPg {
+  display: flex;
+  height: 100vh;
+}
+
+.fill,
+.fillOff {
+  transition: 0.3s ease-out;
+}
+
+.background,
+.formWrapper {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.regBackBtn,
+button {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: "Lucida Sans";
+  src: url(/public/font/LSANS.TTF);
+}
+
+@font-face {
+  font-family: "I pixel u";
+  src: url(/public/font/I-PIXEL-U.TTF);
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url(/public/font/SEGOEUI.TTF);
+}
+
+@font-face {
+  font-family: "Vladimir Script";
+  src: url(/public/font/VLADIMIR.TTF);
+}
+
+.regPg {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.background {
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #c7c7c7;
+  width: 100vw;
+  padding-top: 20px;
+  top: -10px;
+  left: -10px;
+  margin: 0;
+}
+
+.circle,
+.progressWrp {
+  height: 50px;
+  display: flex;
+  z-index: 10;
+}
+
+.progressWrp {
+  background-color: transparent;
+  position: absolute;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 325px;
+  top: 40px;
+}
+
+.circle,
+.fill,
+.fillOff {
+  border-radius: 50%;
+  position: relative;
+}
+
+.circle {
+  width: 50px;
+  background-color: #0f3460;
+  align-items: center;
+  justify-content: center;
+  margin: 0 30px;
+}
+
+#f1,
+#f2,
+#f3,
+.fill,
+.fillOff {
+  background-color: #e94560;
+}
+
+.formWrapper,
+.progressGroup {
+  display: flex;
+  align-items: center;
+}
+
+.fill,
+.fillOff {
+  width: 35px;
+  height: 35px;
+}
+
+.formCard,
+.regInp {
+  border-radius: 30px;
+}
+
+.formWrapper,
+.progressBar,
+.progressGroup,
+.regTitle {
+  position: absolute;
+}
+
+.fillOff {
+  width: 0;
+  height: 0;
+}
+
+.progressGroup {
+  justify-content: flex-start;
+  left: 20px;
+}
+
+.progressBar {
+  height: 15px;
+  width: 255px;
+  background-color: #0f3460;
+  left: 10px;
+  z-index: 5;
+}
+
+.progress,
+.progress2,
+.progress3,
+.progress_rev,
+.progress2_rev,
+.progress3_rev {
+  position: absolute;
+  height: 15px;
+  background-color: #e94560;
+  left: 10px;
+  z-index: 6;
+  transition: 0.3s ease-out;
+}
+
+.formWrapper,
+.regForm {
+  background-color: transparent;
+}
+
+.progress {
+  width: 2px;
+}
+
+.progress_rev {
+  width: 2px;
+}
+
+.progress2 {
+  width: 125px;
+  animation: prog1to2 0.3s 1 cubic-bezier(0, 0.87, 0.5, 1);
+}
+
+.progress2_rev {
+  width: 125px;
+}
+
+.progress3 {
+  width: 225px;
+  animation: prog2to3 0.3s 1 cubic-bezier(0, 0.87, 0.5, 1);
+}
+
+.progress3_rev {
+  width: 225px;
+}
+
+@keyframes prog1to2 {
+  from {
+    width: 2px;
+  }
+
+  to {
+    width: 125px;
+  }
+}
+
+@keyframes prog2to3 {
+  from {
+    width: 125px;
+  }
+
+  to {
+    width: 225px;
+  }
+}
+
+@-webkit-keyframes prog1to2 {
+  from {
+    width: 2px;
+  }
+
+  to {
+    width: 125px;
+  }
+}
+
+@-webkit-keyframes prog2to3 {
+  from {
+    width: 125px;
+  }
+
+  to {
+    width: 225px;
+  }
+}
+
+.regTitle {
+  font-family: "Vladimir Script";
+  color: #a4a4a4;
+  font-size: 70px;
+  top: 80px;
+  z-index: 99;
+  text-align: center;
+}
+
+.regInp,
+.regLabel {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.infItem,
+.infTtl,
+.infTxt,
+.regBack,
+.regInp,
+.regLabel {
+  color: #fff;
+}
+
+.formWrapper {
+  margin-top: 100px;
+  justify-content: center;
+  flex-direction: column;
+  width: 750px;
+  z-index: 50;
+  top: 100px;
+  transition: 0.3s ease-out;
+}
+
+.regForm,
+.regForm2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.regForm {
+  justify-content: center;
+  flex-direction: row;
+  top: 0;
+  left: 1025px;
+  transition: 0.3s ease-out;
+}
+
+.regForm2,
+.regForm3 {
+  background-color: transparent;
+  left: 1175px;
+  transition: 0.3s ease-out;
+  top: 0;
+}
+
+.regForm2 {
+  justify-content: center;
+  flex-direction: row;
+  transform: translate(-900px, 0);
+}
+
+.regForm3,
+.ttlNgen {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.regForm3 {
+  justify-content: center;
+  flex-direction: row;
+  transform: translate(-1935px, 0px);
+}
+
+.ttlNgen {
+  justify-content: center;
+  flex-direction: column;
+  left: -220px;
+}
+
+.formCard,
+.inpGroup {
+  display: flex;
+  align-items: center;
+}
+
+.formCard {
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #1e1e34;
+  width: 700px;
+  height: 650px;
+  z-index: 10;
+}
+
+.inpGroup {
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+  position: relative;
+  top: 0;
+}
+
+.autNrls,
+.formBtnGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.regLabel {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.regInp {
+  width: 550px;
+  height: 55px;
+  background-color: #0f3460;
+  border: none;
+  outline: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 28px;
+}
+
+.regBack,
+.regNext {
+  width: 190px;
+  height: 65px;
+  font-size: 30px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  box-shadow: 0 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+  border: none;
+  outline: 0;
+}
+
+.formBtnGroup {
+  justify-content: center;
+  top: 30px;
+}
+
+.regNext {
+  background-color: #e94560;
+}
+
+.regNext:hover {
+  background-color: #ac3347;
+}
+
+.regBack {
+  background-color: #2a2a4e;
+}
+
+.drpfg,
+.infTtl,
+.infTxt,
+.regBackBtn {
+  background-color: transparent;
+}
+
+.regBack:hover {
+  background-color: #19192e;
+}
+
+.autNrls {
+  justify-content: center;
+  flex-direction: column;
+  top: 35px;
+  left: -250px;
+}
+
+.cnfrm,
+.cnfrmWrp {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+#inpGroup2 {
+  transform: translate(0, -35px);
+}
+
+#autRlsBBtn,
+#autRlsNBtn {
+  transform: translate(0, -150px);
+  margin: 0 120px;
+  z-index: 11;
+}
+
+.cnfrm {
+  justify-content: center;
+}
+
+#cnfrmCard {
+  width: 750px;
+  left: -20px;
+}
+
+.cnfrmWrp {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cnfrmContent {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  transform: translate(0, -80px);
+}
+
+.infList {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  width: 60%;
+  transform: translate(-50px, 0);
+
+}
+
+.cnfrmBtnGroup,
+.infItem {
+  align-items: center;
+  position: relative;
+  display: flex;
+}
+
+.infItem {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  justify-content: flex-start;
+  margin: -10px 0;
+  width: 80%;
+  padding: 0;
+}
+
+.infTtl {
+  opacity: 1;
+  border: none;
+  outline: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  width: 100%;
+  text-align: left;
+
+}
+
+.infTxt {
+  opacity: 0.5;
+  border: none;
+  outline: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.errMessage,
+.regBackBtn {
+  font-family: "Lucida Sans";
+}
+
+.cnfrmBtnGroup {
+  justify-content: space-between;
+  width: 650px;
+  top: 200px;
+}
+
+.bookCvr {
+  position: relative;
+  width: 270px;
+  box-shadow: 0 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+}
+
+.drpfg {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+}
+
+.crF,
+.crF2,
+.crF3 {
+  position: absolute;
+  z-index: 5;
+  opacity: 0.4;
+  transition: 0.6s ease-out;
+  width: 70vw;
+  top: 500px;
+}
+
+.lineGr {
+  transform: translate(0, 200px);
+  width: 400px;
+}
+
+.crF {
+  transform: scale(1) rotate(0);
+  opacity: 0.4;
+}
+
+.crF2 {
+  transform: scale(0.9) rotate(15deg);
+  opacity: 0.3;
+}
+
+.crF3 {
+  transform: scale(0.84) rotate(30deg);
+  opacity: 0.2;
+}
+
+.crB,
+.crB2,
+.crB3 {
+  position: absolute;
+  z-index: 5;
+  opacity: 0.8;
+  transition: 0.8s ease-out;
+  top: 300px;
+  width: 150vw;
+}
+
+.crB {
+  transform: scale(1) rotate(0);
+  opacity: 0.8;
+}
+
+.crB2 {
+  transform: scale(0.92) rotate(15deg);
+  opacity: 0.6;
+}
+
+.crB3 {
+  transform: scale(0.87) rotate(30deg);
+  opacity: 0.4;
+}
+
+.errMessage {
+  font-size: 15px;
+  color: gold;
+  position: relative;
+  text-align: center;
+}
+
+.regBackBtn {
+  position: absolute;
+  z-index: 99;
+  border: none;
+  outline: 0;
+  font-size: 40px;
+  color: #16213e;
+  transition: 0.15s ease-out;
+  top: 60px;
+  left: 60px;
+  opacity: 0.7;
+}
+
+.regBackBtn:active,
+.regBackBtn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 1600px) {
+  .formWrapper {
+    transform: scale(0.9) translate(0, -100px);
+  }
+
+  .regTitle {
+    font-size: 35px;
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .formWrapper {
+    transform: scale(0.75) translate(0, -175px);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .formWrapper {
+    transform: scale(0.7) translate(0, -250px);
+  }
+}
+
+@media screnn and (max-width: 960px) {
+  .formWrapper {
+    transform: scale(0.6) translate(0, -350px);
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .formWrapper {
+    transform: scale(0.6) translate(10px, -250px);
+  }
+
+  .crB,
+  .crB2,
+  .crB3 {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.8;
+    transition: 0.8s ease-out;
+    top: 130px;
+    width: 150vw;
+  }
+
+  .crF,
+  .crF2,
+  .crF3 {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.4;
+    transition: 0.6s ease-out;
+    width: 70vw;
+    top: 400px;
+  }
+
+  .regTitle {
+    font-size: 40px;
+    transform: translate(0, -20px);
+  }
+
+  .regBackBtn,
+  .regBackBtn:active,
+  .regBackBtn:hover {
+    transform: translate(-20px, -10px);
+  }
+
+  .regBackBtn {
+    font-size: 25px;
+  }
+
+  .progressWrp {
+    transform: scale(0.67) translate(0, -40px);
+  }
+}

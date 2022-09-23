@@ -1,0 +1,49 @@
+@font-face {
+    font-family: "Lucida Sans";
+    src: url(/public/font/LSANS.TTF)
+}
+
+@font-face {
+    font-family: "I pixel u";
+    src: url(/public/font/I-PIXEL-U.TTF);
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    src: url(/public/font/SEGOEUI.TTF);
+}
+
+.cltnWrp {
+    list-style: none;
+    color: transparent;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    position: relative;
+    top: 200px;
+    left: 0px;
+    width: 80%;
+    font-size: 1px;
+    color: transparent;
+    justify-content: center;
+
+
+}
+
+
+@media screen and (max-width:1280px) {
+    .cltnWrp {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .cltnWrp {
+        top: 50px
+    }
+}
+
+@media screen and (max-width: 636px) {
+    .cltnWrp {
+        grid-template-columns: auto;
+    }
+}

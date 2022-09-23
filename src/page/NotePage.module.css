@@ -1,0 +1,495 @@
+.form,
+.mainForm,
+.subForm {
+    margin: 50px 0;
+    display: flex;
+}
+
+#conflictLabel,
+#eventLabel,
+#glossaryLabel,
+#impactLabel,
+#resolutionLabel,
+.label,
+.selected {
+    transition: 0.3s ease-in-out;
+}
+
+.detailNote,
+.noteBoard {
+    font-family: "Times New Roman", Times, serif;
+    border: 5px dashed #707070;
+    outline: 0;
+}
+
+@font-face {
+    font-family: "Lucida Sans";
+    src: url(/public/font/LSANS.TTF);
+}
+
+@font-face {
+    font-family: "I pixel u";
+    src: url(/public/font/I-PIXEL-U.TTF);
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    src: url(/public/font/SEGOEUI.TTF);
+}
+
+.formWrp,
+.note_pg,
+.noteForm,
+.pgCtrl,
+.pgCtrlWrp {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#noteBackBtn {
+    background-color: transparent;
+    border: none;
+    outline: 0;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    color: #242424;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#noteBackBtn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.note_pg {
+    width: 100vw;
+    height: -moz-max-content;
+    height: fit-content;
+    background-color: red;
+    top: -10px;
+    left: -8px;
+}
+
+.noteForm,
+.noteWrp {
+    background-color: #c7c7c7;
+}
+
+.formGroup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+}
+
+.boardScroller,
+.bookTtl,
+.form,
+.mainForm,
+.noteWrp,
+.subForm {
+    position: relative;
+}
+
+.form {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mainForm {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    left: -150px;
+}
+
+.subForm {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-right: 50px;
+    align-items: flex-start;
+}
+
+.boardScroller,
+.noteForm {
+    display: flex;
+    align-items: center;
+}
+
+#conflictLabel:hover,
+#eventLabel:hover,
+#glossaryLabel:hover,
+#impactLabel:hover,
+#resolutionLabel:hover {
+    transform: translate(10px, 0);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    opacity: 0.7;
+}
+
+.label {
+    font-size: 30px;
+    margin: 40px 0;
+    opacity: 0.3;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.selected {
+    transform: translate(10px, 0);
+    opacity: 1;
+}
+
+.bookTtl {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 70px;
+    margin-left: 20px;
+    left: 0;
+    text-align: center;
+    top: 100px;
+}
+
+.noteWrp {
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    margin: 0;
+}
+
+.noteForm {
+    justify-content: center;
+}
+
+.boardScroller {
+    width: 950px;
+    height: 480px;
+    justify-content: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.boardWrp,
+.boardWrp2 {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+body {
+    background-color: #c7c7c7;
+}
+
+.boardWrp {
+    justify-content: center;
+    flex-direction: column;
+    top: 970px;
+    transition: 0.3s ease-out;
+}
+
+.boardWrp2 {
+    top: 470px;
+    justify-content: center;
+    flex-direction: column;
+    transition: 0.3s ease-out;
+}
+
+.boardWrp3,
+.boardWrp4 {
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease-out;
+}
+
+.boardWrp3 {
+    top: 0;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.boardWrp4 {
+    top: -470px;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.boardWrp5,
+.form_detail {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.boardWrp5 {
+    top: -970px;
+    justify-content: center;
+    flex-direction: column;
+    transition: 0.3s ease-out;
+}
+
+.noteBoard {
+    font-size: 25px;
+    background-color: #fefebc;
+    padding: 2em;
+    min-width: 800px;
+    max-width: 800px;
+    min-height: 350px;
+    margin: 10px 0;
+}
+
+#conflictBoard {
+    background-color: #ea8f8f;
+}
+
+#resolutionBoard {
+    background-color: #c4ff8a;
+}
+
+#impactBoard {
+    background-color: #7fffd4;
+}
+
+#glossaryBoard {
+    background-color: #fff;
+}
+
+.form-detail {
+    justify-content: space-between;
+    flex-direction: row;
+    left: 0;
+    margin: 0 50px 0 10px;
+}
+
+.pgCtrl,
+.pgCtrlWrp {
+    align-items: center;
+    display: flex;
+}
+
+.form_detail>label {
+    margin: 0 70px 0 70px;
+    font-size: 30px;
+}
+
+.detailNote {
+    font-size: 25px;
+    padding: 1em;
+    max-width: 400px;
+    min-width: 400px;
+}
+
+.pgCtrlBtn,
+.pgCtrlWrp {
+    color: #fff;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.pgCtrl {
+    position: absolute;
+    background-color: #1d2a4d;
+    width: 280px;
+    height: 450px;
+    justify-content: center;
+    margin-left: 0;
+    top: 200px;
+    right: -100px;
+    margin-right: 0;
+}
+
+.pgCtrlWrp {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pgCtrlTtl {
+    position: relative;
+    top: -30px;
+    font-size: 25px;
+}
+
+.pgCtrlBtn_g {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 180px;
+    position: relative;
+    top: 0;
+}
+
+.pgNumber {
+    font-size: 50px;
+}
+
+.pgCtrlBtn {
+    border: none;
+    outline: 0;
+    font-size: 70px;
+    background-color: transparent;
+}
+
+.pgCtrlBtn_Off {
+    border: none;
+    outline: 0;
+    font-size: 70px;
+    background-color: transparent;
+    opacity: 0.5;
+    cursor: default
+}
+
+.pgCtrlBtn:hover {
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 1600px) {
+    .formGroup {
+        transform: scale(0.87);
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .formGroup {
+        transform: scale(0.72) translate(0, -150px);
+    }
+
+    #noteBackBtn {
+        font-size: 30px;
+    }
+
+    .bookTtl {
+        font-size: 40px;
+        transform: translate(0, 30px);
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .formGroup {
+        transform: scale(0.52) translate(0, -300px);
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .formGroup {
+        transform: scale(0.76) translate(0, -200px);
+    }
+
+    .form {
+        flex-direction: column;
+    }
+
+    .labels {
+        flex-direction: row;
+        margin-bottom: 80px;
+    }
+
+    .label {
+        margin: 0 15px;
+    }
+
+    .boardScroller,
+    .form_detail {
+        margin-bottom: 50px;
+    }
+
+    .pgCtrl {
+        position: relative;
+        top: -100px;
+        width: 90vw;
+        height: 300px;
+        left: 0;
+    }
+
+    .pgCtrlBtn_g {
+        position: absolute;
+        width: 55vw;
+        top: 70px;
+    }
+
+    .detail_labels,
+    .subForm {
+        display: flex;
+        position: relative;
+    }
+
+    #conflictLabel:hover,
+    #eventLabel:hover,
+    #glossaryLabel:hover,
+    #impactLabel:hover,
+    #resolutionLabel:hover {
+        transform: translate(0, -10px);
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        opacity: 0.7;
+    }
+
+    .mainForm {
+        flex-direction: column;
+        left: 0;
+    }
+
+    .subForm {
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        left: 20px;
+    }
+
+    #noteBackBtn,
+    #noteBackBtn:active,
+    #noteBackBtn:hover {
+        font-size: 25px;
+        transform: translate(-20px, 40px);
+    }
+
+    .selected {
+        transform: translate(0, -10px);
+        transition: 0.3s ease-in-out;
+        opacity: 1;
+    }
+
+    .form_detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .detail_labels {
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 50px;
+        text-align: center;
+    }
+
+    .detailNote,
+    .noteBoard {
+        max-width: 90vw;
+        min-width: 90vw;
+    }
+
+    @media screen and (max-width: 580px) {
+        .label {
+            font-size: 22px;
+            margin: 0 10px;
+        }
+    }
+}
