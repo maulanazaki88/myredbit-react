@@ -55,7 +55,7 @@ export function CtxManagerProvider(props) {
     try {
       if (keywords !== "") {
         const keywordsArray = keywords.split(" ");
-        for (let book of allBooks) {
+        for (let book of allDisplay) {
           let bookTags = book.tag;
           let arrayScores = [];
           for (let n = 0; n < bookTags.length; n++) {
