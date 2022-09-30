@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useContext } from "react";
+import React, { useState, useEffect, useLayoutEffect, useContext, useRef } from "react";
 import BookCollection from "./BookCollection";
 import ScrolldownItem from "./ScrolldownItem";
 import CtxManager from "../store/CtxManager";
@@ -6,6 +6,9 @@ import CtxManager from "../store/CtxManager";
 import c from "./Collection.module.css";
 
 function Collection(props) {
+  const genreScroll = useRef();
+  const sortScroll = useRef();
+
   const [filterOn, setFilterOn] = useState(false);
   const [sortOn, setSortOn] = useState(false);
   const [showPopUp, setShowPopUp] = useState(false);
@@ -182,6 +185,18 @@ function Collection(props) {
     setIsFirst(true);
   }, []);
 
+  useEffect(() => {
+    if(filterOn){
+      genreScroll.current.scrollIntoView({block: "center"});
+    } else {}
+  }, [filterOn])
+
+  useEffect(() => {
+    if(sortOn){
+      sortScroll.current.scrollIntoView({block: "center"});
+    } else {}
+  }, [sortOn])
+
   return (
     <section id={c["allBookCltn"]} className={c.bookCltn}>
       <div id={c["popUp"]} className={c.popUpControl}>
@@ -230,6 +245,7 @@ function Collection(props) {
           <div
             id={c["genreScrolldown"]}
             className={filterOn ? c.scrolldown_on : c.scrolldown_off}
+            ref={genreScroll}
           >
             <ul id={c["genreScrolldownWrp"]} className={c.scrolldownWrp}>
               {props.genreScroll.map((genre, index) => {
@@ -255,6 +271,7 @@ function Collection(props) {
               <li
                 id={c["byName"]}
                 className={c.scrolldownItem}
+                ref={sortScroll}
                 onClick={() => {
                   props.changeSort("Name");
                   hideAllScroll();
