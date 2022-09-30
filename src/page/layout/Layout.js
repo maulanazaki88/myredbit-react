@@ -14,9 +14,12 @@ function Layout() {
 
   const srchInp = useRef();
 
+  const SMClasses = [c.sideMenuOn, c.sideMenuOff, c.sideMenuOff_];
+
   const [isMobile, setIsMobile] = useState(false);
   const [isInputMode, setIsInputMode] = useState(false);
-  const [sideMenuOn, setSideMenuOn] = useState(false);
+  // const [sideMenuOn, setSideMenuOn] = useState(false);
+  const [SMState, setSMState] = useState(SMClasses[1]);
 
   const navigate = useNavigate();
 
@@ -53,11 +56,15 @@ function Layout() {
   };
 
   const controlSideMenu = () => {
-    if (sideMenuOn) {
-      setSideMenuOn(false);
+    if (SMState === SMClasses[0]) {
+      setSMState(SMClasses[1]);
     } else {
-      setSideMenuOn(true);
+      setSMState(SMClasses[0]);
     }
+  };
+
+  const forceCloseSM = () => {
+    setSMState(SMClasses[2]);
   };
 
   useEffect(() => {
@@ -89,7 +96,7 @@ function Layout() {
                     <section id={c["navLeft"]} className={c.nav_left}>
                       <div id={c["menuCtrl"]} className={c.menuCtrl}>
                         <button type="button" className={c.ctrlIcons}>
-                          {sideMenuOn ? (
+                          {SMState === SMClasses[0] ? (
                             <img
                               id={c["closeMenu"]}
                               className={c.ctrlIcon}
@@ -110,20 +117,16 @@ function Layout() {
                           )}
                         </button>
                       </div>
-                      <aside
-                        id={c["sideMenu"]}
-                        className={
-                          sideMenuOn
-                            ? c.sideMenu
-                            : [c.sideMenu, c.SMOff].join(" ")
-                        }
-                      >
+                      <aside id={c["sideMenu"]} className={SMState}>
                         <div className={c.sideMenuWrp}>
                           <ul className={c.sideMenuList}>
                             <li
                               id={c["SMAllBooks"]}
                               className={c.sideMenuItems}
-                              onClick={() => {jumpToAllBooks(); setSideMenuOn(false)}}
+                              onClick={() => {
+                                forceCloseSM();
+                                jumpToAllBooks();
+                              }}
                             >
                               <img
                                 className={c.mIcons}
@@ -135,7 +138,10 @@ function Layout() {
                             <li
                               id={c["SMFavBooks"]}
                               className={c.sideMenuItems}
-                              onClick={() => {jumpToFavBooks(); setSideMenuOn(false)}}
+                              onClick={() => {
+                                forceCloseSM();
+                                jumpToFavBooks();
+                              }}
                             >
                               <img
                                 className={c.mIcons}
@@ -195,7 +201,13 @@ function Layout() {
                         </div>
                       </aside>
 
-                      <div id={c.backdrop} className={c.backdrop}></div>
+                      <div
+                        id={c.backdrop}
+                        className={SMState === SMClasses[0] ? c.backdropOn : c.backdropOff}
+                        onClick={() => {
+                          setSMState(SMClasses[1]);
+                        }}
+                      ></div>
                       <div className={c.brand}>
                         <p className={c.brandF1}>Red</p>
                         <p className={c.brandF2}>Bit</p>

@@ -29,16 +29,30 @@
 
 }
 
+.bookCard{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 @media screen and (max-width:1280px) {
     .cltnWrp {
         grid-template-columns: repeat(2, auto);
     }
+    .bookCard{
+        transform: scale(0.87)
+    }
 }
 
 @media screen and (max-width: 810px) {
     .cltnWrp {
-        top: 50px
+        top: 100px
+    }
+
+    .bookCard{
+        transform: scale(0.75);
     }
 }
 

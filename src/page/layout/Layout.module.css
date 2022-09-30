@@ -70,7 +70,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 0 65px;
+  margin: 0 25px;
   z-index: 90;
 }
 
@@ -184,7 +184,8 @@ body {
   font-size: 25px;
   color: white;
   height: 80px;
-  padding: 0 40px;
+  padding: 0 10px;
+  width: 14vw;
   background-color: #16213e;
   transition: all 0.15s ease-in-out;
 }
@@ -557,7 +558,7 @@ footer {
   opacity: 0.7;
 }
 
-.sideMenu {
+.sideMenuOn, .sideMenuOff, .sideMenuOff_{
   position: fixed;
   display: flex;
   align-items: center;
@@ -567,12 +568,17 @@ footer {
   height: 100vh;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 90;
   transition: all 0.3s ease-out;
 }
 
-.SMOff {
+.sideMenuOff {
   left: -100%;
+}
+
+.sideMenuOff_{
+  left: -100%;
+  transition: none;
 }
 
 .sideMenuWrp {
@@ -888,10 +894,10 @@ footer {
   text-decoration: underline;
 }
 
-#backdrop {
+.backdropOff, .backdropOn{
   display: none;
   position: fixed;
-  z-index: 98;
+  z-index: 89;
   background-color: black;
   opacity: 0.5;
   width: 100vw;
@@ -899,6 +905,11 @@ footer {
   left: 0px;
   top: 0px;
 }
+
+.backdropOn {
+  display: block;
+}
+
 
 .menuCtrl {
   display: flex;
@@ -926,7 +937,8 @@ footer {
 @media screen and (max-width:1366px) {
   .mItem_on, .mItem_off {
     font-size: 20px;
-    padding: 0 30px;
+    padding: 0 10px;
+    
   }
 
   .srchForm {
@@ -967,7 +979,7 @@ footer {
 @media screen and (max-width:1080px) {
   .mItem_on, .mItem_off {
     font-size: 15px;
-    padding: 0 20px;
+    padding: 0 10px;
   }
 
   .bkdrop {
@@ -977,6 +989,7 @@ footer {
 
   .mIcons {
     width: 28px;
+    margin-right: 4px;
   }
 
   .fInfItem {
@@ -990,11 +1003,17 @@ footer {
   .fIcon {
     width: 25px;
   }
+
+  .srchForm{
+    margin: 0 5px;
+  }
+
 }
 
 @media screen and (max-width:810px) {
   .navWrp {
     width: 90%;
+    margin:0 60px;
   }
 
   .nav_left {

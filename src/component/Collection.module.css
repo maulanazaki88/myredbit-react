@@ -430,7 +430,7 @@
   }
 
   .filter {
-    transform: scale(.67)
+    transform: scale(.87)
   }
 
   .cltnTitle {
@@ -440,6 +440,12 @@
   .filterItem,
   .filterVal {
     font-size: 30px
+  }
+
+  .filterVal:hover {
+    color: gold;
+    cursor: pointer;
+    opacity: .7
   }
 
   #noBooksGuide,
@@ -496,6 +502,22 @@
     #sortScrolldown {
       transform: translate(80px, -150px) scale(.72)
     }
+
+    .filterItem,
+    .filterVal {
+      font-size: 30px
+    }
+
+    .filterVal:hover {
+      color: gold;
+      cursor: pointer;
+      opacity: .3;
+    }
+
+    .filter {
+      transform: scale(.7)
+    }
+
   }
 
   @media screen and (max-width:600px) {
@@ -511,5 +533,20 @@
     #sortScrolldown {
       transform: translate(80px, -180px) scale(.72)
     }
+
+    .filterItem,
+    .filterVal {
+      font-size: 30px
+    }
+
+    .filterVal:hover {
+      color: gold;
+      cursor: pointer;
+      opacity: .7
+    }
+    .filter {
+      transform: scale(.67)
+    }
+
   }
 }

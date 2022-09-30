@@ -3,6 +3,7 @@
     background-color: #16213e;
     overflow-y: hidden;
     display: flex;
+    
 }
 
 .brandBig,
@@ -19,6 +20,7 @@
 .ldgWrp {
     top: 0;
     position: relative;
+    
 }
 
 .brandBig,
@@ -65,7 +67,7 @@
     align-items: center;
     justify-content: center;
     left: 0px;
-    height: 100vh;
+    padding-top: 100px;
     width: 100vw;
     overflow-x: hidden;
     padding-bottom: 100px;

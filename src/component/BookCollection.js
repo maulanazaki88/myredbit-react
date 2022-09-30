@@ -14,7 +14,7 @@ function BookCollection(props) {
               return "b";
             } else {
               return (
-                <li key={index}>
+                <li className={c.bookCard} key={index}>
                   <BookCard
                     _id={book.id}
                     img={book.img}
