@@ -123,6 +123,7 @@ function Layout() {
                             <li
                               id={c["SMAllBooks"]}
                               className={c.sideMenuItems}
+                              onClick={() => {jumpToAllBooks(); setSideMenuOn(false)}}
                             >
                               <img
                                 className={c.mIcons}
@@ -134,6 +135,7 @@ function Layout() {
                             <li
                               id={c["SMFavBooks"]}
                               className={c.sideMenuItems}
+                              onClick={() => {jumpToFavBooks(); setSideMenuOn(false)}}
                             >
                               <img
                                 className={c.mIcons}
