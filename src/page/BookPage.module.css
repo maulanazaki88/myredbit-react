@@ -24,13 +24,13 @@
     height: 100vh;
     padding-bottom: 0px;
     top: 0px;
-    background-color: #1a1a2e;
+    background-color: #fff;
 
 }
 
 .ufbook {
     position: relative;
-    color: #fff;
+    color: #1a1a2e;
     font-size: 50px;
     margin-right: 100px;
     top: 0px;
@@ -40,7 +40,7 @@
 
 .fbook {
     position: relative;
-    color: #fff;
+    color: #1a1a2e;
     font-size: 50px;
     margin-left: 100px;
     top: 0px;

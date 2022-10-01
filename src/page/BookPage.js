@@ -35,28 +35,28 @@ function BookPage() {
   const ufBookCvrs = {
     ufCvr1: unfinishedBooks[0]
       ? unfinishedBooks[0].img
-      : "/svg/SVG/dash-outline.svg",
+      : "/svg/SVG/dash-grey.svg",
     ufCvr2: unfinishedBooks[1]
       ? unfinishedBooks[1].img
-      : "/svg/SVG/dash-outline.svg",
+      : "/svg/SVG/dash-grey.svg",
     ufCvr3: unfinishedBooks[2]
       ? unfinishedBooks[2].img
-      : "/svg/SVG/dash-outline.svg",
+      : "/svg/SVG/dash-grey.svg",
   };
 
   const fBookCvrs = {
     fCvr1: finishedBooks[0]
       ? finishedBooks[0].img
-      : "/svg/SVG/dash-outline.svg",
+      : "/svg/SVG/dash-grey.svg",
     fCvr2: finishedBooks[1]
       ? finishedBooks[1].img
-      : "/svg/SVG/dash-outline.svg",
+      : "/svg/SVG/dash-grey.svg",
     fCvr3: finishedBooks[2]
       ? finishedBooks[2].img
-      : "/svg/SVG/dash-outline.svg",
+      : "/svg/SVG/dash-grey.svg",
     fCvr4: finishedBooks[3]
       ? finishedBooks[3].img
-      : "/svg/SVG/dash-outline.svg",
+      : "/svg/SVG/dash-grey.svg",
   };
 
   const { ufCvr1, ufCvr2, ufCvr3 } = ufBookCvrs;
@@ -106,13 +106,13 @@ function BookPage() {
           status={false}
           button={unfinishedBooks[0] ? "Continue Reading" : "Register Book"}
           book1={ufCvr1}
-          book2={"/svg/SVG/blank-book.svg"}
+          book2={"/svg/SVG/blank-white.svg"}
           book3={ufCvr3}
           book4={ufCvr2}
           jumpToPage={() => jumpToPage("uf")}
         />
         <figure className={c.mdLine}>
-          <img className={c.midLine} src="/svg/SVG/line.svg" alt="line" />
+          <img className={c.midLine} src="/svg/SVG/line-grey.svg" alt="line" />
         </figure>
         <BookShelf
           title="Finished Books Collection"

@@ -16,7 +16,7 @@
 .noBooksGuide,
 .noBooksMessage {
   text-align: center;
-  color: #fff
+  color: #1a1a2e
 }
 
 #backBtn,
@@ -39,7 +39,7 @@
 #noBooksGuide,
 .cltnTitle,
 .noBooksGuide {
-  text-decoration: underline
+  text-decoration: none
 }
 
 @font-face {
@@ -68,7 +68,7 @@
   justify-content: center;
   flex-direction: column;
   width: 100vw;
-  background-color: #1A1A2E;
+  background-color: #fff;
   padding-bottom: 150px;
 }
 
@@ -98,7 +98,9 @@
   border-radius: 30px;
   padding-right: 20px;
   padding-left: 20px;
-  background-color: #0f3460
+  background-color: #f5f5f5;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, .2);
+  min-width: 400px;
 }
 
 #backBtn:hover {
@@ -106,7 +108,7 @@
   transform: scale(1.1)
 }
 
-#backBtn:action {
+#backBtn:active {
   transform: scale(.87);
   color: red
 }
@@ -141,7 +143,7 @@
 }
 
 .filterCtn {
-  justify-content: center
+  justify-content: center;
 }
 
 .filterCtnOff {
@@ -154,26 +156,33 @@
 .filterWrp {
   list-style: none;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-direction: row;
-  width: 100%
+  width: 100%;
+  padding: 0;
 }
 
 .filterItem {
   font-size: 40px;
-  color: #fff;
-  margin: 0 20px
+  color: #242424;
+  margin: 0 20px;
+  position: relative;
+}
+
+#sortItem{
+  margin-right: 20px
 }
 
 .filterVal {
   color: gold;
-  cursor: pointer
+  cursor: pointer;
+  font-weight: 700;
 }
 
 #noBooksGuide,
 .scrolldownItem {
-  color: #fff;
+  color: #242424;
   font-family: "Lucida Sans";
   text-align: center
 }
@@ -181,7 +190,7 @@
 .filterVal:hover {
   color: gold;
   cursor: pointer;
-  opacity: .7
+  opacity: .5
 }
 
 .scrolldown_off, .scrolldown_on {
@@ -189,7 +198,7 @@
   display: none;
   align-items: center;
   justify-content: center;
-  background-color: #0f3460;
+  background-color: #f5f5f5;
   height: -moz-max-content;
   height: fit-content;
   width: 300px;
@@ -221,7 +230,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #242424;
   height: 100px;
   transition: .1s ease-in;
   width: 180px;
@@ -254,9 +263,9 @@
 }
 
 #genreScrolldown::-webkit-scrollbar-thumb {
-  background-color: #fff;
+  background-color: #242424;
   border-radius: 100vw;
-  width: auto
+  width: auto;
 }
 
 #genreScrolldownWrp {
@@ -321,7 +330,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #c7c7c7;
+  background-color: #fff;
   width: 500px;
   height: 300px;
   border-radius: 30px;
@@ -377,7 +386,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: 0px 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
 
 
 }
@@ -544,8 +553,9 @@
       cursor: pointer;
       opacity: .7
     }
-    .filter {
-      transform: scale(.67)
+
+    .filterItem{
+      margin: 0 10px;
     }
 
   }

@@ -55,7 +55,7 @@ h2 {
 
 .title {
     position: relative;
-    color: #fff;
+    color: #1a1a2e;
     font-family: "Times New Roman", Times, serif;
     font-size: 60px;
     width: 452px;
@@ -86,7 +86,7 @@ h2 {
     outline: none;
     width: 295px;
     height: 65px;
-    background-color: #16213e;
+    background-color: #0F3460;
     color: #e95460;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;

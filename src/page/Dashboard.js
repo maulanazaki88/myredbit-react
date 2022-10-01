@@ -9,10 +9,10 @@ function Dashboard() {
   }, []);
 
   return (
-    <main className={c.main}>
+    <div className={c.main}>
       <LandingPage />
       <BookPage />
-    </main>
+    </div>
   );
 }
 

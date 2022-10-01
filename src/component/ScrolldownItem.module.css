@@ -15,13 +15,13 @@
 
 .scrolldownItem {
   font-family: "Lucida Sans";
-  color: #fff;
+  color: #242424;
   font-size: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #242424;
   height: 100px;
   transition: all 0.1s ease-in;
   width: 180px;

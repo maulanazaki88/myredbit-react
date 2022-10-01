@@ -1,9 +1,8 @@
 .ldg-pg,
 .ldgWrp {
-    background-color: #16213e;
     overflow-y: hidden;
     display: flex;
-    
+
 }
 
 .brandBig,
@@ -20,7 +19,7 @@
 .ldgWrp {
     top: 0;
     position: relative;
-    
+
 }
 
 .brandBig,
@@ -28,6 +27,40 @@
 .ttlDsc {
     text-align: center;
 }
+
+.ldg_left, .ldg_right {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 50vw;
+
+}
+
+.ldg_right {
+    align-items: center;
+    padding-right: 200px;
+    width: 50vw;
+}
+
+.ldg_left {
+
+    padding-left: 200px;
+    width: 50vw;
+}
+
+.ilusFig {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.ilus {
+    width: 685px;
+}
+
 
 .spacer {
     background-image: url(/public/svg/SVG/wave-intro.svg);
@@ -63,23 +96,35 @@
 }
 
 .ldgWrp {
-    flex-direction: column;
-    align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     justify-content: center;
     left: 0px;
-    padding-top: 100px;
     width: 100vw;
     overflow-x: hidden;
     padding-bottom: 100px;
+    height: 960px;
+    top: 150px;
+}
+
+.ldgSect {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70%;
 }
 
 .brandBig {
-    flex-direction: row;
+    flex-direction: column;
     font-size: 80px;
-    margin: 0;
+    margin: 0 0 50px 0px;
     width: 353px;
-    height: 220px;
-    transform: translate(50px, 0);
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .brandFB1 {
@@ -100,7 +145,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    top: -80px;
+    top: 0px;
+    margin-bottom: 50px;
 }
 
 .ldgBkdrop,
@@ -112,33 +158,32 @@
 
 .subTtl {
     position: relative;
-    color: #e95460;
+    color: #1a1a2e;
     font-family: I pixel u;
-    font-size: 30px;
-    top: 30px;
+    font-size: 26px;
+    top: 0px;
     letter-spacing: 0;
-    margin-top: 10px;
+
 }
 
 .ttlDsc {
     position: relative;
-    color: #a2a2a2;
+    color: #1a1a2e;
     font-family: "Times New Roman", Times, serif;
     font-size: 25px;
-    top: 20px;
-    width: 700px;
-    margin-top: 0;
+    width: 30vw;
+    text-align: left;
 }
 
 .ldgFg {
     justify-content: center;
-    margin-top: 42px;
     left: 0;
-    top: -100px;
+    top: 0px;
+    margin: 0 15px 0 0px;
 }
 
-.ilus {
-    width: 354px;
+.logo {
+    width: 134px;
 }
 
 .brandBig,
@@ -148,47 +193,88 @@
     z-index: 5;
 }
 
-.ldgBkdrop {
-    z-index: 1;
-    opacity: 0.1;
+.brand_top, .brand_bott {
+    position: relative;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    top: -300px;
+    flex-direction: row;
 }
 
-#regBtn,
-.bkdrop {
-    position: absolute;
+.brand_top {
+    margin: 0 0 0px 0;
+    height: 100px;
+}
+
+.brand_bott {
+
+    width: 400px;
+    justify-content: flex-start;
+    margin-top: 0px;
 }
 
 .bkdrop {
     width: 900px;
 }
 
-#regBtn {
+.regBtn, .innerBtn, .regBtnAnim {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 80;
-    aspect-ratio: 27/8;
-    width: 270px;
-    background-color: #e89c39;
-    outline: 0;
+    background-image: linear-gradient(to right, #E94560 0, #133661 100%);
+    /* background-color: #141f3b; */
+    outline: none;
     border: none;
-    font-family: Lucida Sans;
+    border-radius: 80vw;
+    font-family: "Lucida Sans";
     font-size: 30px;
     color: #141f3b;
     transition: 0.3s ease-out;
     cursor: pointer;
-    top: -70px;
-    transform: translate(40px, 0);
-}
-
-#regBtn:hover {
-    background-color: #ffd092;
-}
-
-.regBtnLink {
+    top: 0px;
+    transform: translate(0px, 0);
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.regBtnAnim {
+    animation: gradient 1.5s infinite ease-out;
+    background-image: none;
+    background-color: #133661;
+}
+
+.regBtnAnim:hover {
+    transform: scale(1.1);
+}
+
+@keyframes gradient {
+
+    /* 0%{background-image: linear-gradient(to right, #E94560 0%, #1a1a2e 100%);}
+    50%{background-image: linear-gradient(to right, #1a1a2e 0%, #e94560 100%);} */
+    0% {
+        background-color: #133661;
+    }
+
+    25% {
+        background-color: #1C487D;
+    }
+
+    50% {
+        background-color: #e95460;
+    }
+
+    75% {
+        background-color: #9F3648;
+    }
+}
+
+.innerBtn {
+    aspect-ratio: 27/8;
+    width: 270px;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 80vw;
+    margin: 5px 0px 5px 0px;
 }
 
 .btnWrp {
@@ -196,43 +282,135 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    top: 0;
+    top: 0px;
+    left: 0px;
+    position: relative;
 }
+
+@media screen and (max-width: 1566px) {
+    .ilus {
+        width: 500px;
+    }
+
+    .ldg_left {
+        padding-left: 150px;
+    }
+
+    .ldg_right {
+        padding-right: 150px;
+    }
+
+    .innerBtn {
+        font-size: 27px;
+        width: 240px;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    .brandBig {
+        font-size: 60px;
+
+    }
+
+    .subTtl {
+        font-size: 19px;
+    }
+
+    .brand_top {
+        height: 80px;
+    }
+}
+
 
 @media screen and (max-width: 1366px) {
     .bkdrop {
         width: 750px;
     }
+
+    .innerBtn {
+        font-size: 21px;
+        width: 180px;
+    }
+
+    .ilus {
+        width: 400px;
+    }
+
+    .ldg_left {
+
+        padding-left: 100px;
+    }
+
+    .ldg_right {
+        padding-right: 50px;
+    }
+
+    .ttlDsc {
+        font-size: 22px;
+    }
+
+
 }
 
-@media screen and (max-width: 1080px) {
-    .bkdrop {
-        width: 600px;
+
+@media screen and (max-width: 960px) {
+    .ilus {
+        width: 370px;
     }
 
-    #regBtn {
-        width: 200px;
-        font-size: 20px;
+    .ttlDsc {
+        font-size: 19px;
     }
+
+
 }
 
 @media screen and (max-width: 810px) {
-    .ilus {
-        width: 250px;
+    .ldgSect {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        top: 0px;
+    }
+
+    .ldgWrp {
+        padding-top: 0px;
+        top: 150px;
+        align-items: center;
+    }
+
+    .ldg_left {
+        align-items: center;
+        padding-left: 0px;
+        margin-bottom: 0px;
+        width: 80vw;
+    }
+
+    .ldg_right {
+        padding-right: 0px;
+        margin-bottom: 50px;
+        width: 80vw;
     }
 
     .brandBig {
-        font-size: 60px;
-        left: 30px;
+        align-items: center;
+    }
+
+    .brand_bott {
+        justify-content: center;
     }
 
     .ttlDsc {
         width: 60vw;
-        font-size: 20px;
+        font-size: 25px;
+        text-align: center;
     }
 
-    #regBtn {
-        width: 150px;
-        font-size: 18px;
+    .innerBtn {
+        width: 240px;
+        font-size: 27px;
     }
+
 }

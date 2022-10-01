@@ -109,7 +109,7 @@ function Layout() {
                             <img
                               id={c["dotMenu"]}
                               className={c.ctrlIcon}
-                              src="/svg/SVG/menu-white.svg"
+                              src="/svg/SVG/dot.svg"
                               alt="dot"
                               title="menu"
                               onClick={controlSideMenu}
@@ -156,7 +156,7 @@ function Layout() {
                               <div className={c.SMcpyrgWrp}>
                                 <div className={c.SMbrandF}>
                                   <p className={c.SMbrandFF1}>Red</p>
-                                  <p className={c.SMbrandFF2}>Bit</p>
+                                  <p className={c.SMbrandFF2}>bit</p>
                                 </div>
                                 <div className={c.SMcpyrgTxt}>
                                   Copyrights 2022 &copy; Maulana Zaki
@@ -210,7 +210,7 @@ function Layout() {
                       ></div>
                       <div className={c.brand}>
                         <p className={c.brandF1}>Red</p>
-                        <p className={c.brandF2}>Bit</p>
+                        <p className={c.brandF2}>bit</p>
                       </div>
                     </section>
                     <section id={c["navRight"]} className={c.nav_right}>
@@ -221,7 +221,7 @@ function Layout() {
                       >
                         <img
                           className={c.mobSrcIcon}
-                          src="/svg/SVG/search-white.svg"
+                          src="/svg/SVG/search-black.svg"
                           alt="search"
                           onClick={enterInpMode}
                         />
@@ -234,7 +234,7 @@ function Layout() {
                       <img
                         id={c["inpBackIcon"]}
                         className={c.ctrlIcon}
-                        src="/svg/SVG/back-white.svg"
+                        src="/svg/SVG/back-pink.svg"
                         alt="back"
                         title="back"
                         onClick={closeInputMode}
@@ -272,7 +272,7 @@ function Layout() {
                 <section className={c.nav_left}>
                   <div className={c.brand}>
                     <p className={c.brandF1}>Red</p>
-                    <p className={c.brandF2}>Bit</p>
+                    <p className={c.brandF2}>bit</p>
                   </div>
                 </section>
                 <section className={c.nav_mid}>
@@ -389,7 +389,7 @@ function Layout() {
               <div className={c.cpyrgWrp}>
                 <div className={c.brandF}>
                   <p className={c.brandFF1}>Red</p>
-                  <p className={c.brandFF2}>Bit</p>
+                  <p className={c.brandFF2}>bit</p>
                 </div>
                 <div className={c.cpyrgTxt}>
                   Copyrights 2022 &copy; Maulana Zaki

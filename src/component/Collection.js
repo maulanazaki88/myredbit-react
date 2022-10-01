@@ -300,7 +300,7 @@ function Collection(props) {
             <div className={c.filter}>
               <div className={c.filterCtn}>
                 <ul className={c.filterWrp}>
-                  <li className={c.filterItem} id={c["f_genre"]}>
+                  <li className={c.filterItem} >
                     Genre :{" "}
                     <span
                       id={c["genreVal"]}
@@ -310,7 +310,7 @@ function Collection(props) {
                       {props.currentGenre}
                     </span>
                   </li>
-                  <li className={c.filterItem} id={c["f_sort"]}>
+                  <li className={c.filterItem} id={c["sortItem"]} >
                     Sort by :{" "}
                     <span
                       id={c["sortVal"]}
