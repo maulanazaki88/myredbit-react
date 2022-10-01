@@ -2,6 +2,7 @@
 .regPg {
   display: flex;
   height: 100vh;
+  width: 100%;
 }
 
 .fill,
@@ -44,6 +45,8 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .background {
@@ -52,10 +55,10 @@ button {
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  width: 100vw;
+  width: 100%;
   padding-top: 20px;
-  top: -10px;
-  left: -10px;
+  top: 0px;
+  left: 0px;
   margin: 0;
 }
 
@@ -636,7 +639,7 @@ button {
 
 @media screen and (max-width: 810px) {
   .formWrapper {
-    transform: scale(0.6) translate(10px, -250px);
+    transform: scale(0.5) translate(10px, -550px);
   }
 
   .crB,
@@ -657,26 +660,61 @@ button {
     z-index: 5;
     opacity: 0.4;
     transition: 0.6s ease-out;
-    width: 70vw;
-    top: 400px;
+    width: 100vw;
+    top: 250px;
   }
 
   .regTitle {
     font-size: 40px;
     transform: translate(0, -20px);
+    display: none;
   }
 
   .regBackBtn,
   .regBackBtn:active,
   .regBackBtn:hover {
-    transform: translate(-20px, -10px);
+    transform: translate(-50px, -10px);
   }
 
   .regBackBtn {
     font-size: 25px;
   }
 
-  .progressWrp {
-    transform: scale(0.67) translate(0, -40px);
+  .progressWrp{
+    transform: scale(0.5) translate(0, 0);
+  }
+
+  
+}
+
+@media screen and (max-width: 500px){
+  .formWrapper{
+    transform: scale(0.35) translate(0, -950px);
+  }
+
+  .regBackBtn{
+    font-size: 12px;
+  }
+
+  .crB,
+  .crB2,
+  .crB3 {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.8;
+    transition: 0.8s ease-out;
+    top: 70px;
+    width: 150vw;
+  }
+
+  .crF,
+  .crF2,
+  .crF3 {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.4;
+    transition: 0.6s ease-out;
+    width: 100vw;
+    top: 120px;
   }
 }

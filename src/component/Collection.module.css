@@ -67,7 +67,7 @@
 .bookCltn {
   justify-content: center;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   background-color: #fff;
   padding-bottom: 150px;
 }

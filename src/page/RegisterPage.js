@@ -692,7 +692,7 @@ function RegisterPage() {
   }, []);
 
   return (
-    <section id={c["regPg"]}>
+    <section id={c["regPg"]} className={c.regPg} >
       <div className={c.background}>
         <Link to={currPg}>
           <button id={c["regBackBtn"]} onClick={back} className={c.regBackBtn}>
