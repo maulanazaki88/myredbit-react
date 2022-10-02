@@ -279,7 +279,7 @@ function BookNote() {
                       id={c["eventBoard"]}
                       cols="30"
                       rows="10"
-                      placeholder="Type a notes here"
+                      placeholder="Type event notes here"
                       value={event}
                       onChange={(e) => onInputChange(e)}
                     ></textarea>
@@ -289,7 +289,7 @@ function BookNote() {
                       id={c["conflictBoard"]}
                       cols="30"
                       rows="10"
-                      placeholder="Type a notes here"
+                      placeholder="Type conflict notes here"
                       value={conflict}
                       onChange={(e) => onInputChange(e)}
                     ></textarea>
@@ -299,7 +299,7 @@ function BookNote() {
                       id={c["resolutionBoard"]}
                       cols="30"
                       rows="10"
-                      placeholder="Type a notes here"
+                      placeholder="Type resolution notes here"
                       onChange={(e) => onInputChange(e)}
                       value={resolution}
                     ></textarea>
@@ -309,7 +309,7 @@ function BookNote() {
                       id={c["impactBoard"]}
                       cols="30"
                       rows="10"
-                      placeholder="Type a notes here"
+                      placeholder="Type impact notes here"
                       onChange={(e) => onInputChange(e)}
                       value={impact}
                     ></textarea>
@@ -319,7 +319,7 @@ function BookNote() {
                       id={c["glossaryBoard"]}
                       cols="30"
                       rows="10"
-                      placeholder="Type a notes here"
+                      placeholder="Type glossary notes here"
                       onChange={(e) => onInputChange(e)}
                       value={glossary}
                     ></textarea>
@@ -330,7 +330,7 @@ function BookNote() {
               <div className={c.subForm}>
                 <div className={c.form_detail}>
                   <label className={c.detail_labels} htmlFor="charactersNote">
-                    Characters:
+                    Characters
                   </label>
                   <textarea
                     className={c.detailNote}
@@ -345,7 +345,7 @@ function BookNote() {
                 </div>
                 <div className={c.form_detail}>
                   <label className={c.detail_labels} htmlFor="timelineNotes">
-                    Timeline:
+                    Timeline
                   </label>
                   <textarea
                     className={c.detailNote}

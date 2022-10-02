@@ -18,8 +18,10 @@
 .detailNote,
 .noteBoard {
     font-family: "Times New Roman", Times, serif;
-    border: 5px dashed #707070;
-    outline: 0;
+    outline: none;
+    border: none;
+    box-shadow: 0px 3px 10px 0.5px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
 }
 
 @font-face {
@@ -184,6 +186,8 @@
     justify-content: center;
     overflow-y: hidden;
     overflow-x: hidden;
+    padding-bottom: 15px;
+    
 }
 
 .boardWrp,
@@ -198,12 +202,12 @@
 .boardWrp {
     justify-content: center;
     flex-direction: column;
-    top: 970px;
+    top: 1010px;
     transition: 0.3s ease-out;
 }
 
 .boardWrp2 {
-    top: 470px;
+    top: 510px;
     justify-content: center;
     flex-direction: column;
     transition: 0.3s ease-out;
@@ -217,14 +221,14 @@
 }
 
 .boardWrp3 {
-    top: 0;
+    top: 10px;
     justify-content: center;
     flex-direction: column;
     position: relative;
 }
 
 .boardWrp4 {
-    top: -470px;
+    top: -490px;
     justify-content: center;
     flex-direction: column;
     position: relative;
@@ -238,7 +242,7 @@
 }
 
 .boardWrp5 {
-    top: -970px;
+    top: -990px;
     justify-content: center;
     flex-direction: column;
     transition: 0.3s ease-out;
@@ -246,28 +250,13 @@
 
 .noteBoard {
     font-size: 25px;
-    background-color: #fefebc;
+    background-color: #FFFFD6;
     padding: 2em;
     min-width: 800px;
     max-width: 800px;
     min-height: 350px;
-    margin: 10px 0;
-}
-
-#conflictBoard {
-    background-color: #ea8f8f;
-}
-
-#resolutionBoard {
-    background-color: #c4ff8a;
-}
-
-#impactBoard {
-    background-color: #7fffd4;
-}
-
-#glossaryBoard {
-    background-color: #fff;
+    margin: 25px 0;
+    border-radius: 20px;
 }
 
 .form-detail {
@@ -293,18 +282,19 @@
     padding: 1em;
     max-width: 400px;
     min-width: 400px;
+    min-height: 200px;
 }
 
 .pgCtrlBtn,
 .pgCtrlWrp {
-    color: #fff;
+    color: #0E2C50;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .pgCtrl {
     position: absolute;
-    background-color: #1d2a4d;
+    background-color: #f5f5f5;
     width: 280px;
     height: 450px;
     justify-content: center;
@@ -312,6 +302,8 @@
     top: 200px;
     right: -100px;
     margin-right: 0;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 0.5px rgba(0, 0, 0, 0.2);
 }
 
 .pgCtrlWrp {
@@ -410,10 +402,12 @@
 
     .pgCtrl {
         position: relative;
-        top: -100px;
+        top: -80px;
         width: 90vw;
         height: 300px;
         left: 0;
+        margin: 0;
+        padding: 1rem;
     }
 
     .pgCtrlBtn_g {
@@ -448,7 +442,7 @@
         align-items: center;
         flex-direction: column;
         justify-content: center;
-        left: 20px;
+        left: 0px;
     }
 
     #noteBackBtn,
