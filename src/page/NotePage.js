@@ -1,6 +1,9 @@
 import React, { useContext, useState, useEffect, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CtxManager from "../store/CtxManager";
+import { useLottie } from "lottie-react";
+
+import loadingAnimation from "../animation/loading.json";
 import c from "./NotePage.module.css";
 
 function BookNote() {
@@ -42,6 +45,14 @@ function BookNote() {
   } = noteVal;
 
   const [board, setBoard] = useState(c.boardWrp);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const loadingOption = {
+    animationData: loadingAnimation,
+    loop: true,
+  };
+
+  const { View } = useLottie(loadingOption);
 
   const onInputChange = (e) => {
     let val = e.target.value;
@@ -171,9 +182,17 @@ function BookNote() {
   }, [pageInit, reqId]);
 
   useEffect(() => {
+    if(isLoading){
+      setTimeout(() => {
+        setIsLoading(false);
+        console.log("LOADING FINISHED")
+      }, 200);
+    }
+
     return function cleanUp() {
       noteRequestHandler(null);
       setReqId(null);
+      setIsLoading(true);
     };
   }, []);
 
@@ -181,214 +200,218 @@ function BookNote() {
     window.scrollTo(0, 0);
   }, []);
 
-  return (
-    <>
-      <div className={c.noteWrp}>
-        <button id={c["noteBackBtn"]} type="button" onClick={back}>
-          &lt; Back
-        </button>
-        <section className={c.book_info}>
-          <h1 className={c.bookTtl}>{title}</h1>
-        </section>
-        <form className={c.noteForm} action="">
-          <div className={c.formGroup}>
-            <div className={c.form}>
-              <div className={c.mainForm}>
-                <ul className={c.labels}>
-                  <li
-                    id={c["eventLabel"]}
-                    className={
-                      board === c.boardWrp
-                        ? [c.label, c.selected].join(" ")
-                        : c.label
-                    }
-                    onClick={() => {
-                      setBoard(c.boardWrp);
-                    }}
-                  >
-                    <label id={c["eventNote"]} htmlFor="event">
-                      Event
+  if (isLoading) {
+    return <div className={c.loadingAnimation}>{View}</div>;
+  } else {
+    return (
+      <>
+        <div className={c.noteWrp}>
+          <button id={c["noteBackBtn"]} type="button" onClick={back}>
+            &lt; Back
+          </button>
+          <section className={c.book_info}>
+            <h1 className={c.bookTtl}>{title}</h1>
+          </section>
+          <form className={c.noteForm} action="">
+            <div className={c.formGroup}>
+              <div className={c.form}>
+                <div className={c.mainForm}>
+                  <ul className={c.labels}>
+                    <li
+                      id={c["eventLabel"]}
+                      className={
+                        board === c.boardWrp
+                          ? [c.label, c.selected].join(" ")
+                          : c.label
+                      }
+                      onClick={() => {
+                        setBoard(c.boardWrp);
+                      }}
+                    >
+                      <label id={c["eventNote"]} htmlFor="event">
+                        Event
+                      </label>
+                    </li>
+                    <li
+                      id={c["conflictLabel"]}
+                      className={
+                        board === c.boardWrp2
+                          ? [c.label, c.selected].join(" ")
+                          : c.label
+                      }
+                      onClick={() => {
+                        setBoard(c.boardWrp2);
+                      }}
+                    >
+                      <label id={c["conflictLabel"]} htmlFor="conflict">
+                        Conflict
+                      </label>
+                    </li>
+                    <li
+                      id={c["resolutionLabel"]}
+                      className={
+                        board === c.boardWrp3
+                          ? [c.label, c.selected].join(" ")
+                          : c.label
+                      }
+                      onClick={() => {
+                        setBoard(c.boardWrp3);
+                      }}
+                    >
+                      <label id={c["resolutionNote"]} htmlFor="resolution">
+                        Resolution
+                      </label>
+                    </li>
+                    <li
+                      id={c["impactLabel"]}
+                      className={
+                        board === c.boardWrp4
+                          ? [c.label, c.selected].join(" ")
+                          : c.label
+                      }
+                      onClick={() => {
+                        setBoard(c.boardWrp4);
+                      }}
+                    >
+                      <label id={c["impactNote"]} htmlFor="impact">
+                        Impact
+                      </label>
+                    </li>
+                    <li
+                      id={c["glossaryLabel"]}
+                      className={
+                        board === c.boardWrp5
+                          ? [c.label, c.selected].join(" ")
+                          : c.label
+                      }
+                      onClick={() => {
+                        setBoard(c.boardWrp5);
+                      }}
+                    >
+                      <label id={c["glossaryNote"]} htmlFor="glossary">
+                        Glossary
+                      </label>
+                    </li>
+                  </ul>
+                  <div className={c.boardScroller}>
+                    <div id={c["boardWrp"]} className={board}>
+                      <textarea
+                        className={c.noteBoard}
+                        name="event"
+                        id={c["eventBoard"]}
+                        cols="30"
+                        rows="10"
+                        placeholder="Type event notes here"
+                        value={event}
+                        onChange={(e) => onInputChange(e)}
+                      ></textarea>
+                      <textarea
+                        className={c.noteBoard}
+                        name="conflict"
+                        id={c["conflictBoard"]}
+                        cols="30"
+                        rows="10"
+                        placeholder="Type conflict notes here"
+                        value={conflict}
+                        onChange={(e) => onInputChange(e)}
+                      ></textarea>
+                      <textarea
+                        className={c.noteBoard}
+                        name="resolution"
+                        id={c["resolutionBoard"]}
+                        cols="30"
+                        rows="10"
+                        placeholder="Type resolution notes here"
+                        onChange={(e) => onInputChange(e)}
+                        value={resolution}
+                      ></textarea>
+                      <textarea
+                        className={c.noteBoard}
+                        name="impact"
+                        id={c["impactBoard"]}
+                        cols="30"
+                        rows="10"
+                        placeholder="Type impact notes here"
+                        onChange={(e) => onInputChange(e)}
+                        value={impact}
+                      ></textarea>
+                      <textarea
+                        className={c.noteBoard}
+                        name="glossary"
+                        id={c["glossaryBoard"]}
+                        cols="30"
+                        rows="10"
+                        placeholder="Type glossary notes here"
+                        onChange={(e) => onInputChange(e)}
+                        value={glossary}
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={c.subForm}>
+                  <div className={c.form_detail}>
+                    <label className={c.detail_labels} htmlFor="charactersNote">
+                      Characters
                     </label>
-                  </li>
-                  <li
-                    id={c["conflictLabel"]}
-                    className={
-                      board === c.boardWrp2
-                        ? [c.label, c.selected].join(" ")
-                        : c.label
-                    }
-                    onClick={() => {
-                      setBoard(c.boardWrp2);
-                    }}
-                  >
-                    <label id={c["conflictLabel"]} htmlFor="conflict">
-                      Conflict
-                    </label>
-                  </li>
-                  <li
-                    id={c["resolutionLabel"]}
-                    className={
-                      board === c.boardWrp3
-                        ? [c.label, c.selected].join(" ")
-                        : c.label
-                    }
-                    onClick={() => {
-                      setBoard(c.boardWrp3);
-                    }}
-                  >
-                    <label id={c["resolutionNote"]} htmlFor="resolution">
-                      Resolution
-                    </label>
-                  </li>
-                  <li
-                    id={c["impactLabel"]}
-                    className={
-                      board === c.boardWrp4
-                        ? [c.label, c.selected].join(" ")
-                        : c.label
-                    }
-                    onClick={() => {
-                      setBoard(c.boardWrp4);
-                    }}
-                  >
-                    <label id={c["impactNote"]} htmlFor="impact">
-                      Impact
-                    </label>
-                  </li>
-                  <li
-                    id={c["glossaryLabel"]}
-                    className={
-                      board === c.boardWrp5
-                        ? [c.label, c.selected].join(" ")
-                        : c.label
-                    }
-                    onClick={() => {
-                      setBoard(c.boardWrp5);
-                    }}
-                  >
-                    <label id={c["glossaryNote"]} htmlFor="glossary">
-                      Glossary
-                    </label>
-                  </li>
-                </ul>
-                <div className={c.boardScroller}>
-                  <div id={c["boardWrp"]} className={board}>
                     <textarea
-                      className={c.noteBoard}
-                      name="event"
-                      id={c["eventBoard"]}
-                      cols="30"
-                      rows="10"
-                      placeholder="Type event notes here"
-                      value={event}
+                      className={c.detailNote}
+                      name="character"
+                      id={c["charactersNote"]}
+                      cols="35"
+                      rows="5"
+                      placeholder="Involved Characters"
+                      value={character}
                       onChange={(e) => onInputChange(e)}
                     ></textarea>
+                  </div>
+                  <div className={c.form_detail}>
+                    <label className={c.detail_labels} htmlFor="timelineNotes">
+                      Timeline
+                    </label>
                     <textarea
-                      className={c.noteBoard}
-                      name="conflict"
-                      id={c["conflictBoard"]}
-                      cols="30"
-                      rows="10"
-                      placeholder="Type conflict notes here"
-                      value={conflict}
+                      className={c.detailNote}
+                      name="timeline"
+                      id={c["timelineNote"]}
+                      cols="35"
+                      rows="5"
+                      placeholder="After ... events || Before ... events"
+                      value={timeline}
                       onChange={(e) => onInputChange(e)}
-                    ></textarea>
-                    <textarea
-                      className={c.noteBoard}
-                      name="resolution"
-                      id={c["resolutionBoard"]}
-                      cols="30"
-                      rows="10"
-                      placeholder="Type resolution notes here"
-                      onChange={(e) => onInputChange(e)}
-                      value={resolution}
-                    ></textarea>
-                    <textarea
-                      className={c.noteBoard}
-                      name="impact"
-                      id={c["impactBoard"]}
-                      cols="30"
-                      rows="10"
-                      placeholder="Type impact notes here"
-                      onChange={(e) => onInputChange(e)}
-                      value={impact}
-                    ></textarea>
-                    <textarea
-                      className={c.noteBoard}
-                      name="glossary"
-                      id={c["glossaryBoard"]}
-                      cols="30"
-                      rows="10"
-                      placeholder="Type glossary notes here"
-                      onChange={(e) => onInputChange(e)}
-                      value={glossary}
                     ></textarea>
                   </div>
                 </div>
               </div>
-
-              <div className={c.subForm}>
-                <div className={c.form_detail}>
-                  <label className={c.detail_labels} htmlFor="charactersNote">
-                    Characters
-                  </label>
-                  <textarea
-                    className={c.detailNote}
-                    name="character"
-                    id={c["charactersNote"]}
-                    cols="35"
-                    rows="5"
-                    placeholder="Involved Characters"
-                    value={character}
-                    onChange={(e) => onInputChange(e)}
-                  ></textarea>
-                </div>
-                <div className={c.form_detail}>
-                  <label className={c.detail_labels} htmlFor="timelineNotes">
-                    Timeline
-                  </label>
-                  <textarea
-                    className={c.detailNote}
-                    name="timeline"
-                    id={c["timelineNote"]}
-                    cols="35"
-                    rows="5"
-                    placeholder="After ... events || Before ... events"
-                    value={timeline}
-                    onChange={(e) => onInputChange(e)}
-                  ></textarea>
+              <div className={c.pgCtrl}>
+                <div className={c.pgCtrlWrp}>
+                  <h3 className={c.pgCtrlTtl}>Page</h3>
+                  <p className={c.pgNumber}>{pageInit}</p>
+                  <div className={c.pgCtrlBtn_g}>
+                    <button
+                      type="button"
+                      className={c.pgCtrlBtn}
+                      id={c["backPg"]}
+                      onClick={prevPage}
+                    >
+                      -
+                    </button>
+                    <button
+                      type="button"
+                      className={c.pgCtrlBtn}
+                      id={c["nextPg"]}
+                      onClick={nextPage}
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className={c.pgCtrl}>
-              <div className={c.pgCtrlWrp}>
-                <h3 className={c.pgCtrlTtl}>Page</h3>
-                <p className={c.pgNumber}>{pageInit}</p>
-                <div className={c.pgCtrlBtn_g}>
-                  <button
-                    type="button"
-                    className={c.pgCtrlBtn}
-                    id={c["backPg"]}
-                    onClick={prevPage}
-                  >
-                    -
-                  </button>
-                  <button
-                    type="button"
-                    className={c.pgCtrlBtn}
-                    id={c["nextPg"]}
-                    onClick={nextPage}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </>
-  );
+          </form>
+        </div>
+      </>
+    );
+  }
 }
 
 export default BookNote;

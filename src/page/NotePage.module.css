@@ -15,6 +15,14 @@
     transition: 0.3s ease-in-out;
 }
 
+.loadingAnimation{
+    position: fixed;
+    transform: scale(1);
+    top: 300px;
+    z-index: 999;
+
+}
+
 .detailNote,
 .noteBoard {
     font-family: "Times New Roman", Times, serif;

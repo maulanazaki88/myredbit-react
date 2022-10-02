@@ -1,6 +1,9 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CtxManager from "../store/CtxManager";
+import { useLottie } from "lottie-react";
+import loadingAnimation from "../animation/loading.json";
+
 import c from "./RegisterPage.module.css";
 
 const images = [
@@ -49,6 +52,7 @@ function RegisterPage() {
 
   const navigate = useNavigate();
 
+  const [isLoading, setIsLoading] = useState(true);
   const [input, setInput] = useState({
     title: editProp.title,
     genre: editProp.genre,
@@ -75,22 +79,21 @@ function RegisterPage() {
   ]);
 
   const [fillStages, setFillStages] = useState([1, 2, 3]);
-
   const [crFClasses, setCrFClasses] = useState([c.crF, c.crF2, c.crF3]);
-
   const [crBClasses, setCrBClasses] = useState([c.crB, c.crB2, c.crB3]);
-
   const [errGenreMsg, setErrGenreMsg] = useState({ message: "" });
-
   const [showTtlErr, setShowTtlErr] = useState(false);
-
   const [showGenreErr, setShowGenreErr] = useState(false);
-
   const [showAuthErr, setShowAuthErr] = useState(false);
-
   const [showRealeaseErr, setShowRealeaseErr] = useState(false);
-
   const [progressFlow, setProgressFlow] = useState(true);
+
+  const loadingOption = {
+    animationData: loadingAnimation,
+    loop: true,
+  };
+
+  const { View } = useLottie(loadingOption);
 
   const onChange = (e) => {
     let val = e.target.value;
@@ -450,31 +453,8 @@ function RegisterPage() {
   };
 
   const slideToCnfrm = () => {
-    // const regForm = this.shadow.getElementById("regForm");
-    // const progress = this.shadow.getElementById("progress");
-    // const fill3 = this.shadow.getElementById("f3");
-    // const crF = this.shadow.getElementById("crF");
-    // const crB = this.shadow.getElementById("crB");
-
-    // const inpAuth = this.shadow.getElementById("inpAuth");
-    // const inpRls = this.shadow.getElementById("inpRls");
-
-    // const authErr = this.shadow.getElementById("authErr");
-    // const rlsErr = this.shadow.getElementById("rlsErr");
-
     try {
       if (author !== "" && realease !== "") {
-        // regForm.classList.remove("regForm2");
-        // regForm.classList.add("regForm3");
-        // progress.classList.remove("progress2");
-        // progress.classList.add("progress3");
-
-        // crF.classList.remove("crF2");
-        // crF.classList.add("crF3");
-
-        // crB.classList.remove("crB2");
-        // crB.classList.add("crB3");
-
         if (!progressFlow) setProgressFlow(true);
 
         setProgressClasses((prevClasses) => {
@@ -541,12 +521,7 @@ function RegisterPage() {
           }
           return newClasses;
         });
-
-        // startProg2to3Anim(false);
       } else if (author === "" && realease === "") {
-        // authErr.innerText = this.authMessages;
-        // rlsErr.innerText = this.rlsMessages;
-
         setShowAuthErr(true);
         setShowRealeaseErr(true);
 
@@ -555,7 +530,6 @@ function RegisterPage() {
 
         throw new Error("author and realease are empty");
       } else if (author === "") {
-        // authErr.innerText = this.authMessages;
         setShowAuthErr(true);
         setTimeout(() => setShowAuthErr(false), 5000);
       } else if (realease === "") {
@@ -570,37 +544,8 @@ function RegisterPage() {
   };
 
   const slideBack = () => {
-    // const regForm = this.shadow.getElementById("regForm");
-    // const formWrapper = this.shadow.getElementById("formWrapper");
-    // const progress = this.shadow.getElementById("progress");
-    // const fill2 = this.shadow.getElementById("f2");
-    // const fill3 = this.shadow.getElementById("f3");
-
-    // const crF = this.shadow.getElementById("crF");
-    // const crB = this.shadow.getElementById("crB");
-
     try {
       if (fillStages[0] !== "1") {
-        // console.log("regForm are accessible");
-        // regForm.classList.remove("regForm2");
-        // regForm.classList.add("regForm");
-        // console.log("class now regForm");
-        // progress.classList.remove("progress2");
-        // progress.classList.add("progress");
-
-        // fill2.classList.remove("fill");
-        // fill2.classList.add("fillOff");
-        // fill3.classList.remove("fill");
-        // fill3.classList.add("fillOff");
-
-        // crF.classList.remove("crF2");
-        // crF.classList.add("crF");
-        // crB.classList.remove("crB2");
-        // crB.classList.add("crB");
-
-        // formWrapper.classList.remove("formWrapper2");
-        // formWrapper.classList.add("formWrapper");
-
         if (progressFlow) setProgressFlow(false);
 
         setRegFormClasses((prevClasses) => {
@@ -688,247 +633,265 @@ function RegisterPage() {
   }, [errGenreMsg]);
 
   useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => {
+        setIsLoading(false);
+        console.log("LOADING FINISHED")
+      }, 200);
+    }
+
     window.scrollTo(0, 0);
+    return function cleanUp() {
+      setIsLoading(true);
+    };
   }, []);
 
-  return (
-    <section id={c["regPg"]} className={c.regPg} >
-      <div className={c.background}>
-        <Link to={currPg}>
-          <button id={c["regBackBtn"]} onClick={back} className={c.regBackBtn}>
-            {" "}
-            &lt; Back{" "}
-          </button>
-        </Link>
-        <div className={c.progressWrp}>
-          <div className={c.circle} id={c["cr1"]}>
-            <div className={c.fill} id={c["f1"]}></div>
+  if (isLoading) {
+    return <div className={c.loadingAnimation}>{View}</div>;
+  } else {
+    return (
+      <section id={c["regPg"]} className={c.regPg}>
+        <div className={c.background}>
+          <Link to={currPg}>
+            <button
+              id={c["regBackBtn"]}
+              onClick={back}
+              className={c.regBackBtn}
+            >
+              {" "}
+              &lt; Back{" "}
+            </button>
+          </Link>
+          <div className={c.progressWrp}>
+            <div className={c.circle} id={c["cr1"]}>
+              <div className={c.fill} id={c["f1"]}></div>
+            </div>
+            <div className={c.circle} id={c["cr2"]}>
+              <div
+                className={fillStages[0] >= 2 ? c.fill : c.fillOff}
+                id={c["f2"]}
+              ></div>
+            </div>
+            <div className={c.circle} id={c["cr3"]}>
+              <div
+                className={fillStages[0] >= 3 ? c.fill : c.fillOff}
+                id={c["f3"]}
+              ></div>
+            </div>
+            <div className={c.progressGroup}>
+              <div className={c.progressBar}></div>
+              <div
+                id={c["progress"]}
+                className={
+                  progressFlow ? progressClasses[0] : progressClassesR[0]
+                }
+                onAnimationEnd={turnNextProgIdx}
+              ></div>
+            </div>
           </div>
-          <div className={c.circle} id={c["cr2"]}>
-            <div
-              className={fillStages[0] >= 2 ? c.fill : c.fillOff}
-              id={c["f2"]}
-            ></div>
-          </div>
-          <div className={c.circle} id={c["cr3"]}>
-            <div
-              className={fillStages[0] >= 3 ? c.fill : c.fillOff}
-              id={c["f3"]}
-            ></div>
-          </div>
-          <div className={c.progressGroup}>
-            <div className={c.progressBar}></div>
-            <div
-              id={c["progress"]}
-              className={
-                progressFlow ? progressClasses[0] : progressClassesR[0]
-              }
-              onAnimationEnd={turnNextProgIdx}
-            ></div>
-          </div>
-        </div>
-        <h1 className={c.regTitle}>
-          {editRequest ? "Edit Book" : "Book Registration"}
-        </h1>
-        <div id={c["formWrapper"]} className={c.formWrapper}>
-          <form id={c["regForm"]} className={regFormClasses[0]}>
-            <section className={c.ttlNgen}>
-              <div className={c.formCard}>
-                <div id={c["inpGroup1"]} className={c.inpGroup}>
-                  <label className={c.regLabel} htmlFor="title">
-                    Book Title
-                  </label>
-                  <input
-                    className={c.regInp}
-                    type="text"
-                    name="title"
-                    id="inpTtl"
-                    value={title}
-                    onChange={onChange}
-                    maxLength="40"
-                    required
-                  />
-                  <p id={c["ttlErr"]} className={c.errMessage}>
-                    {showTtlErr && "This field can't be empty"}
-                  </p>
+          <h1 className={c.regTitle}>
+            {editRequest ? "Edit Book" : "Book Registration"}
+          </h1>
+          <div id={c["formWrapper"]} className={c.formWrapper}>
+            <form id={c["regForm"]} className={regFormClasses[0]}>
+              <section className={c.ttlNgen}>
+                <div className={c.formCard}>
+                  <div id={c["inpGroup1"]} className={c.inpGroup}>
+                    <label className={c.regLabel} htmlFor="title">
+                      Book Title
+                    </label>
+                    <input
+                      className={c.regInp}
+                      type="text"
+                      name="title"
+                      id="inpTtl"
+                      value={title}
+                      onChange={onChange}
+                      maxLength="40"
+                      required
+                    />
+                    <p id={c["ttlErr"]} className={c.errMessage}>
+                      {showTtlErr && "This field can't be empty"}
+                    </p>
+                  </div>
+                  <div id={c["inpGroup1"]} className={c.inpGroup}>
+                    <label className={c.regLabel} htmlFor="genre">
+                      Genre
+                    </label>
+                    <input
+                      className={c.regInp}
+                      type="text"
+                      name="genre"
+                      id={c["inpGen"]}
+                      required
+                      value={genre}
+                      onChange={onChange}
+                      maxLength="40"
+                    />
+                    <p id={c["genErr"]} className={c.errMessage}>
+                      {showGenreErr && errGenreMsg.message}
+                    </p>
+                  </div>
+                  <div className={c.formBtnGroup}>
+                    <button
+                      type="button"
+                      className={c.regNext}
+                      onClick={slideToAutRls}
+                      id={c["titGenNBtn"]}
+                    >
+                      Next
+                    </button>
+                  </div>
                 </div>
-                <div id={c["inpGroup1"]} className={c.inpGroup}>
-                  <label className={c.regLabel} htmlFor="genre">
-                    Genre
-                  </label>
-                  <input
-                    className={c.regInp}
-                    type="text"
-                    name="genre"
-                    id={c["inpGen"]}
-                    required
-                    value={genre}
-                    onChange={onChange}
-                    maxLength="40"
-                  />
-                  <p id={c["genErr"]} className={c.errMessage}>
-                    {showGenreErr && errGenreMsg.message}
-                  </p>
+              </section>
+              <section className={c.autNrls}>
+                <div className={c.formCard}>
+                  <div id={c["inpGroup2"]} className={c.inpGroup}>
+                    <label className={c.regLabel} htmlFor="author">
+                      Author
+                    </label>
+                    <input
+                      className={c.regInp}
+                      type="text"
+                      name="author"
+                      id={c["inpAuth"]}
+                      required
+                      value={author}
+                      onChange={onChange}
+                      maxLength="40"
+                    />
+                    <p id={c["authErr"]} className={c.errMessage}>
+                      {showAuthErr && `This field can't be empty`}
+                    </p>
+                  </div>
+                  <div id={c["inpGroup2"]} className={c.inpGroup}>
+                    <label className={c.regLabel} htmlFor="realese">
+                      Realease Year
+                    </label>
+                    <input
+                      className={c.regInp}
+                      type="number"
+                      name="realease"
+                      id={c["inpRls"]}
+                      required
+                      value={realease}
+                      onChange={onChange}
+                    />
+                    <p id={c["rlsErr"]} className={c.errMessage}>
+                      {showRealeaseErr && `This field can't be empty`}
+                    </p>
+                  </div>
                 </div>
                 <div className={c.formBtnGroup}>
                   <button
                     type="button"
+                    className={c.regBack}
+                    id={c["autRlsBBtn"]}
+                    onClick={slideBack}
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="button"
                     className={c.regNext}
-                    onClick={slideToAutRls}
-                    id={c["titGenNBtn"]}
+                    id={c["autRlsNBtn"]}
+                    onClick={slideToCnfrm}
                   >
                     Next
                   </button>
                 </div>
-              </div>
-            </section>
-            <section className={c.autNrls}>
-              <div className={c.formCard}>
-                <div id={c["inpGroup2"]} className={c.inpGroup}>
-                  <label className={c.regLabel} htmlFor="author">
-                    Author
-                  </label>
-                  <input
-                    className={c.regInp}
-                    type="text"
-                    name="author"
-                    id={c["inpAuth"]}
-                    required
-                    value={author}
-                    onChange={onChange}
-                    maxLength="40"
-                  />
-                  <p id={c["authErr"]} className={c.errMessage}>
-                    {showAuthErr && `This field can't be empty`}
-                  </p>
-                </div>
-                <div id={c["inpGroup2"]} className={c.inpGroup}>
-                  <label className={c.regLabel} htmlFor="realese">
-                    Realease Year
-                  </label>
-                  <input
-                    className={c.regInp}
-                    type="number"
-                    name="realease"
-                    id={c["inpRls"]}
-                    required
-                    value={realease}
-                    onChange={onChange}
-                  />
-                  <p id={c["rlsErr"]} className={c.errMessage}>
-                    {showRealeaseErr && `This field can't be empty`}
-                  </p>
-                </div>
-              </div>
-              <div className={c.formBtnGroup}>
-                <button
-                  type="button"
-                  className={c.regBack}
-                  id={c["autRlsBBtn"]}
-                  onClick={slideBack}
-                >
-                  Back
-                </button>
-                <button
-                  type="button"
-                  className={c.regNext}
-                  id={c["autRlsNBtn"]}
-                  onClick={slideToCnfrm}
-                >
-                  Next
-                </button>
-              </div>
-            </section>
-            <section className={c.cnfrm}>
-              <div className={c.formCard} id={c["cnfrmCard"]}>
-                <div className={c.cnfrmWrp}>
-                  <div className={c.cnfrmContent}>
-                    <figure className={c.cvrFg}>
+              </section>
+              <section className={c.cnfrm}>
+                <div className={c.formCard} id={c["cnfrmCard"]}>
+                  <div className={c.cnfrmWrp}>
+                    <div className={c.cnfrmContent}>
+                      <figure className={c.cvrFg}>
+                        <img
+                          id={c["bookCvr"]}
+                          className={c.bookCvr}
+                          src={
+                            editRequest
+                              ? editBook.img
+                              : images[Math.ceil(Math.random() * 100) % 20]
+                          }
+                          alt="bookCover"
+                          ref={bookCvr}
+                        />
+                      </figure>
+                      <ul className={c.infList}>
+                        <li className={c.infItem}>
+                          <p className={c.infTtl} id={c["inpTtlMirr"]}>
+                            {title}
+                          </p>
+                        </li>
+                        <li className={c.infItem}>
+                          <p className={c.infTxt} id={c["inpGenMirr"]}>
+                            {genre.replaceAll(",", " || ")}
+                          </p>
+                        </li>
+                        <li className={c.infItem}>
+                          <p className={c.infTxt} id={c["inpAuthMirr"]}>
+                            {author}
+                          </p>
+                        </li>
+                        <li className={c.infItem}>
+                          <p className={c.infTxt} id={c["inpRlsMirr"]}>
+                            {realease}
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                    <figure className={c.lineFg}>
                       <img
-                        id={c["bookCvr"]}
-                        className={c.bookCvr}
-                        src={
-                          editRequest
-                            ? editBook.img
-                            : images[Math.ceil(Math.random() * 100) % 20]
-                        }
-                        alt="bookCover"
-                        ref={bookCvr}
+                        className={c.lineGr}
+                        src="/svg/SVG/dblLine.svg"
+                        alt="dblLine"
+                        srcSet=""
                       />
                     </figure>
-                    <ul className={c.infList}>
-                      <li className={c.infItem}>
-                        <p className={c.infTtl} id={c["inpTtlMirr"]}>
-                          {title}
-                        </p>
-                      </li>
-                      <li className={c.infItem}>
-                        <p className={c.infTxt} id={c["inpGenMirr"]}>
-                          {genre.replaceAll(",", " || ")}
-                        </p>
-                      </li>
-                      <li className={c.infItem}>
-                        <p className={c.infTxt} id={c["inpAuthMirr"]}>
-                          {author}
-                        </p>
-                      </li>
-                      <li className={c.infItem}>
-                        <p className={c.infTxt} id={c["inpRlsMirr"]}>
-                          {realease}
-                        </p>
-                      </li>
-                    </ul>
-                  </div>
-                  <figure className={c.lineFg}>
-                    <img
-                      className={c.lineGr}
-                      src="/svg/SVG/dblLine.svg"
-                      alt="dblLine"
-                      srcSet=""
-                    />
-                  </figure>
-                  <div className={c.cnfrmBtnGroup}>
-                    <button
-                      type="button"
-                      className={c.regBack}
-                      id={c["cnfrmBack"]}
-                      onClick={slideBack}
-                    >
-                      Back
-                    </button>
-                    <button
-                      type="button"
-                      className={c.regNext}
-                      id={c["cnfrmOk"]}
-                      onClick={registerNewBook}
-                    >
-                      Confirm
-                    </button>
+                    <div className={c.cnfrmBtnGroup}>
+                      <button
+                        type="button"
+                        className={c.regBack}
+                        id={c["cnfrmBack"]}
+                        onClick={slideBack}
+                      >
+                        Back
+                      </button>
+                      <button
+                        type="button"
+                        className={c.regNext}
+                        id={c["cnfrmOk"]}
+                        onClick={registerNewBook}
+                      >
+                        Confirm
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </section>
-          </form>
+              </section>
+            </form>
+          </div>
+          <figure className={c.drpfg}>
+            <img
+              id={c["crF"]}
+              className={crFClasses[0]}
+              src="/svg/SVG/circle.svg"
+              alt="circle"
+              srcSet=""
+            />
+            <img
+              id={c["crB"]}
+              className={crBClasses[0]}
+              src="/svg/SVG/circle.svg"
+              alt="circle"
+              srcSet=""
+            />
+          </figure>
         </div>
-        <figure className={c.drpfg}>
-          <img
-            id={c["crF"]}
-            className={crFClasses[0]}
-            src="/svg/SVG/circle.svg"
-            alt="circle"
-            srcSet=""
-          />
-          <img
-            id={c["crB"]}
-            className={crBClasses[0]}
-            src="/svg/SVG/circle.svg"
-            alt="circle"
-            srcSet=""
-          />
-        </figure>
-      </div>
-    </section>
-  );
+      </section>
+    );
+  }
 }
 
 export default RegisterPage;

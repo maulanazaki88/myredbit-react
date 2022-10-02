@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CtxManager from "../../store/CtxManager";
 import Collection from "../../component/Collection";
+
 
 function SearchPage() {
   const navigate = useNavigate();
@@ -17,6 +18,9 @@ function SearchPage() {
   const prevPgHandler = ctx.previousPgHandler;
   const resetKeywords = ctx.resetKeywordsHandler;
   const requestNoteHandler = ctx.noteRequestHandler;
+
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const editReqHandler = (id) => {
     ctx.editRequestHandler(id);
@@ -46,30 +50,33 @@ function SearchPage() {
   const { title, message, guide, figure } = srcCltnNB;
 
   useEffect(() => {
+
     window.scrollTo(0, 0);
     return function cleanup() {
       resetKeywords();
+      setIsLoading(true);
     };
   }, []);
 
-  return (
-    <Collection
-      anyBook={appliedBooks[0] ? true : false}
-      title={title}
-      genreScroll={genreScroll}
-      appliedBooks={appliedBooks}
-      appliedBooksLength={appliedBooks.length}
-      message={message}
-      guide={guide}
-      figure={figure}
-      bookUpdated={(id, stat) => bookUpdated(id, stat)}
-      editReqHandler={(id) => editReqHandler(id)}
-      backToPrevPg={() => backToPrevPg()}
-      isFiltered={false}
-      kickedToHome={kickedToHomeHandler}
-      requestNote={(id) => requestNoteHandler(id)}
-    />
-  );
-}
+    return (
+      <Collection
+        anyBook={appliedBooks[0] ? true : false}
+        title={title}
+        genreScroll={genreScroll}
+        appliedBooks={appliedBooks}
+        appliedBooksLength={appliedBooks.length}
+        message={message}
+        guide={guide}
+        figure={figure}
+        bookUpdated={(id, stat) => bookUpdated(id, stat)}
+        editReqHandler={(id) => editReqHandler(id)}
+        backToPrevPg={() => backToPrevPg()}
+        isFiltered={false}
+        kickedToHome={kickedToHomeHandler}
+        requestNote={(id) => requestNoteHandler(id)}
+      />
+    );
+  }
+
 
 export default SearchPage;

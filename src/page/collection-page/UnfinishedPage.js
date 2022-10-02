@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import CtxManager from "../../store/CtxManager";
 import Collection from "../../component/Collection";
 
+
+
 function UnfinishedPage() {
   const navigate = useNavigate();
   const ctx = useContext(CtxManager);
@@ -17,6 +19,8 @@ function UnfinishedPage() {
   const prevPgHandler = ctx.previousPgHandler;
   const currPgHandler = ctx.currentPgHandler;
   const requestNoteHandler = ctx.noteRequestHandler;
+
+ 
 
   const editReqHandler = (id) => {
     ctx.editRequestHandler(id);
@@ -45,6 +49,7 @@ function UnfinishedPage() {
   const { title, message, guide, figure } = ufCltnNB;
 
   useEffect(() => {
+
     window.scrollTo(0, 0);
     return function cleanUp() {
       ctx.currentGenreHandler("All");
@@ -52,28 +57,30 @@ function UnfinishedPage() {
     };
   }, []);
 
-  return (
-    <Collection
-      anyBook={appliedBooks[0] ? true : false}
-      title={title}
-      genreScroll={genreScroll}
-      appliedBooks={appliedBooks}
-      appliedBooksLength={appliedBooks.length}
-      message={message}
-      guide={guide}
-      figure={figure}
-      bookUpdated={(id, stat) => bookUpdated(id, stat)}
-      editReqHandler={(id) => editReqHandler(id)}
-      backToPrevPg={backToPrevPg}
-      isFiltered={true}
-      currentGenre={currentGenre}
-      currentSort={currentSort}
-      changeGenre={(genre) => changeGenreHandler(genre)}
-      changeSort={(sort) => changeSortHandler(sort)}
-      kickedToHome={kickedToHomeHandler}
-      requestNote={(id) => requestNoteHandler(id)}
-    />
-  );
-}
+
+    return (
+      <Collection
+        anyBook={appliedBooks[0] ? true : false}
+        title={title}
+        genreScroll={genreScroll}
+        appliedBooks={appliedBooks}
+        appliedBooksLength={appliedBooks.length}
+        message={message}
+        guide={guide}
+        figure={figure}
+        bookUpdated={(id, stat) => bookUpdated(id, stat)}
+        editReqHandler={(id) => editReqHandler(id)}
+        backToPrevPg={backToPrevPg}
+        isFiltered={true}
+        currentGenre={currentGenre}
+        currentSort={currentSort}
+        changeGenre={(genre) => changeGenreHandler(genre)}
+        changeSort={(sort) => changeSortHandler(sort)}
+        kickedToHome={kickedToHomeHandler}
+        requestNote={(id) => requestNoteHandler(id)}
+      />
+    );
+  }
+
 
 export default UnfinishedPage;

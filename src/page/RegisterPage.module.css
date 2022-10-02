@@ -16,6 +16,13 @@
   overflow-y: hidden;
 }
 
+.loadingAnimation{
+  position: fixed;
+  transform: scale(1);
+  top: 300px;
+  z-index: 999;
+}
+
 .regBackBtn,
 button {
   cursor: pointer;

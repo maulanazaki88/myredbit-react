@@ -72,6 +72,15 @@
   padding-bottom: 150px;
 }
 
+.loadingAnimation{
+  position: relative;
+  transform: scale(1);
+  top: 300px;
+  z-index: 999;
+  margin-bottom: 100vh;
+
+}
+
 .cltnTitle {
   top: 200px;
   left: 0;

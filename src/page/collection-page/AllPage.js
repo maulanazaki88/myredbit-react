@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CtxManager from "../../store/CtxManager";
 import Collection from "../../component/Collection";
 
+
 function AllPage() {
   const navigate = useNavigate();
   const ctx = useContext(CtxManager);
@@ -18,6 +19,7 @@ function AllPage() {
   const currPgHandler = ctx.currentPgHandler;
   const prevPgHandler = ctx.previousPgHandler;
   const requestNoteHandler = ctx.noteRequestHandler;
+
 
   const editReqHandler = (id) => {
     ctx.editRequestHandler(id);
@@ -45,36 +47,41 @@ function AllPage() {
 
   const { title, message, guide, figure } = allCltnNB;
 
+
   useEffect(() => {
+
     window.scrollTo(0, 0);
+
     return function cleanUp() {
       ctx.currentGenreHandler("All");
       ctx.currentSortHandler("-");
     };
   }, []);
 
-  return (
-    <Collection
-      anyBook={appliedBooks[0] ? true : false}
-      title={title}
-      genreScroll={genreScroll}
-      appliedBooks={appliedBooks}
-      appliedBooksLength={appliedBooks.length}
-      message={message}
-      guide={guide}
-      figure={figure}
-      bookUpdated={(id, stat) => bookUpdated(id, stat)}
-      editReqHandler={(id) => editReqHandler(id)}
-      backToPrevPg={backToPrevPg}
-      isFiltered={true}
-      currentGenre={currentGenre}
-      currentSort={currentSort}
-      changeGenre={(genre) => changeGenreHandler(genre)}
-      changeSort={(sort) => changeSortHandler(sort)}
-      kickedToHome={kickedToHomeHandler}
-      requestNote={(id) => requestNoteHandler(id)}
-    />
-  );
-}
+ 
+    return (
+      <Collection
+        anyBook={appliedBooks[0] ? true : false}
+        title={title}
+        genreScroll={genreScroll}
+        appliedBooks={appliedBooks}
+        appliedBooksLength={appliedBooks.length}
+        message={message}
+        guide={guide}
+        figure={figure}
+        bookUpdated={(id, stat) => bookUpdated(id, stat)}
+        editReqHandler={(id) => editReqHandler(id)}
+        backToPrevPg={backToPrevPg}
+        isFiltered={true}
+        currentGenre={currentGenre}
+        currentSort={currentSort}
+        changeGenre={(genre) => changeGenreHandler(genre)}
+        changeSort={(sort) => changeSortHandler(sort)}
+        kickedToHome={kickedToHomeHandler}
+        requestNote={(id) => requestNoteHandler(id)}
+      />
+    );
+  }
+
 
 export default AllPage;

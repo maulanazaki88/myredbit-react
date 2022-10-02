@@ -4,3 +4,12 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.loadingAnimation{
+    position: relative;
+    transform: scale(1);
+    top: 300px;
+    z-index: 999;
+    margin-bottom: 100vh;
+
+}
