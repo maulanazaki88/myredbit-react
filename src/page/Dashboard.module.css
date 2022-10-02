@@ -13,3 +13,9 @@
     margin-bottom: 100vh;
 
 }
+
+@media screen and (max-width: 810px){
+    .loadingAnimation{
+        transform: scale(0.67);
+      }
+}

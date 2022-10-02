@@ -394,6 +394,10 @@
         flex-direction: column;
     }
 
+    .loadingAnimation{
+        transform: scale(0.67);
+      }
+
     .labels {
         flex-direction: row;
         margin-bottom: 80px;

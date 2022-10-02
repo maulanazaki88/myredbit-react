@@ -649,6 +649,10 @@ button {
     transform: scale(0.5) translate(10px, -550px);
   }
 
+  .loadingAnimation{
+    transform: scale(0.67);
+  }
+
   .crB,
   .crB2,
   .crB3 {

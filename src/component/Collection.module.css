@@ -536,6 +536,10 @@
       transform: scale(.7)
     }
 
+    .loadingAnimation{
+      transform: scale(0.67);
+    }
+
   }
 
   @media screen and (max-width:600px) {
