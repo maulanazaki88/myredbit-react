@@ -651,6 +651,7 @@ button {
 
   .loadingAnimation{
     transform: scale(0.67);
+    top: 150px;
   }
 
   .crB,

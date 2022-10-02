@@ -14,16 +14,6 @@ function BookShelf(props) {
       >
         {props.button}
       </button>
-      <figure className={c.iconFg}>
-        <img
-          className={c.icon}
-          src={
-            props.status ? "/pngs/finished-pink.png" : "/pngs/continue-pink.png"
-          }
-          title="On-read"
-          alt="cover"
-        />
-      </figure>
       <div className={c.shelf}>
         <div className={c.up}>
           <div id={c["b1"]} className={c.book}>

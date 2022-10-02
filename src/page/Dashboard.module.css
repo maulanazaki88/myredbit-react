@@ -17,5 +17,6 @@
 @media screen and (max-width: 810px){
     .loadingAnimation{
         transform: scale(0.67);
+        top: 150px;
       }
 }

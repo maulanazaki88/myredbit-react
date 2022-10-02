@@ -61,7 +61,7 @@ h2 {
     width: 452px;
     text-align: left;
     z-index: 2;
-    top: 0px;
+    top: -180px;
     left: -100px;
     font-weight: 500;
     transform: translate(150px, 600px);
@@ -95,7 +95,7 @@ h2 {
     transition: all 0.15s ease-out;
     transform: translate(5px, 0);
     cursor: pointer;
-    top: 600px;
+    top: 500px;
     left: 0px;
     z-index: 20;
 
