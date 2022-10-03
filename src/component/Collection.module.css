@@ -526,6 +526,10 @@
       top: 150px;
     }
 
+    .popContainer_on{
+      transform: scale(0.87);
+    }
+
   }
 
   @media screen and (max-width:600px) {
@@ -555,6 +559,10 @@
 
     .filterItem{
       margin: 0 10px;
+    }
+
+    .popContainer_on{
+      transform: scale(0.67)
     }
 
   }
