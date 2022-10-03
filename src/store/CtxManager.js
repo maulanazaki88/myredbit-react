@@ -28,6 +28,7 @@ const CtxManager = createContext({
   genreScroll: [],
   allBooks: [],
   resetKeywordsHandler: () => {},
+  resetEditRequestHandler: () => {},
 });
 
 export function CtxManagerProvider(props) {
@@ -130,6 +131,10 @@ export function CtxManagerProvider(props) {
   const resetKeywordsHandler = () => {
     setKeywords("");
   };
+
+  const resetEditRequestHandler = () => {
+    setEditRequest(null)
+  }
 
   const currentPgHandler = (cpg) => {
     try {
@@ -503,6 +508,7 @@ export function CtxManagerProvider(props) {
     genreScroll: genreScroll,
     allBooks: allDisplay,
     resetKeywordsHandler: resetKeywordsHandler,
+    resetEditRequestHandler: resetEditRequestHandler
   };
 
   return (

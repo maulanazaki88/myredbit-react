@@ -33,6 +33,7 @@ function RegisterPage() {
   const ctx = useContext(CtxManager);
 
   const editRequest = ctx.editRequest;
+  const resetEditRequest = ctx.resetEditRequestHandler;
   const currPg = ctx.currentPg;
   const currPgHandler = ctx.currentPgHandler;
   const prevPgHandler = ctx.previousPgHandler;
@@ -266,7 +267,7 @@ function RegisterPage() {
           localStorage.setItem("collections", JSON.stringify(updatedStorage));
           bookUpdatedHandler(editedBook, "Edit");
           navigate(currPg);
-          console.log("register book succeed");
+          console.log("edit book succeed");
         }
       } else {
         throw new Error("input value cannot be reached");
@@ -643,6 +644,7 @@ function RegisterPage() {
     window.scrollTo(0, 0);
     return function cleanUp() {
       setIsLoading(true);
+      resetEditRequest();
     };
   }, []);
 
@@ -708,6 +710,7 @@ function RegisterPage() {
                       value={title}
                       onChange={onChange}
                       maxLength="40"
+                      placeholder="Type Here"
                       required
                     />
                     <p id={c["ttlErr"]} className={c.errMessage}>
@@ -726,6 +729,7 @@ function RegisterPage() {
                       required
                       value={genre}
                       onChange={onChange}
+                      placeholder="Type Here"
                       maxLength="40"
                     />
                     <p id={c["genErr"]} className={c.errMessage}>
@@ -758,6 +762,7 @@ function RegisterPage() {
                       required
                       value={author}
                       onChange={onChange}
+                      placeholder="Type Here"
                       maxLength="40"
                     />
                     <p id={c["authErr"]} className={c.errMessage}>
@@ -775,7 +780,10 @@ function RegisterPage() {
                       id={c["inpRls"]}
                       required
                       value={realease}
+                      placeholder="Type Here"
                       onChange={onChange}
+                      maxLength="4"
+                      
                     />
                     <p id={c["rlsErr"]} className={c.errMessage}>
                       {showRealeaseErr && `This field can't be empty`}
