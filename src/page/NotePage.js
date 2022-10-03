@@ -57,7 +57,7 @@ function BookNote() {
   const onInputChange = (e) => {
     let val = e.target.value;
     try {
-      if (val.length <= 40) {
+      if (val) {
         setNoteVal((prevVal) => {
           return {
             ...prevVal,
@@ -182,10 +182,10 @@ function BookNote() {
   }, [pageInit, reqId]);
 
   useEffect(() => {
-    if(isLoading){
+    if (isLoading) {
       setTimeout(() => {
         setIsLoading(false);
-        console.log("LOADING FINISHED")
+        console.log("LOADING FINISHED");
       }, 200);
     }
 
@@ -299,8 +299,6 @@ function BookNote() {
                         className={c.noteBoard}
                         name="event"
                         id={c["eventBoard"]}
-                        cols="30"
-                        rows="10"
                         placeholder="Type event notes here"
                         value={event}
                         onChange={(e) => onInputChange(e)}
@@ -309,8 +307,6 @@ function BookNote() {
                         className={c.noteBoard}
                         name="conflict"
                         id={c["conflictBoard"]}
-                        cols="30"
-                        rows="10"
                         placeholder="Type conflict notes here"
                         value={conflict}
                         onChange={(e) => onInputChange(e)}
@@ -319,8 +315,6 @@ function BookNote() {
                         className={c.noteBoard}
                         name="resolution"
                         id={c["resolutionBoard"]}
-                        cols="30"
-                        rows="10"
                         placeholder="Type resolution notes here"
                         onChange={(e) => onInputChange(e)}
                         value={resolution}
@@ -329,8 +323,6 @@ function BookNote() {
                         className={c.noteBoard}
                         name="impact"
                         id={c["impactBoard"]}
-                        cols="30"
-                        rows="10"
                         placeholder="Type impact notes here"
                         onChange={(e) => onInputChange(e)}
                         value={impact}
@@ -339,8 +331,6 @@ function BookNote() {
                         className={c.noteBoard}
                         name="glossary"
                         id={c["glossaryBoard"]}
-                        cols="30"
-                        rows="10"
                         placeholder="Type glossary notes here"
                         onChange={(e) => onInputChange(e)}
                         value={glossary}
