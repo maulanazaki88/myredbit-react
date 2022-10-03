@@ -57,16 +57,12 @@ function BookNote() {
   const onInputChange = (e) => {
     let val = e.target.value;
     try {
-      if (val) {
-        setNoteVal((prevVal) => {
-          return {
-            ...prevVal,
-            [e.target.name]: val,
-          };
-        });
-      } else {
-        throw new Error("CAN'T REACH INPUT TARGET VALUE");
-      }
+      setNoteVal((prevVal) => {
+        return {
+          ...prevVal,
+          [e.target.name]: val,
+        };
+      });
     } catch (error) {
       console.log(error.stack);
     }
