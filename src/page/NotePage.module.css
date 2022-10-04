@@ -92,8 +92,13 @@
     height: -moz-max-content;
     height: fit-content;
     background-color: red;
+<<<<<<< HEAD
     top: 0px;
     left: -8px;
+=======
+    top: -10px;
+    left: 0px;
+>>>>>>> b00085cd46095545972048d8d2aca121c44fc3b1
 }
 
 .noteForm,
@@ -132,7 +137,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    left: -150px;
+    left: 0px;
 }
 
 .subForm {
@@ -194,12 +199,18 @@
 .noteWrp {
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
     margin: 0 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     /* background-color: bisque; */
+=======
+    top: 0px;
+    left: 0px;
+    margin: 0;
+>>>>>>> b00085cd46095545972048d8d2aca121c44fc3b1
 }
 
 .noteForm {
