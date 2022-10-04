@@ -91,7 +91,7 @@
     width: 100%;
     height: -moz-max-content;
     height: fit-content;
-    background-color: red;
+    /* background-color: red; */
     top: -10px;
     left: 0px;
 }
@@ -108,7 +108,7 @@
     align-items: center;
     justify-content: center;
     top: 0;
-    background-color: pink;
+    /* background-color: pink; */
     width: fit-content;
     height: 100%;
     margin-bottom: -200px;
@@ -210,7 +210,7 @@
 .noteForm {
     justify-content: center;
     top: 20px;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     margin: 0;
     width: 100%;
     height: fit-content;
@@ -451,17 +451,21 @@
     }
 
     .boardScroller{
-        width: 100vw;
+        width: 100%;
+        
+        margin-left: 0;
+        margin-right: 0;
+
     }
 
     .pgCtrl {
         position: relative;
         top: -80px;
-        width: 90vw;
+        width: 95vw;
         height: 300px;
         left: 0;
         margin: 0;
-        padding: 1rem;
+        padding: 2rem;
     }
 
     .pgCtrlBtn_g {
@@ -490,7 +494,7 @@
     .mainForm {
         flex-direction: column;
         left: 0;
-        width: 100vw;
+        width: 100%;
     }
 
     .subForm {
@@ -529,8 +533,8 @@
 
     .detailNote,
     .noteBoard {
-        max-width: 80vw;
-        min-width: 80vw;
+        max-width: 95vw;
+        min-width: 95vw;
     }
 
     .pgNumber{
