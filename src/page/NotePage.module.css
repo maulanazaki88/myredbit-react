@@ -91,7 +91,7 @@
     width: 100%;
     height: -moz-max-content;
     height: fit-content;
-    /* background-color: red; */
+    background-color: red;
     top: -10px;
     left: 0px;
 }
@@ -108,9 +108,10 @@
     align-items: center;
     justify-content: center;
     top: 0;
-    /* background-color: pink; */
+    background-color: pink;
     width: fit-content;
     height: 100%;
+    margin-bottom: -200px;
 }
 
 .boardScroller,
@@ -209,9 +210,9 @@
 .noteForm {
     justify-content: center;
     top: 20px;
-    /* background-color: aquamarine; */
+    background-color: aquamarine;
     margin: 0;
-    width: 100vw;
+    width: 100%;
     height: fit-content;
 }
 
@@ -437,7 +438,7 @@
 
     .labels {
         flex-direction: row;
-        margin-bottom: 80px;
+        margin-bottom: 50px;
     }
 
     .label {
@@ -446,11 +447,11 @@
 
     .boardScroller,
     .form_detail {
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
 
     .boardScroller{
-        width: 100%;
+        width: 100vw;
     }
 
     .pgCtrl {
@@ -528,8 +529,12 @@
 
     .detailNote,
     .noteBoard {
-        max-width: 90vw;
-        min-width: 90vw;
+        max-width: 80vw;
+        min-width: 80vw;
+    }
+
+    .pgNumber{
+     transform: translate(0, -40px);   
     }
 
     @media screen and (max-width: 580px) {
@@ -537,5 +542,7 @@
             font-size: 22px;
             margin: 0 10px;
         }
+
+        
     }
 }
