@@ -79,12 +79,12 @@
 }
 
 .note_pg {
-    width: 100vw;
+    width: 100%;
     height: -moz-max-content;
     height: fit-content;
     background-color: red;
     top: -10px;
-    left: -8px;
+    left: 0px;
 }
 
 .noteForm,
