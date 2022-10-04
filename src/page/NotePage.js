@@ -197,7 +197,11 @@ function BookNote() {
   }, []);
 
   if (isLoading) {
-    return <div className={c.loadingAnimation}>{View}</div>;
+    return (
+      <div className={c.noteWrp}>
+        <div className={c.loadingAnimation}>{View}</div>
+      </div>
+    );
   } else {
     return (
       <>
