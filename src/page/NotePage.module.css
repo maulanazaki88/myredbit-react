@@ -15,7 +15,7 @@
     transition: 0.3s ease-in-out;
 }
 
-.loadingAnimation{
+.loadingAnimation {
     position: fixed;
     transform: scale(1);
     top: 300px;
@@ -23,7 +23,7 @@
 
 }
 
-.book_info{
+.book_info {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -223,7 +223,7 @@
     overflow-y: hidden;
     overflow-x: hidden;
     padding-bottom: 15px;
-    
+
 }
 
 .boardWrp,
@@ -423,7 +423,7 @@
         width: 100%;
     }
 
-    .bookTtl{
+    .bookTtl {
         transform: translate(0, 80px);
     }
 
@@ -431,10 +431,10 @@
         flex-direction: column;
     }
 
-    .loadingAnimation{
+    .loadingAnimation {
         transform: scale(0.67);
         top: 150px;
-      }
+    }
 
     .labels {
         flex-direction: row;
@@ -450,9 +450,9 @@
         margin-bottom: 40px;
     }
 
-    .boardScroller{
+    .boardScroller {
         width: 100%;
-        
+        background-color: blue;
         margin-left: 0;
         margin-right: 0;
 
@@ -461,7 +461,7 @@
     .pgCtrl {
         position: relative;
         top: -80px;
-        width: 95vw;
+        width: 90vw;
         height: 300px;
         left: 0;
         margin: 0;
@@ -533,12 +533,12 @@
 
     .detailNote,
     .noteBoard {
-        max-width: 95vw;
-        min-width: 95vw;
+        max-width: 90vw;
+        min-width: 90vw;
     }
 
-    .pgNumber{
-     transform: translate(0, -40px);   
+    .pgNumber {
+        transform: translate(0, -40px);
     }
 
     @media screen and (max-width: 580px) {
@@ -547,6 +547,19 @@
             margin: 0 10px;
         }
 
-        
+
+    }
+
+    @media screen and (max-width: 478px) {
+
+        .detailNote,
+        .noteBoard {
+            max-width: 110vw;
+            min-width: 110vw;
+        }
+
+        .pgCtrl{
+            width: 110vw;
+        }
     }
 }
