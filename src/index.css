@@ -11,9 +11,9 @@ body {
   justify-content: center;
   flex-direction: column;
   overflow-x: hidden;
-  background-color:#fff;
-  min-width: 100%;
-  max-width: 100%;
+  /* background-color:violet; */
+  /* min-width: 100%;
+  max-width: 100%; */
   
 }
 
@@ -25,7 +25,7 @@ code {
 #root{
   min-width: 100%;
   width: 100%;
-  max-width: 100%;
+  max-width: 100%;  
   margin: 0;
   padding: 0;
 }
