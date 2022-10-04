@@ -452,7 +452,6 @@
 
     .boardScroller {
         width: 100%;
-        background-color: blue;
         margin-left: 0;
         margin-right: 0;
 
@@ -546,8 +545,6 @@
             font-size: 22px;
             margin: 0 10px;
         }
-
-
     }
 
     @media screen and (max-width: 478px) {
