@@ -54,8 +54,12 @@ export function CtxManagerProvider(props) {
     let results = [];
 
     try {
-      if (keywords !== "") {
-        const keywordsArray = keywords.split(" ");
+      if (keywords !== "" || keywords !== " ") {
+        const keywordsArray = keywords
+          .split(" ")
+          .filter((keyword) => keyword !== "");
+        // const keywordsArray_= keywordsArray.filter((keyword) => keyword !== "");
+        console.log(keywordsArray);
         for (let book of allDisplay) {
           let bookTags = book.tag;
           let arrayScores = [];
@@ -118,8 +122,8 @@ export function CtxManagerProvider(props) {
         const flatPopulateBooks = populateBooks.slice(0).flat(1);
 
         setSrcDisplay(flatPopulateBooks);
-      } else {
-        navigate("/");
+      } else if(keywords === "") {
+        setSrcDisplay(allBooks)
       }
 
       console.log("data matching resolved");
@@ -133,8 +137,8 @@ export function CtxManagerProvider(props) {
   };
 
   const resetEditRequestHandler = () => {
-    setEditRequest(null)
-  }
+    setEditRequest(null);
+  };
 
   const currentPgHandler = (cpg) => {
     try {
@@ -473,7 +477,51 @@ export function CtxManagerProvider(props) {
   }, [bookUpdated, currentPg]);
 
   useEffect(() => {
-    srcBook();
+    let keywords_ = keywords.split(" ");
+    let isKeywordsValid = keywords_.some((keyword) =>
+      keyword.toUpperCase().includes(
+        "A" ||
+          "B" ||
+          "C" ||
+          "D" ||
+          "E" ||
+          "F" ||
+          "G" ||
+          "H" ||
+          "I" ||
+          "J" ||
+          "K" ||
+          "L" ||
+          "M" ||
+          "N" ||
+          "O" ||
+          "P" ||
+          "Q" ||
+          "R" ||
+          "S" ||
+          "T" ||
+          "U" ||
+          "V" ||
+          "W" ||
+          "X" ||
+          "Y" ||
+          "Z" ||
+          "1" ||
+          "2" ||
+          "3" ||
+          "4" ||
+          "5" ||
+          "6" ||
+          "7" ||
+          "8" ||
+          "9" ||
+          "0"
+      )
+    );
+    if (isKeywordsValid) {
+      srcBook();
+      console.log(keywords);
+    }
   }, [keywords]);
 
   useEffect(() => {
@@ -508,7 +556,7 @@ export function CtxManagerProvider(props) {
     genreScroll: genreScroll,
     allBooks: allDisplay,
     resetKeywordsHandler: resetKeywordsHandler,
-    resetEditRequestHandler: resetEditRequestHandler
+    resetEditRequestHandler: resetEditRequestHandler,
   };
 
   return (
