@@ -55,10 +55,8 @@ export function CtxManagerProvider(props) {
 
     try {
       if (keywords !== "" || keywords !== " ") {
-        const keywordsArray = keywords
-          .split(" ")
-          .filter((keyword) => keyword !== "");
-        // const keywordsArray_= keywordsArray.filter((keyword) => keyword !== "");
+        navigate("/searchPage");
+        const keywordsArray = keywords.split(" ");
         console.log(keywordsArray);
         for (let book of allDisplay) {
           let bookTags = book.tag;
@@ -91,7 +89,7 @@ export function CtxManagerProvider(props) {
             results.push(scoredBook);
           } else {
           }
-          navigate("/searchPage");
+          
         }
         const resultScores = results.map((result) => {
           return result.mScore;
@@ -122,8 +120,8 @@ export function CtxManagerProvider(props) {
         const flatPopulateBooks = populateBooks.slice(0).flat(1);
 
         setSrcDisplay(flatPopulateBooks);
-      } else if(keywords === "") {
-        setSrcDisplay(allBooks)
+      } else if (keywords === "") {
+        navigate("/");
       }
 
       console.log("data matching resolved");
@@ -477,48 +475,7 @@ export function CtxManagerProvider(props) {
   }, [bookUpdated, currentPg]);
 
   useEffect(() => {
-    let keywords_ = keywords.split(" ");
-    let isKeywordsValid = keywords_.some((keyword) =>
-      keyword.toUpperCase().includes(
-        "A" ||
-          "B" ||
-          "C" ||
-          "D" ||
-          "E" ||
-          "F" ||
-          "G" ||
-          "H" ||
-          "I" ||
-          "J" ||
-          "K" ||
-          "L" ||
-          "M" ||
-          "N" ||
-          "O" ||
-          "P" ||
-          "Q" ||
-          "R" ||
-          "S" ||
-          "T" ||
-          "U" ||
-          "V" ||
-          "W" ||
-          "X" ||
-          "Y" ||
-          "Z" ||
-          "1" ||
-          "2" ||
-          "3" ||
-          "4" ||
-          "5" ||
-          "6" ||
-          "7" ||
-          "8" ||
-          "9" ||
-          "0"
-      )
-    );
-    if (isKeywordsValid) {
+    if (keywords !== "") {
       srcBook();
       console.log(keywords);
     }
