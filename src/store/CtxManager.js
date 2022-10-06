@@ -54,9 +54,9 @@ export function CtxManagerProvider(props) {
     let results = [];
 
     try {
-      if (keywords !== "" || keywords !== " ") {
+      if (keywords !== "") {
         navigate("/searchPage");
-        const keywordsArray = keywords.split(" ");
+        const keywordsArray = keywords.split(" ").filter(keyword => keyword !== "");
         console.log(keywordsArray);
         for (let book of allDisplay) {
           let bookTags = book.tag;
@@ -475,10 +475,8 @@ export function CtxManagerProvider(props) {
   }, [bookUpdated, currentPg]);
 
   useEffect(() => {
-    if (keywords !== "") {
       srcBook();
       console.log(keywords);
-    }
   }, [keywords]);
 
   useEffect(() => {
