@@ -3,6 +3,7 @@ import LandingPage from "./LandingPage";
 import BookPage from "./BookPage";
 import { useLottie } from "lottie-react";
 import loadingAnimation from "../animation/loading.json";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 import c from "./Dashboard.module.css";
 

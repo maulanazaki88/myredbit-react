@@ -20,6 +20,7 @@ function Layout() {
   const [isInputMode, setIsInputMode] = useState(false);
   // const [sideMenuOn, setSideMenuOn] = useState(false);
   const [SMState, setSMState] = useState(SMClasses[1]);
+  const [isThrottle, setIsThrottle] = useState(false)
 
   const navigate = useNavigate();
 
@@ -74,7 +75,13 @@ function Layout() {
     }
   }, [isInputMode]);
 
-  window.addEventListener("resize", () => enterMobileMode());
+  window.addEventListener("resize", () => {
+    if(!isThrottle){
+      enterMobileMode()
+      setTimeout(() => {setIsThrottle(false)}, 200);
+    } else {}
+    
+  });
 
   useEffect(() => {
     if (window.innerWidth <= 810) {
