@@ -1,56 +1,71 @@
-.lastReadPage{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    top: 1000%;
+.banner {
+    height: 1680px;
+    background-color: white;
+    position: relative;
+    margin-top: 200px;
 }
 
-.booksFig, .headNclockFig, .phoneNcoffeeFig{
+.booksFig, .headNclockFig, .phoneNcoffeeFig {
     width: 100%;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
 }
 
-.booksIlus{
-    width: 1100px;
+.booksFig {
+    top: 100px;
+}
+
+.headNclockFig {
+    top: 500px;
+}
+
+.phoneNcoffeeFig {
+    top: 800px;
+}
+
+
+.booksIlus {
+    width: 52vw;
     display: block;
     position: absolute;
-    opacity: 0.8;
+    opacity: 1;
 }
 
-.headphoneIlus{
-    width: 500px;
+.headphoneIlus {
+    width: 24vw;
     display: block;
     position: absolute;
-    left: 190px;
+    left: 7.48vw;
+    transform: translate(0, 20px) scaleX(-1);
 }
 
-.deskclockIlus{
-    width: 345px;
+.deskclockIlus {
+    width: 16.7vw;
     display: block;
     position: absolute;
-    right: 243px;
+    right: 10.31vw;
 
 }
 
-.phoneIlus{
+.phoneIlus {
     position: absolute;
     display: block;
-    width: 360px;
-    left: 408px
+    width: 17vw;
+    left: 20vw;
 }
 
-.coffeeIlus{
+.coffeeIlus {
     position: absolute;
     display: block;
-    width: 182px;
-    right: 389px;
+    width: 8.76vw;
+    right: 24.78vw;
+    transform: translate(0, -50px);
 }
 
-.table{
+.table {
     width: 100%;
     height: 1080px;
     background-color: #fff;
@@ -60,5 +75,187 @@
     transform: rotate3d(0, 0.5, 0, 60deg);
 }
 
+.lastread {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transform: translate(0, 0px);
+    z-index: 80;
+}
+
+.lrHeader {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transform: translate(0, -320px);
+}
+
+.lrTtl {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 242px;
+    margin: 0;
+    transform: translate(0, 20px);
+}
+
+.lrTtlTxt {
+    position: relative;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    color: #e95460;
+    font-weight: 500;
+}
+
+.lrIcon {
+    width: 40px;
+    display: block;
+}
+
+.lrBookInf {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+
+}
+
+.lrBookTtl {
+    font-family: 'Times New Roman', Times, serif;
+    color: #242424;
+    font-size: 40px;
+    position: relative;
+    margin: 0;
+}
+
+.lrBookPage {
+    font-family: 'Times New Roman', Times, serif;
+    color: #242424;
+    font-size: 25px;
+    position: relative;
+}
+
+.lrCard {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.lrCardBkCvr {
+    width: 250px;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+    transform: translate(0, -125px);
+    border-radius: 20px;
+
+}
+
+.lrDescCtn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0E2C50;
+    aspect-ratio: 11/7;
+    width: 400px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    border-radius: 20px;
+}
+
+.lrDescTtl {
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    color: #fff;
+    opacity: 0.45;
+    top: 10px;
+    left: 27px;
+    
+}
+
+.lrDescNote {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    color: #fff;
+    width: 85%;
+}
+
+.lrBtn {
+    position: absolute;
+    aspect-ratio: 21/6;
+    width: 150px;
+    background-color: #e95460;
+    color: #242424;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+    bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    transition: all 0.15s ease-out;
+    
+}
+
+.lrBtn:hover{
+    background-color: #b3414a;
+}
+
+@media screen and (max-width: 1366px){
+    .lastread{
+        transform: scale(0.87) translate(0, 0px);
+    }
+
+    .phoneIlus{
+        transform: translate(0, -20px);
+        left: 17vw;
+    }
+
+}
+
+@media screen and (max-width: 1080px){
+    .lastread{
+        transform: scale(0.72) translate(0, 0px);
+    }
+}
+
+@media screen and (max-width: 810px){
+    .headphoneIlus{
+        left: 2vw;
+        width: 48vw;
+    }
+
+    .coffeeIlus{
+        right: 15vw;
+        width: 15vw;
+    }
+
+    .phoneIlus{
+        left: 14vw;
+        width: 34vw;
+    }
+
+    .deskclockIlus{
+        width: 33vw;
+        right:4vw;
+    }
+
+    .booksIlus{
+        width: 80vw;
+    }
 
 
+}

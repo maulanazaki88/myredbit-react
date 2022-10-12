@@ -49,7 +49,7 @@ h2 {
 }
 
 .bookCvr {
-    width: 240px;
+    width: 160px;
     opacity: 0.6;
 }
 
@@ -57,11 +57,11 @@ h2 {
     position: relative;
     color: #1a1a2e;
     font-family: "Times New Roman", Times, serif;
-    font-size: 60px;
-    width: 452px;
+    font-size: 40px;
+    width: 352px;
     text-align: left;
     z-index: 2;
-    top: -180px;
+    top: -280px;
     left: -100px;
     font-weight: 500;
     transform: translate(150px, 600px);
@@ -84,18 +84,18 @@ h2 {
     position: relative;
     border: none;
     outline: none;
-    width: 295px;
-    height: 65px;
+    aspect-ratio: 5/1;
+    width: 220px;
     background-color: #0F3460;
     color: #e95460;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-size: 26px;
+    font-size: 18px;
     box-shadow: 0px 3px 7px 0.5px rgba(0, 0, 0, 0.3);
     transition: all 0.15s ease-out;
     transform: translate(5px, 0);
     cursor: pointer;
-    top: 500px;
+    top: 350px;
     left: 0px;
     z-index: 20;
 

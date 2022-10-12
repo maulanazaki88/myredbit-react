@@ -178,7 +178,7 @@ main {
   justify-content: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   color: #1A1A2E;
   height: 80px;
   padding: 0 10px;
@@ -734,7 +734,7 @@ footer {
 
 @media screen and (max-width:1366px) {
   .mItem_on, .mItem_off {
-    font-size: 20px;
+    font-size: 16px;
     padding: 0 10px;
     
   }
@@ -776,7 +776,7 @@ footer {
 
 @media screen and (max-width:1080px) {
   .mItem_on, .mItem_off {
-    font-size: 15px;
+    font-size: 12px;
     padding: 0 10px;
   }
 

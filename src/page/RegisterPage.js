@@ -221,6 +221,7 @@ function RegisterPage() {
             lastModified: new Date().getTime(),
             tag: tagGenerator(title, genre, author, realease),
             lastRead: 1,
+            lastReadTime: null,
             sortIndex: new Date().getTime(),
           };
           const bookStorage = JSON.parse(localStorage.getItem("collections"));
@@ -252,6 +253,7 @@ function RegisterPage() {
             lastModified: new Date().getTime(),
             tag: editBook.tag,
             lastRead: editBook.lastRead,
+            lastReadTime: editBook.lastReadTime,
             sortIndex: editBook.sortIndex,
           };
 
@@ -637,7 +639,7 @@ function RegisterPage() {
     if (isLoading) {
       setTimeout(() => {
         setIsLoading(false);
-        console.log("LOADING FINISHED")
+        console.log("LOADING FINISHED");
       }, 200);
     }
 
@@ -710,7 +712,7 @@ function RegisterPage() {
                       value={title}
                       onChange={onChange}
                       maxLength="40"
-                      placeholder="Type Here"
+                      placeholder="Type here"
                       required
                     />
                     <p id={c["ttlErr"]} className={c.errMessage}>
@@ -729,7 +731,7 @@ function RegisterPage() {
                       required
                       value={genre}
                       onChange={onChange}
-                      placeholder="Type Here"
+                      placeholder="Type here"
                       maxLength="40"
                     />
                     <p id={c["genErr"]} className={c.errMessage}>
@@ -762,7 +764,7 @@ function RegisterPage() {
                       required
                       value={author}
                       onChange={onChange}
-                      placeholder="Type Here"
+                      placeholder="Type here"
                       maxLength="40"
                     />
                     <p id={c["authErr"]} className={c.errMessage}>
@@ -780,10 +782,9 @@ function RegisterPage() {
                       id={c["inpRls"]}
                       required
                       value={realease}
-                      placeholder="Type Here"
+                      placeholder="Type here"
                       onChange={onChange}
                       maxLength="4"
-                      
                     />
                     <p id={c["rlsErr"]} className={c.errMessage}>
                       {showRealeaseErr && `This field can't be empty`}

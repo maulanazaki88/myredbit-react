@@ -93,6 +93,7 @@ function BookNote() {
       lastRead: pageInit + 1,
       dateUpdated: `${dateString}, ${timeString}`,
       lastModified: new Date().getTime(),
+      lastReadTime: new Date().getTime(),
     };
 
     const allBookCltn_ = allBookCltn.filter((b) => b.id !== book.id);
@@ -132,6 +133,7 @@ function BookNote() {
         lastRead: pageInit - 1,
         dateUpdated: `${dateString}, ${timeString}`,
         lastModified: new Date().getTime(),
+        lastReadTime: new Date().getTime(),
       };
 
       const allBookCltn_ = allBookCltn.filter((b) => b.id !== book.id);
@@ -151,6 +153,42 @@ function BookNote() {
   };
 
   const back = () => {
+    const rawDate = Date.now();
+    const dateForm = new Date(rawDate);
+    const date = new Date(dateForm);
+    const dateString = date.toLocaleDateString();
+    const timeString = date.toLocaleTimeString();
+
+    const updatedNote = {
+      page: pageInit,
+      event: event,
+      conflict: conflict,
+      resolution: resolution,
+      impact: impact,
+      glossary: glossary,
+      character: character,
+      timeline: timeline,
+    };
+    const notes_ = notes.filter((note) => note.page !== pageInit);
+    const updatedNotes = notes_.concat(updatedNote);
+    const updatedBook = {
+      ...book,
+      notes: updatedNotes,
+      lastRead: pageInit,
+      dateUpdated: `${dateString}, ${timeString}`,
+      lastModified: new Date().getTime(),
+      lastReadTime: new Date().getTime(),
+    };
+
+    const allBookCltn_ = allBookCltn.filter((b) => b.id !== book.id);
+    const updatedBookCltn = allBookCltn_.concat(updatedBook);
+
+    localStorage.setItem(
+      "collections",
+      JSON.stringify({ books: updatedBookCltn })
+    );
+    bookUpdated(book, "notes");
+
     navigate(currPg);
   };
 

@@ -3,7 +3,8 @@ import LandingPage from "./LandingPage";
 import BookPage from "./BookPage";
 import { useLottie } from "lottie-react";
 import loadingAnimation from "../animation/loading.json";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { ParallaxProvider } from "react-scroll-parallax";
+import LastReadPage from "./LastReadPage";
 
 import c from "./Dashboard.module.css";
 
@@ -41,10 +42,13 @@ function Dashboard() {
     );
   } else {
     return (
-      <div className={c.main}>
-        <LandingPage />
-        <BookPage />
-      </div>
+      <ParallaxProvider>
+        <div className={c.main}>
+          <LandingPage />
+          <LastReadPage />
+          <BookPage />
+        </div>
+      </ParallaxProvider>
     );
   }
 }

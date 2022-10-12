@@ -20,7 +20,7 @@ function Layout() {
   const [isInputMode, setIsInputMode] = useState(false);
   // const [sideMenuOn, setSideMenuOn] = useState(false);
   const [SMState, setSMState] = useState(SMClasses[1]);
-  const [isThrottle, setIsThrottle] = useState(false)
+  const [isThrottle, setIsThrottle] = useState(false);
 
   const navigate = useNavigate();
 
@@ -76,11 +76,14 @@ function Layout() {
   }, [isInputMode]);
 
   window.addEventListener("resize", () => {
-    if(!isThrottle){
-      enterMobileMode()
-      setTimeout(() => {setIsThrottle(false)}, 200);
-    } else {}
-    
+    if (!isThrottle) {
+      enterMobileMode();
+      setIsThrottle(true);
+      setTimeout(() => {
+        setIsThrottle(false);
+      }, 100);
+    } else {
+    }
   });
 
   useEffect(() => {
@@ -210,7 +213,11 @@ function Layout() {
 
                       <div
                         id={c.backdrop}
-                        className={SMState === SMClasses[0] ? c.backdropOn : c.backdropOff}
+                        className={
+                          SMState === SMClasses[0]
+                            ? c.backdropOn
+                            : c.backdropOff
+                        }
                         onClick={() => {
                           setSMState(SMClasses[1]);
                         }}

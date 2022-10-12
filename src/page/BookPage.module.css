@@ -22,7 +22,8 @@
     background-color: transparent;
     width: 100%;
     padding-bottom: 0px;
-    top: 0px;
+    margin-bottom: 600px;
+    margin-top: 600px;
 
 }
 
@@ -64,12 +65,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 100px;
 
 }
 
 .midLine {
     position: relative;
     top: 150px;
+    transform: scale(0.6) translate(0, -60px);
 }
 
 @media screen and (max-width: 1440px) {
@@ -101,7 +104,7 @@
 
     .midLine {
         transform: rotate(90deg) scale(0.67);
-        margin: -450px 0 -450px 0;
+        margin: -250px 0 -250px 0;
     }
 
     .bookWrp {
@@ -109,8 +112,9 @@
         height: -moz-max-content;
         height: fit-content;
         padding-bottom: 0px;
-        margin-top: 0px;
+        margin-top: 200px;
         top: 0px;
+        margin-bottom: 0px;
     }
 
     .ufbook {
