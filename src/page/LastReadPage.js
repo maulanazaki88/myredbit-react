@@ -64,7 +64,6 @@ function LastReadPage() {
   };
 
   const books = {
-    //   image: "/svg/SVG/books1.svg",
     startScroll: 0,
     endScroll: 2000,
     translateY: [0, 42],
@@ -86,7 +85,6 @@ function LastReadPage() {
   };
 
   const headphone = {
-    //   image: "/svg/SVG/headphone1.svg",
     startScroll: 500,
     endScroll: 2000,
     translateY: [15, 32],
@@ -114,7 +112,6 @@ function LastReadPage() {
   };
 
   const phone = {
-    //   image: "/svg/SVG/phone.svg",
     startScroll: 650,
     endScroll: 2000,
     translateY: [20, 25],
@@ -144,8 +141,6 @@ function LastReadPage() {
     startScroll: 1150,
     endScroll: 2500,
     translateY: [40, 78, "easeInOutCubic"],
-    // shouldAlwaysCompleteAnimation: true,
-    // shoudlDisableScalingTranslation: true,
     expanded: false,
     children: (
       <div className={c.lastread}>

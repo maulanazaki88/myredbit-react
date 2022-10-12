@@ -32,6 +32,7 @@
     display: block;
     position: absolute;
     opacity: 1;
+    max-width: 973.44px;
 }
 
 .headphoneIlus {
@@ -40,6 +41,7 @@
     position: absolute;
     left: 7.48vw;
     transform: translate(0, 20px) scaleX(-1);
+    max-width: 449.28px;
 }
 
 .deskclockIlus {
@@ -47,7 +49,7 @@
     display: block;
     position: absolute;
     right: 10.31vw;
-
+    max-width: 312.624px;
 }
 
 .phoneIlus {
@@ -55,6 +57,7 @@
     display: block;
     width: 17vw;
     left: 20vw;
+    max-width: 318.24px;
 }
 
 .coffeeIlus {
@@ -63,6 +66,7 @@
     width: 8.76vw;
     right: 24.78vw;
     transform: translate(0, -50px);
+    max-width: 162.864px;
 }
 
 .table {
@@ -216,7 +220,7 @@
 
 @media screen and (max-width: 1366px){
     .lastread{
-        transform: scale(0.87) translate(0, 0px);
+        transform: scale(0.87) translate(0, -50px);
     }
 
     .phoneIlus{
@@ -228,7 +232,7 @@
 
 @media screen and (max-width: 1080px){
     .lastread{
-        transform: scale(0.72) translate(0, 0px);
+        transform: scale(0.72) translate(0, 60px);
     }
 }
 
@@ -255,6 +259,10 @@
 
     .booksIlus{
         width: 80vw;
+    }
+
+    .lastread{
+        transform: scale(0.72) translate(0, 70px);
     }
 
 

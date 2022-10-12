@@ -19,11 +19,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
+    background-color: #1a1a2e;
     width: 100%;
-    padding-bottom: 0px;
-    margin-bottom: 600px;
-    margin-top: 600px;
+    padding-bottom: 300px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 300px;
 
 }
 
@@ -75,6 +76,16 @@
     transform: scale(0.6) translate(0, -60px);
 }
 
+.gradient{
+    background-image: url(/public/svg/SVG/bookpage-wave.svg);
+    aspect-ratio: 9/6;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    display: block;
+    background-repeat: no-repeat;
+}
+
 @media screen and (max-width: 1440px) {
     .bookShelf {
         transform: scale(0.87);
@@ -103,8 +114,8 @@
     }
 
     .midLine {
-        transform: rotate(90deg) scale(0.67);
-        margin: -250px 0 -250px 0;
+        transform: rotate(90deg) scale(0.67) translate(0, 0px);
+        margin: -280px 0 -250px 0;
     }
 
     .bookWrp {
@@ -112,9 +123,10 @@
         height: -moz-max-content;
         height: fit-content;
         padding-bottom: 0px;
-        margin-top: 200px;
+        margin-top: 0px;
         top: 0px;
         margin-bottom: 0px;
+        padding-top: 200px;
     }
 
     .ufbook {

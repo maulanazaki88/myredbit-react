@@ -45,18 +45,10 @@ function BookPage() {
   };
 
   const fBookCvrs = {
-    fCvr1: finishedBooks[0]
-      ? finishedBooks[0].img
-      : "/svg/SVG/dash-grey.svg",
-    fCvr2: finishedBooks[1]
-      ? finishedBooks[1].img
-      : "/svg/SVG/dash-grey.svg",
-    fCvr3: finishedBooks[2]
-      ? finishedBooks[2].img
-      : "/svg/SVG/dash-grey.svg",
-    fCvr4: finishedBooks[3]
-      ? finishedBooks[3].img
-      : "/svg/SVG/dash-grey.svg",
+    fCvr1: finishedBooks[0] ? finishedBooks[0].img : "/svg/SVG/dash-grey.svg",
+    fCvr2: finishedBooks[1] ? finishedBooks[1].img : "/svg/SVG/dash-grey.svg",
+    fCvr3: finishedBooks[2] ? finishedBooks[2].img : "/svg/SVG/dash-grey.svg",
+    fCvr4: finishedBooks[3] ? finishedBooks[3].img : "/svg/SVG/dash-grey.svg",
   };
 
   const { ufCvr1, ufCvr2, ufCvr3 } = ufBookCvrs;
@@ -99,33 +91,40 @@ function BookPage() {
   }, []);
 
   return (
-    <div className={c.bookWrp}>
-      <div className={c.bookShelf}>
-        <BookShelf
-          title="Unfinished Books Collection"
-          status={false}
-          button={unfinishedBooks[0] ? "Continue Reading" : "Register Book"}
-          book1={ufCvr1}
-          book2={"/svg/SVG/blank-white.svg"}
-          book3={ufCvr3}
-          book4={ufCvr2}
-          jumpToPage={() => jumpToPage("uf")}
-        />
-        <figure className={c.mdLine}>
-          <img className={c.midLine} src="/svg/SVG/line-grey.svg" alt="line" />
-        </figure>
-        <BookShelf
-          title="Finished Books Collection"
-          status={true}
-          button={finishedBooks[0] ? "Refresh Memories" : "Open Collection"}
-          book1={fCvr1}
-          book2={fCvr4}
-          book3={fCvr3}
-          book4={fCvr2}
-          jumpToPage={() => jumpToPage("f")}
-        />
+    <>
+      <div className={c.gradient} ></div>
+      <div className={c.bookWrp}>
+        <div className={c.bookShelf}>
+          <BookShelf
+            title="Unfinished Books Collection"
+            status={false}
+            button={unfinishedBooks[0] ? "Continue Reading" : "Register Book"}
+            book1={ufCvr1}
+            book2={"/svg/SVG/blank-book.svg"}
+            book3={ufCvr3}
+            book4={ufCvr2}
+            jumpToPage={() => jumpToPage("uf")}
+          />
+          <figure className={c.mdLine}>
+            <img
+              className={c.midLine}
+              src="/svg/SVG/line-grey.svg"
+              alt="line"
+            />
+          </figure>
+          <BookShelf
+            title="Finished Books Collection"
+            status={true}
+            button={finishedBooks[0] ? "Refresh Memories" : "Open Collection"}
+            book1={fCvr1}
+            book2={fCvr4}
+            book3={fCvr3}
+            book4={fCvr2}
+            jumpToPage={() => jumpToPage("f")}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
