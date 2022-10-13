@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 const collections = JSON.parse(localStorage.getItem("collections"));
 const allBooks = collections ? collections.books : [];
@@ -130,94 +130,100 @@ export function CtxManagerProvider(props) {
     }
   };
 
-  const resetKeywordsHandler = () => {
-    setKeywords("");
-  };
+  //srcBook with useMemo
 
-  const resetEditRequestHandler = () => {
-    setEditRequest(null);
-  };
+  // const srcBook_ = useMemo(() => {
+  //   return srcBook()
+  // }, [keywords])
 
-  const currentPgHandler = (cpg) => {
-    try {
-      if (
-        cpg &&
-        (cpg === "/unfinishedPage" ||
-          cpg === "/finishedPage" ||
-          cpg === "/favoritePage" ||
-          cpg === "/allPage" ||
-          cpg === "/searchPage" ||
-          cpg === "/registerPage" ||
-          cpg === "/")
-      ) {
-        setCurrentPg(cpg);
-      } else if (!cpg) {
-        throw new Error("CAN'T FETCH CURRENT PAGE ID");
-      } else {
-        throw new Error("INVALID PAGE ID");
-      }
-    } catch (error) {
-      console.log(error.stack);
-    }
-  };
+  // const resetKeywordsHandler = () => {
+  //   setKeywords("");
+  // };
 
-  const previousPgHandler = (ppg) => {
-    try {
-      if (
-        ppg &&
-        (ppg === "/unfinishedPage" ||
-          ppg === "/finishedPage" ||
-          ppg === "/favoritePage" ||
-          ppg === "/allPage" ||
-          ppg === "/searchPage" ||
-          ppg === "/registerPage" ||
-          ppg === "/")
-      ) {
-        setPreviousPg(ppg);
-      } else if (!ppg) {
-        throw new Error("CAN'T FETCH PREVIOUS PAGE ID");
-      } else {
-        throw new Error("INVALID PAGE ID");
-      }
-    } catch (error) {
-      console.log(error.stack);
-    }
-  };
+  // const resetEditRequestHandler = () => {
+  //   setEditRequest(null);
+  // };
 
-  const editRequestHandler = (id) => {
-    try {
-      if (id) {
-        setEditRequest(id);
-      } else {
-        throw new Error("INVALID EDIT REQUEST ID");
-      }
-    } catch (error) {
-      console.log(error.stack);
-    }
-  };
+  // const currentPgHandler = (cpg) => {
+  //   try {
+  //     if (
+  //       cpg &&
+  //       (cpg === "/unfinishedPage" ||
+  //         cpg === "/finishedPage" ||
+  //         cpg === "/favoritePage" ||
+  //         cpg === "/allPage" ||
+  //         cpg === "/searchPage" ||
+  //         cpg === "/registerPage" ||
+  //         cpg === "/")
+  //     ) {
+  //       setCurrentPg(cpg);
+  //     } else if (!cpg) {
+  //       throw new Error("CAN'T FETCH CURRENT PAGE ID");
+  //     } else {
+  //       throw new Error("INVALID PAGE ID");
+  //     }
+  //   } catch (error) {
+  //     console.log(error.stack);
+  //   }
+  // };
 
-  const bookUpdatedHandler = (book, stat) => {
-    try {
-      if (book && stat) {
-        setBookUpdated((prevVal) => {
-          return {
-            ...prevVal,
-            book: book,
-            stat: stat,
-          };
-        });
-        console.log("book update successful");
-      } else if (!book) {
-        throw new Error("BOOK UPDATE INVALID BOOK");
-      } else if (!stat) {
-        throw new Error("BOOK UPDATE INVALID STATUS");
-      } else {
-        throw new Error("BOOK UPDATE FAILED");
-      }
-    } catch (error) {
-      console.log(error.stack);
-    }
-  };
+  // const previousPgHandler = (ppg) => {
+  //   try {
+  //     if (
+  //       ppg &&
+  //       (ppg === "/unfinishedPage" ||
+  //         ppg === "/finishedPage" ||
+  //         ppg === "/favoritePage" ||
+  //         ppg === "/allPage" ||
+  //         ppg === "/searchPage" ||
+  //         ppg === "/registerPage" ||
+  //         ppg === "/")
+  //     ) {
+  //       setPreviousPg(ppg);
+  //     } else if (!ppg) {
+  //       throw new Error("CAN'T FETCH PREVIOUS PAGE ID");
+  //     } else {
+  //       throw new Error("INVALID PAGE ID");
+  //     }
+  //   } catch (error) {
+  //     console.log(error.stack);
+  //   }
+  // };
+
+  // const editRequestHandler = (id) => {
+  //   try {
+  //     if (id) {
+  //       setEditRequest(id);
+  //     } else {
+  //       throw new Error("INVALID EDIT REQUEST ID");
+  //     }
+  //   } catch (error) {
+  //     console.log(error.stack);
+  //   }
+  // };
+
+  // const bookUpdatedHandler = (book, stat) => {
+  //   try {
+  //     if (book && stat) {
+  //       setBookUpdated((prevVal) => {
+  //         return {
+  //           ...prevVal,
+  //           book: book,
+  //           stat: stat,
+  //         };
+  //       });
+  //       console.log("book update successful");
+  //     } else if (!book) {
+  //       throw new Error("BOOK UPDATE INVALID BOOK");
+  //     } else if (!stat) {
+  //       throw new Error("BOOK UPDATE INVALID STATUS");
+  //     } else {
+  //       throw new Error("BOOK UPDATE FAILED");
+  //     }
+  //   } catch (error) {
+  //     console.log(error.stack);
+  //   }
+  // };
 
   const refetchBook = () => {
     const collections = JSON.parse(localStorage.getItem("collections"));
@@ -475,7 +481,7 @@ export function CtxManagerProvider(props) {
   }, [bookUpdated, currentPg]);
 
   useEffect(() => {
-      srcBook();
+      srcBook_;
       console.log(keywords);
   }, [keywords]);
 
