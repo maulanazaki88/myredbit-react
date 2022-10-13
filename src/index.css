@@ -30,3 +30,13 @@ code {
   padding: 0;
 }
 
+@media screen and (max-width: 478px){
+  body{
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    margin: 0px;
+    position: absolute;
+}
+}
+

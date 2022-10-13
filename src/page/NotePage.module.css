@@ -28,6 +28,7 @@
     align-items: center;
     justify-content: center;
     width: 500px;
+    max-width: 100%;
     /* background-color: cyan; */
 }
 
@@ -201,10 +202,13 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
+    max-width: 100%;
+    min-width: 100%;
     height: 100%;
     top: 0px;
     left: 0px;
     margin: 0;
+    position: relative;
 }
 
 .noteForm {
@@ -551,12 +555,12 @@
 
         .detailNote,
         .noteBoard {
-            max-width: 110vw;
-            min-width: 110vw;
+            max-width: 90vw;
+            min-width: 90vw;
         }
 
         .pgCtrl{
-            width: 110vw;
+            width: 90vw;
         }
     }
 }
