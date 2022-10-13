@@ -20,7 +20,7 @@ function Layout() {
   const [isInputMode, setIsInputMode] = useState(false);
   // const [sideMenuOn, setSideMenuOn] = useState(false);
   const [SMState, setSMState] = useState(SMClasses[1]);
-  const [isThrottle, setIsThrottle] = useState(false);
+  // const [isThrottle, setIsThrottle] = useState(false);
 
   const navigate = useNavigate();
 
@@ -75,15 +75,19 @@ function Layout() {
     }
   }, [isInputMode]);
 
+  // window.addEventListener("resize", () => {
+  //   if (!isThrottle) {
+  //     enterMobileMode();
+  //     setIsThrottle(true);
+  //     setTimeout(() => {
+  //       setIsThrottle(false);
+  //     }, 100);
+  //   } else {
+  //   }
+  // });
+
   window.addEventListener("resize", () => {
-    if (!isThrottle) {
-      enterMobileMode();
-      setIsThrottle(true);
-      setTimeout(() => {
-        setIsThrottle(false);
-      }, 100);
-    } else {
-    }
+    enterMobileMode();
   });
 
   useEffect(() => {
@@ -349,7 +353,7 @@ function Layout() {
           </div>
         </div>
       </header>
-      <main>
+      <main className={c.main}>
         <Outlet />
       </main>
       <div className={c.spacer}></div>
