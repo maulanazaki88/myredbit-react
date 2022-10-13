@@ -212,14 +212,16 @@ button {
 }
 
 .spacer {
-  aspect-ratio: 900/400;
+  aspect-ratio: 900/600;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   display: block;
-  background-image: url(/public/svg/SVG/wave-footer.svg);
+  background-image: url(/public/svg/SVG/footer-wave-trans.svg);
   transform: translate(0, 0px);
+  
+  
 
 }
 

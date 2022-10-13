@@ -21,10 +21,11 @@
     justify-content: center;
     background-color: #1a1a2e;
     width: 100%;
-    padding-bottom: 300px;
+    padding-bottom: 1000px;
     margin-bottom: 0px;
     margin-top: 0px;
-    padding-top: 300px;
+    padding-top: 400px;
+    top: 900px;
 
 }
 
@@ -84,6 +85,9 @@
     background-size: cover;
     display: block;
     background-repeat: no-repeat;
+    position: relative;
+    top: 900px;
+    margin-top: -400px;
 }
 
 @media screen and (max-width: 1440px) {
@@ -122,11 +126,8 @@
         flex-direction: column;
         height: -moz-max-content;
         height: fit-content;
-        padding-bottom: 0px;
-        margin-top: 0px;
-        top: 0px;
-        margin-bottom: 0px;
-        padding-top: 200px;
+        
+        
     }
 
     .ufbook {
