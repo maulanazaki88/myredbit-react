@@ -92,7 +92,7 @@ function BookPage() {
 
   return (
     <>
-      <div className={c.gradient} ></div>
+      <div className={c.spacer} ></div>
       <div className={c.bookWrp}>
         <div className={c.bookShelf}>
           <BookShelf
