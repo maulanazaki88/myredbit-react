@@ -481,7 +481,7 @@ export function CtxManagerProvider(props) {
   }, [bookUpdated, currentPg]);
 
   useEffect(() => {
-      srcBook_;
+      srcBook();
       console.log(keywords);
   }, [keywords]);
 
