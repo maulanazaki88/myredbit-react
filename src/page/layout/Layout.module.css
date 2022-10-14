@@ -43,7 +43,6 @@ button {
   height: 100%;
   max-width: 100%;
   min-width: 100%;
-  position: relative;
 }
 
 
@@ -270,6 +269,8 @@ footer, #footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
+  max-width: 100%;
 
 }
 
@@ -1030,5 +1031,18 @@ footer, #footer {
   .spacer{
     transform: translate(0, 2px)
   }
+
+  .fInfWrp{
+    flex-direction: column;
+  }
+  
+  .ftrCtn{
+    padding-bottom: 400px;
+    padding-top: 50px;
+  }
+
+ .cpyrg{
+  transform: translate(0, 80px);
+ }
 
 }

@@ -108,7 +108,7 @@ function BookPage() {
           <figure className={c.mdLine}>
             <img
               className={c.midLine}
-              src="/svg/SVG/line-grey.svg"
+              src="/svg/SVG/line.svg"
               alt="line"
             />
           </figure>
