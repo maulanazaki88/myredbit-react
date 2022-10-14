@@ -126,6 +126,8 @@
         flex-direction: column;
         height: -moz-max-content;
         height: fit-content;
+        padding-top: 200px;
+        padding-bottom: 500px;
         
         
     }
@@ -150,6 +152,10 @@
         left: 0;
         transform: translate(0px, 0px);
     }
+
+    .spacer{
+        aspect-ratio: 9/12;
+    }
 }
 
 @media screen and (max-width: 612px) {
@@ -161,8 +167,7 @@
 @media screen and (max-width: 478px){
     .bookWrp{
         transform: translate(0, 3px);
-        padding-top: 200px;
-        padding-bottom: 500px;
+        
     }
 
     .spacer{

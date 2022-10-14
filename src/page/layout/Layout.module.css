@@ -219,6 +219,7 @@ button {
   display: block;
   background-image: url(/public/svg/SVG/footer-wave-trans.svg);
   transform: translate(0, 0px);
+  margin-top: -220px;
   
   
 
@@ -318,7 +319,7 @@ footer, #footer {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  transform: translate(-70px, -50px);
+  transform: translate(0px, -50px);
 }
 
 .brandF {
@@ -352,6 +353,7 @@ footer, #footer {
   align-items: center;
   justify-content: center;
   list-style: none;
+  transform: translate(-20px,0);
 }
 
 .fIconItem {
@@ -363,6 +365,7 @@ footer, #footer {
 
 .fIcon {
   width: 50px;
+  margin: 0;
 }
 
 .fIcon:hover {
@@ -771,7 +774,7 @@ footer, #footer {
   }
 
   .cpyrgWrp {
-    transform: translate(-30px, -50px);
+    transform: translate(0px, -50px);
   }
 
   .brandF {
@@ -801,6 +804,10 @@ footer, #footer {
   .mIcons {
     width: 28px;
     margin-right: 4px;
+  }
+
+  .cpyrgTxt{
+    font-size: 15px;
   }
 
   .fInfItem {
@@ -1025,7 +1032,13 @@ footer, #footer {
   .fInfHead{
     font-size: 18px;
   }
+
+  .spacer{
+    aspect-ratio: 9/12;
+  }
 }
+
+
 
 @media screen and (max-width: 478px){
   .spacer{
