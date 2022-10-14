@@ -65,8 +65,8 @@ function LastReadPage() {
 
   const books = {
     startScroll: 0,
-    endScroll: 2000,
-    translateY: [0, 42],
+    endScroll: 2200,
+    translateY: [0, 48],
     opacity: [1, 0.6],
     scale: [1, 0.9, "easeOutCubic"],
     shouldAlwaysCompleteAnimation: true,
@@ -85,9 +85,9 @@ function LastReadPage() {
   };
 
   const headphone = {
-    startScroll: 500,
-    endScroll: 2000,
-    translateY: [15, 32],
+    startScroll: 0,
+    endScroll: 2200,
+    translateY: [25, 42],
     scale: [0.9, 0.95, "easeOutCubic"],
     shouldAlwaysCompleteAnimation: true,
     shouldDisableScalingTranslations: true,
@@ -112,10 +112,10 @@ function LastReadPage() {
   };
 
   const phone = {
-    startScroll: 650,
-    endScroll: 2000,
-    translateY: [20, 25],
-    scale: [0.85, 1.2, "easeOutCubic"],
+    startScroll: 0,
+    endScroll: 2200,
+    translateY: [33, 35],
+    scale: [1, 1.1, "easeOutCubic"],
     shouldAlwaysCompleteAnimation: true,
     shouldDisableScalingTranslations: true,
     expanded: false,
@@ -138,9 +138,9 @@ function LastReadPage() {
   };
 
   const lastread = {
-    startScroll: 1150,
-    endScroll: 2500,
-    translateY: [40, 78, "easeInOutCubic"],
+    startScroll: 1850,
+    endScroll: 3000,
+    translateY: [55, 30, "easeInOutCubic"],
     expanded: false,
     children: (
       <div className={c.lastread}>

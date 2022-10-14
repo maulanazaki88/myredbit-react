@@ -74,6 +74,7 @@
   width: 17vw;
   left: 20vw;
   max-width: 318.24px;
+  transform: translate(0, 30px);
 }
 
 .coffeeIlus {
@@ -244,7 +245,15 @@
 
 @media screen and (max-width: 1080px) {
   .lastread {
-    transform: scale(0.72) translate(0, 60px);
+    transform: scale(0.72) translate(0, 0px);
+  }
+
+  .booksIlus{
+    transform: translate(0, 150px);
+  }
+
+  .phoneNcoffeeFig{
+    transform: translate(0, -50px);
   }
 }
 
@@ -252,6 +261,10 @@
   .headphoneIlus {
     left: 2vw;
     width: 48vw;
+  }
+
+  .phoneNcoffeeFig{
+    transform: translate(0, 0px);
   }
 
   .coffeeIlus {
@@ -270,10 +283,11 @@
   }
 
   .booksIlus {
-    width: 80vw;
+    width: 90vw;
+    transform: translate(0, 150px);
   }
 
   .lastread {
-    transform: scale(0.72) translate(0, -100px);
+    transform: scale(0.72) translate(0, 0px);
   }
 }
