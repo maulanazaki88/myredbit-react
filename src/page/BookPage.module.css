@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: "Lucida Sans";
     src: url(/public/font/LSANS.TTF)
 }
@@ -11,7 +11,7 @@
 @font-face {
     font-family: "Segoe UI";
     src: url(/public/font/SEGOEUI.TTF);
-}
+} */
 
 .bookWrp {
     position: relative;

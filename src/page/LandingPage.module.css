@@ -74,7 +74,7 @@
 
 }
 
-@font-face {
+/* @font-face {
     font-family: "Lucida Sans";
     src: url(/public/font/LSANS.TTF);
 }
@@ -87,7 +87,7 @@
 @font-face {
     font-family: "Segoe UI";
     src: url(/public/font/SEGOEUI.TTF);
-}
+} */
 
 .ldg-pg {
     left: 0px;

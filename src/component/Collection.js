@@ -196,7 +196,8 @@ function Collection(props) {
         setIsLoading(false);
         console.log("LOADING FINISHED");
       }, 200);
-    }else{}
+    } else {
+    }
   }, []);
 
   useEffect(() => {

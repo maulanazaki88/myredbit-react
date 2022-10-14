@@ -28,7 +28,7 @@ button {
   cursor: pointer;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Lucida Sans";
   src: url(/public/font/LSANS.TTF);
 }
@@ -46,7 +46,7 @@ button {
 @font-face {
   font-family: "Vladimir Script";
   src: url(/public/font/VLADIMIR.TTF);
-}
+} */
 
 .regPg {
   flex-direction: column;

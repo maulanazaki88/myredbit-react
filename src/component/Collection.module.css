@@ -42,7 +42,7 @@
   text-decoration: none
 }
 
-@font-face {
+/* @font-face {
   font-family: "Lucida Sans";
   src: url(/public/font/LSANS.TTF)
 }
@@ -55,7 +55,7 @@
 @font-face {
   font-family: "Segoe UI";
   src: url(/public/font/SEGOEUI.TTF)
-}
+} */
 
 #cltnWrp {
   display: grid;
@@ -69,7 +69,8 @@
   flex-direction: column;
   width: 100%;
   background-color: #fff;
-  padding-bottom: 150px;
+  padding-bottom: 350px;
+
 }
 
 .loadingAnimation{
