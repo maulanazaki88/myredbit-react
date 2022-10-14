@@ -60,4 +60,14 @@
     .cltnWrp {
         grid-template-columns: auto;
     }
+
+    .bookCard{
+        transform: scale(0.67);
+    }
+}
+
+@media screen and (max-width: 478px){
+    .bookCard{
+        transform: scale(0.54);
+    }
 }

@@ -626,7 +626,9 @@ function RegisterPage() {
   };
 
   const back = () => {
-    ctx.editRequestHandler(null);
+    if(editRequest){
+      ctx.editRequestHandler(null);
+    }else{}
     navigate(currPg);
   };
 
@@ -646,7 +648,10 @@ function RegisterPage() {
     window.scrollTo(0, 0);
     return function cleanUp() {
       setIsLoading(true);
-      resetEditRequest();
+      if(editRequest){
+        resetEditRequest();
+      }else{}
+      
     };
   }, []);
 

@@ -810,4 +810,20 @@ footer, #footer {
   transform: translate(0, 80px);
  }
 
+ .sideMenuItems{
+  font-size: 12px;
+ }
+
+ .SMbrandF{
+  font-size: 30px;
+ }
+
+ .SMcpyrgTxt{
+  font-size: 12px;
+ }
+
+ .mIcons{
+  width: 20px;
+ }
+
 }

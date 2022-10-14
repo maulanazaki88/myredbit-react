@@ -98,7 +98,7 @@ function LastReadPage() {
           className={c.headphoneIlus}
           alt="headphone ilustration"
           title=""
-          src="/svg/SVG/headphone1.svg"
+          src="/svg/SVG/headphone2.svg"
         />
 
         <img

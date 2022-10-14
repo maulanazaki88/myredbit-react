@@ -13,20 +13,6 @@
     background-color: transparent;
 }
 
-/* @font-face {
-    font-family: "Lucida Sans";
-    src: url(/public/font/LSANS.TTF);
-}
-
-@font-face {
-    font-family: "I pixel u";
-    src: url(/public/font/I-PIXEL-U.TTF);
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    src: url(/public/font/SEGOEUI.TTF);
-} */
 
 .book {
     position: relative;
@@ -217,8 +203,12 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 478px) {
     .book {
         left: -15px;
+    }
+
+    .book{
+        margin-bottom: -200px;
     }
 }

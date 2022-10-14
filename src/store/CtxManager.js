@@ -124,7 +124,7 @@ export function CtxManagerProvider(props) {
         navigate("/");
       }
 
-      console.log("data matching resolved");
+      console.log("SEARCH BOOK EXECUTED");
     } catch (error) {
       console.log(error.stack);
     }
@@ -138,10 +138,12 @@ export function CtxManagerProvider(props) {
 
   const resetKeywordsHandler = () => {
     setKeywords("");
+    console.log("RESET KEYWORDS EXECUTED")
   };
 
   const resetEditRequestHandler = () => {
     setEditRequest(null);
+    console.log("RESET EDIT REQUEST EXECUTED")
   };
 
   const currentPgHandler = (cpg) => {
@@ -162,6 +164,7 @@ export function CtxManagerProvider(props) {
       } else {
         throw new Error("INVALID PAGE ID");
       }
+      console.log("CURRENT PAGE HANDLER EXECUTED")
     } catch (error) {
       console.log(error.stack);
     }
@@ -188,6 +191,7 @@ export function CtxManagerProvider(props) {
     } catch (error) {
       console.log(error.stack);
     }
+    console.log("PREVIOUS PAGE HANDLER EXECUTED")
   };
 
   const editRequestHandler = (id) => {
@@ -200,6 +204,7 @@ export function CtxManagerProvider(props) {
     } catch (error) {
       console.log(error.stack);
     }
+    console.log("EDIT REQUEST HANDLER EXECUTED");
   };
 
   const bookUpdatedHandler = (book, stat) => {
@@ -220,6 +225,7 @@ export function CtxManagerProvider(props) {
       } else {
         throw new Error("BOOK UPDATE FAILED");
       }
+      console.log("BOOK UPDATED HANDLER")
     } catch (error) {
       console.log(error.stack);
     }
@@ -236,6 +242,7 @@ export function CtxManagerProvider(props) {
     setUfDisplay(ufBooks);
     setFDisplay(fBooks);
     setFavDisplay(favBooks);
+    console.log("REFETCH BOOK EXECUTED")
   };
 
   const onKeywordsChange = (e) => {
@@ -245,6 +252,7 @@ export function CtxManagerProvider(props) {
       } else {
         throw new Error("EVENT TARGET INACCESSIBLE");
       }
+      console.log("ON KEYWORDS CHANGE EXECUTED")
     } catch (error) {
       console.log(error.stack);
     }
@@ -257,6 +265,7 @@ export function CtxManagerProvider(props) {
       } else {
         throw new Error("INVALID GENRE");
       }
+      console.log("CURRENT GENRE HANDLER EXECUTED")
     } catch (error) {
       console.log(error.stack);
     }
@@ -269,6 +278,7 @@ export function CtxManagerProvider(props) {
       } else {
         throw new Error("INVALID SORT");
       }
+      console.log("CURRENT SORT EXECUTED")
     } catch (error) {
       console.log(error.stack);
     }
@@ -462,6 +472,7 @@ export function CtxManagerProvider(props) {
       setAppliedBooks([]);
       console.log("Render empty array");
     }
+    console.log("DISPLAY PROCESSOR EXECUTED")
   };
 
   const noteRequestHandler = (id) => {
@@ -474,6 +485,7 @@ export function CtxManagerProvider(props) {
     } catch (error) {
       console.log(error.stack);
     }
+    console.log("NOTE REQUEST HANDLER EXECUTED")
   };
 
   useEffect(() => {

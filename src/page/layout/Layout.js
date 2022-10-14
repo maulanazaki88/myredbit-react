@@ -1,6 +1,11 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import CtxManager from "../../store/CtxManager";
+
+import dotIcon from "../../ui/dot.svg"
+import backIcon from "../../ui/back-white.svg"
+import backIconPink from "../../ui/back-pink.svg"
+import searchIconBlack from "../../ui/search-black.png"
 import c from "./Layout.module.css";
 
 function Layout() {
@@ -75,16 +80,6 @@ function Layout() {
     }
   }, [isInputMode]);
 
-  // window.addEventListener("resize", () => {
-  //   if (!isThrottle) {
-  //     enterMobileMode();
-  //     setIsThrottle(true);
-  //     setTimeout(() => {
-  //       setIsThrottle(false);
-  //     }, 100);
-  //   } else {
-  //   }
-  // });
 
   window.addEventListener("resize", () => {
     enterMobileMode();
@@ -114,7 +109,7 @@ function Layout() {
                             <img
                               id={c["closeMenu"]}
                               className={c.ctrlIcon}
-                              src="/svg/SVG/back-white.svg"
+                              src={backIcon}
                               alt="back"
                               title="close"
                               onClick={controlSideMenu}
@@ -123,7 +118,7 @@ function Layout() {
                             <img
                               id={c["dotMenu"]}
                               className={c.ctrlIcon}
-                              src="/svg/SVG/dot.svg"
+                              src={dotIcon}
                               alt="dot"
                               title="menu"
                               onClick={controlSideMenu}
@@ -252,7 +247,7 @@ function Layout() {
                       <img
                         id={c["inpBackIcon"]}
                         className={c.ctrlIcon}
-                        src="/svg/SVG/back-pink.svg"
+                        src={backIconPink}
                         alt="back"
                         title="back"
                         onClick={closeInputMode}
@@ -277,7 +272,7 @@ function Layout() {
                       >
                         <img
                           className={c.srcIcon}
-                          src="/pngs/search-black.png"
+                          src={searchIconBlack}
                           alt="search"
                         />
                       </button>
@@ -310,7 +305,7 @@ function Layout() {
                     >
                       <img
                         className={c.srcIcon}
-                        src="/pngs/search-black.png"
+                        src={searchIconBlack}
                         alt="search"
                       />
                     </button>

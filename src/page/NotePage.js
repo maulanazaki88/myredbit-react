@@ -106,6 +106,7 @@ function BookNote() {
     bookUpdated(book, "notes");
     setPageInit(pageInit + 1);
     setBoard(c.boardWrp);
+    console.log("NEXT PAGE EXECUTED")
   };
 
   const prevPage = () => {
@@ -150,6 +151,7 @@ function BookNote() {
     } else {
       console.log("prev pg error");
     }
+    console.log("PREV PAGE EXECUTED")
   };
 
   const back = () => {
@@ -188,8 +190,8 @@ function BookNote() {
       JSON.stringify({ books: updatedBookCltn })
     );
     bookUpdated(book, "notes");
-
     navigate(currPg);
+    console.log("NOTEPAGE BACK EXECUTED")
   };
 
   useEffect(() => {

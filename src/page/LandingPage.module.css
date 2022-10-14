@@ -74,20 +74,7 @@
 
 }
 
-/* @font-face {
-    font-family: "Lucida Sans";
-    src: url(/public/font/LSANS.TTF);
-}
 
-@font-face {
-    font-family: "I pixel u";
-    src: url(/public/font/I-PIXEL-U.TTF);
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    src: url(/public/font/SEGOEUI.TTF);
-} */
 
 .ldg-pg {
     left: 0px;
@@ -436,5 +423,25 @@
     .innerBtn{
         width: 210px;
         font-size: 24px;
+    }
+
+    .logo{
+        width: 60px;
+    }
+
+    .brandBig{
+        font-size: 40px;
+    }
+
+    .brandFB2{
+        transform: translate(3px, 1px);
+    }
+
+    .subTtl{
+        font-size: 18px;
+    }
+
+    .ttlDsc{
+        font-size: 20px;
     }
 }

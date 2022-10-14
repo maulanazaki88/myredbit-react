@@ -42,21 +42,6 @@
   text-decoration: none
 }
 
-/* @font-face {
-  font-family: "Lucida Sans";
-  src: url(/public/font/LSANS.TTF)
-}
-
-@font-face {
-  font-family: "i pixel u";
-  src: url(/public/font/I-PIXEL-U.TTF)
-}
-
-@font-face {
-  font-family: "Segoe UI";
-  src: url(/public/font/SEGOEUI.TTF)
-} */
-
 #cltnWrp {
   display: grid;
   grid-template-columns: repeat(6, auto);
@@ -470,101 +455,111 @@
     width: 612px
   }
 
-  @media screen and (max-width:810px) {
-    #cltnWrp {
-      margin-top: 0;
-      transform: translate(10px, 0)
-    }
+ 
+}
 
-    #backBtn {
-      left: 20px;
-      font-size: 30px
-    }
-
-    .cltnTitle {
-      font-size: 45px
-    }
-
-    #noBooksGuide,
-    .noBooksMessage {
-      font-size: 20px;
-      width: 70vw
-    }
-
-    #noBooksGuide {
-      text-align: center
-    }
-
-    .motivation {
-      width: 360px
-    }
-
-    #genreScrolldown {
-      transform: translate(-80px, -200px) scale(.72)
-    }
-
-    #sortScrolldown {
-      transform: translate(80px, -150px) scale(.72)
-    }
-
-    .filterItem,
-    .filterVal {
-      font-size: 30px
-    }
-
-    .filterVal:hover {
-      color: gold;
-      cursor: pointer;
-      opacity: .3;
-    }
-
-    .filter {
-      transform: scale(.7)
-    }
-
-    .loadingAnimation{
-      transform: scale(0.67);
-      top: 150px;
-    }
-
-    .popContainer_on{
-      transform: scale(0.87);
-    }
-
+@media screen and (max-width:810px) {
+  #cltnWrp {
+    margin-top: 0;
+    transform: translate(10px, 0)
   }
 
-  @media screen and (max-width:600px) {
-    #cltnWrp {
-      grid-template-columns: repeat(2, auto);
-      left: 10px
-    }
-
-    #genreScrolldown {
-      transform: translate(-80px, -200px) scale(.72)
-    }
-
-    #sortScrolldown {
-      transform: translate(80px, -180px) scale(.72)
-    }
-
-    .filterItem,
-    .filterVal {
-      font-size: 30px
-    }
-
-    .filterVal:hover {
-      color: gold;
-      cursor: pointer;
-      opacity: .7
-    }
-
-    .filterItem{
-      margin: 0 10px;
-    }
-
-    .popContainer_on{
-      transform: scale(0.67)
-    }
-
+  #backBtn {
+    left: 20px;
+    font-size: 30px
   }
+
+  .cltnTitle {
+    font-size: 45px
+  }
+
+  #noBooksGuide,
+  .noBooksMessage {
+    font-size: 20px;
+    width: 70vw
+  }
+
+  #noBooksGuide {
+    text-align: center
+  }
+
+  .motivation {
+    width: 360px
+  }
+
+  #genreScrolldown {
+    transform: translate(0px, -200px) scale(.72)
+  }
+
+  #sortScrolldown {
+    transform: translate(0px, -150px) scale(.72)
+  }
+
+  .filterItem,
+  .filterVal {
+    font-size: 30px
+  }
+
+  .filterVal:hover {
+    color: gold;
+    cursor: pointer;
+    opacity: .3;
+  }
+
+  .filter {
+    transform: scale(.7)
+  }
+
+  .loadingAnimation{
+    transform: scale(0.67);
+    top: 150px;
+  }
+
+  .popContainer_on{
+    transform: scale(0.87);
+  }
+
+}
+
+@media screen and (max-width:600px) {
+  #cltnWrp {
+    grid-template-columns: repeat(2, auto);
+    left: 10px
+  }
+
+  #genreScrolldown {
+    transform: translate(0px, -200px) scale(.72)
+  }
+
+  #sortScrolldown {
+    transform: translate(0px, -180px) scale(.72)
+  }
+
+  .filterItem,
+  .filterVal {
+    font-size: 30px
+  }
+
+  .filterVal:hover {
+    color: gold;
+    cursor: pointer;
+    opacity: .7
+  }
+
+  .filterItem{
+    margin: 0 10px;
+  }
+
+  .popContainer_on{
+    transform: scale(0.57)
+  }
+
+  #backBtn{
+    font-size: 20px;
+  }
+
+  .cltnTitle{
+    font-size: 35px;
+  }
+
 }
