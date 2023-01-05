@@ -9,12 +9,12 @@ function BookCollection(props) {
         {props.appliedBooks
           .slice(0)
           .reverse()
-          .map((book, index) => {
+          .map((book) => {
             if (book === "b") {
               return "b";
             } else {
               return (
-                <li className={c.bookCard} key={index}>
+                <li className={c.bookCard} key={book.id}>
                   <BookCard
                     _id={book.id}
                     img={book.img}

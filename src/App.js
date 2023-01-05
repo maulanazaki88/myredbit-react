@@ -8,6 +8,7 @@ import SearchPage from "./page/collection-page/SearchPage";
 import Layout from "./page/layout/Layout";
 import NoLayout from "./page/layout/NoLayout";
 import RegisterPage from "./page/RegisterPage";
+import NewRegisterPage from "./page/NewRegisterPage";
 import NotePage from "./page/NotePage";
 import "./App.css";
 

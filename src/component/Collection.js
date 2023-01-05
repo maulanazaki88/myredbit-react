@@ -284,9 +284,9 @@ function Collection(props) {
               ref={genreScroll}
             >
               <ul id={c["genreScrolldownWrp"]} className={c.scrolldownWrp}>
-                {props.genreScroll.map((genre, index) => {
+                {props.genreScroll.map((genre) => {
                   return (
-                    <li key={index}>
+                    <li key={genre}>
                       <ScrolldownItem
                         genre={genre}
                         changeGenre={(genre) => {

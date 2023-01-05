@@ -1,6 +1,14 @@
-import React, { useState, useContext, useRef, useEffect } from "react";
+import React, {
+  useState,
+  useContext,
+  useRef,
+  useEffect,
+  useLayoutEffect,
+} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CtxManager from "../store/CtxManager";
+import Progression from "./register/Progression";
+import FormCard from "./register/FormCard";
 import { useLottie } from "lottie-react";
 import loadingAnimation from "../animation/loading.json";
 
@@ -29,7 +37,7 @@ const images = [
   "/images/cover19.jpg",
 ];
 
-function RegisterPage() {
+function NewRegisterPage() {
   const ctx = useContext(CtxManager);
 
   const editRequest = ctx.editRequest;
@@ -54,7 +62,6 @@ function RegisterPage() {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(true);
-  const [imgCover] = useState(images[Math.ceil(Math.random() * 100) % 20])
   const [input, setInput] = useState({
     title: editProp.title,
     genre: editProp.genre,
@@ -83,12 +90,14 @@ function RegisterPage() {
   const [fillStages, setFillStages] = useState([1, 2, 3]);
   const [crFClasses, setCrFClasses] = useState([c.crF, c.crF2, c.crF3]);
   const [crBClasses, setCrBClasses] = useState([c.crB, c.crB2, c.crB3]);
-  const [errGenreMsg, setErrGenreMsg] = useState({ message: "" });
+  const [errGenreMsg, setErrGenreMsg] = useState("");
   const [showTtlErr, setShowTtlErr] = useState(false);
   const [showGenreErr, setShowGenreErr] = useState(false);
   const [showAuthErr, setShowAuthErr] = useState(false);
   const [showRealeaseErr, setShowRealeaseErr] = useState(false);
   const [progressFlow, setProgressFlow] = useState(true);
+  const [formStage, setFormStage] = useState(1);
+  const [cover, setCover] = useState(null);
 
   const loadingOption = {
     animationData: loadingAnimation,
@@ -338,216 +347,240 @@ function RegisterPage() {
     }
   };
 
-  const slideToAutRls = () => {
-    const genrePass = genre && genre.includes(" ");
+  const toNextFormStage = () => {
+    switch (formStage) {
+      case 1:
+        const genrePass = genre && genre.includes(" ");
 
-    try {
-      if (
-        genre !== "" &&
-        title !== "" &&
-        genrePass === false &&
-        genre.split(",").length <= 4
-      ) {
-        console.log("Input are accessible");
+        try {
+          if (
+            genre !== "" &&
+            title !== "" &&
+            genrePass === false &&
+            genre.split(",").length <= 4
+          ) {
+            console.log("Input are accessible");
 
-        if (!progressFlow) setProgressFlow(true);
+            if (!progressFlow) setProgressFlow(true);
 
-        setProgressClasses((prevClasses) => {
-          let newClasses = new Array(prevClasses.length).fill(null);
-          const temp = prevClasses[0];
-          for (let n = 0; n < prevClasses.length; n++) {
-            if (n === prevClasses.length - 1) {
-              newClasses[prevClasses.length - 1] = temp;
-            } else {
-              newClasses[n] = prevClasses[n + 1];
-            }
+            setFormStage((prevStage) => {
+              if (formStage < 3) {
+                return prevStage + 1;
+              } else {
+              }
+            });
+
+            setProgressClasses((prevClasses) => {
+              let newClasses = new Array(prevClasses.length).fill(null);
+              const temp = prevClasses[0];
+              for (let n = 0; n < prevClasses.length; n++) {
+                if (n === prevClasses.length - 1) {
+                  newClasses[prevClasses.length - 1] = temp;
+                } else {
+                  newClasses[n] = prevClasses[n + 1];
+                }
+              }
+              return newClasses;
+            });
+
+            setProgressClassesR((prevClasses) => {
+              let newClasses = new Array(prevClasses.length).fill(null);
+              const temp = prevClasses[0];
+              for (let n = 0; n < prevClasses.length; n++) {
+                if (n === prevClasses.length - 1) {
+                  newClasses[prevClasses.length - 1] = temp;
+                } else {
+                  newClasses[n] = prevClasses[n + 1];
+                }
+              }
+              return newClasses;
+            });
+
+            setRegFormClasses((prevClasses) => {
+              let newClasses = new Array(prevClasses.length).fill(null);
+              const temp = prevClasses[0];
+              for (let n = 0; n < prevClasses.length; n++) {
+                if (n === prevClasses.length - 1) {
+                  newClasses[prevClasses.length - 1] = temp;
+                } else {
+                  newClasses[n] = prevClasses[n + 1];
+                }
+              }
+              return newClasses;
+            });
+
+            setCrFClasses((prevClasses) => {
+              let newClasses = new Array(prevClasses.length).fill(null);
+              const temp = prevClasses[0];
+              for (let n = 0; n < prevClasses.length; n++) {
+                if (n === prevClasses.length - 1) {
+                  newClasses[prevClasses.length - 1] = temp;
+                } else {
+                  newClasses[n] = prevClasses[n + 1];
+                }
+              }
+              return newClasses;
+            });
+
+            setCrBClasses((prevClasses) => {
+              let newClasses = new Array(prevClasses.length).fill(null);
+              const temp = prevClasses[0];
+              for (let n = 0; n < prevClasses.length; n++) {
+                if (n === prevClasses.length - 1) {
+                  newClasses[prevClasses.length - 1] = temp;
+                } else {
+                  newClasses[n] = prevClasses[n + 1];
+                }
+              }
+              return newClasses;
+            });
+
+            // startProg1to2Anim(false);
+          } else if (genre === "" && title === "") {
+            genreErrHandler("empty");
+            setShowTtlErr(true);
+
+            console.log("title error show");
+
+            setTimeout(() => setShowTtlErr(false), 5000);
+
+            throw new Error("ERROR: TITLE GENRE EMPTY");
+          } else if (genre === "") {
+            genreErrHandler("empty");
+            console.log("gen error show");
+
+            throw new Error("GENRE ERROR: GENRE FIELD NOT FULFILLED");
+          } else if (genre.split(",").length > 4) {
+            genreErrHandler("over");
+
+            throw new Error("GENRE ERROR : MORE THAN FOUR");
+          } else if (title === "") {
+            setShowTtlErr(true);
+            console.log("title error show");
+
+            setTimeout(() => setShowTtlErr(false), 5000);
+
+            throw new Error("TITLE ERROR: TITLE FIELD NOT FULLFILED");
+          } else if (genrePass) {
+            genreErrHandler("space");
+            console.log("gen error show");
+
+            throw new Error("GENRE ERROR : GENRE FIELD CONTAIN SPACE");
+          } else {
+            throw new Error("FORM FAILURE");
           }
-          return newClasses;
-        });
+        } catch (error) {
+          console.log(error.message);
+        }
+        break;
 
-        setProgressClassesR((prevClasses) => {
-          let newClasses = new Array(prevClasses.length).fill(null);
-          const temp = prevClasses[0];
-          for (let n = 0; n < prevClasses.length; n++) {
-            if (n === prevClasses.length - 1) {
-              newClasses[prevClasses.length - 1] = temp;
-            } else {
-              newClasses[n] = prevClasses[n + 1];
-            }
+      case 2:
+        try {
+          if (author !== "" && realease !== "") {
+            if (!progressFlow) setProgressFlow(true);
+
+            setFormStage((prevStage) => {
+              if (prevStage > 1) {
+                return prevStage - 1;
+              }
+            });
+
+            setProgressClasses((prevClasses) => {
+              let newClasses = new Array(prevClasses.length).fill(null);
+              const temp = prevClasses[0];
+              for (let n = 0; n < prevClasses.length; n++) {
+                if (n === prevClasses.length - 1) {
+                  newClasses[prevClasses.length - 1] = temp;
+                } else {
+                  newClasses[n] = prevClasses[n + 1];
+                }
+              }
+              return newClasses;
+            });
+
+            setProgressClassesR((prevClasses) => {
+              let newClasses = new Array(prevClasses.length).fill(null);
+              const temp = prevClasses[0];
+              for (let n = 0; n < prevClasses.length; n++) {
+                if (n === prevClasses.length - 1) {
+                  newClasses[prevClasses.length - 1] = temp;
+                } else {
+                  newClasses[n] = prevClasses[n + 1];
+                }
+              }
+              return newClasses;
+            });
+
+            setRegFormClasses((prevClasses) => {
+              let newClasses = new Array(prevClasses.length).fill(null);
+              const temp = prevClasses[0];
+              for (let n = 0; n < prevClasses.length; n++) {
+                if (n === prevClasses.length - 1) {
+                  newClasses[prevClasses.length - 1] = temp;
+                } else {
+                  newClasses[n] = prevClasses[n + 1];
+                }
+              }
+              return newClasses;
+            });
+
+            setCrFClasses((prevClasses) => {
+              let newClasses = new Array(prevClasses.length).fill(null);
+              const temp = prevClasses[0];
+              for (let n = 0; n < prevClasses.length; n++) {
+                if (n === prevClasses.length - 1) {
+                  newClasses[prevClasses.length - 1] = temp;
+                } else {
+                  newClasses[n] = prevClasses[n + 1];
+                }
+              }
+              return newClasses;
+            });
+
+            setCrBClasses((prevClasses) => {
+              let newClasses = new Array(prevClasses.length).fill(null);
+              const temp = prevClasses[0];
+              for (let n = 0; n < prevClasses.length; n++) {
+                if (n === prevClasses.length - 1) {
+                  newClasses[prevClasses.length - 1] = temp;
+                } else {
+                  newClasses[n] = prevClasses[n + 1];
+                }
+              }
+              return newClasses;
+            });
+          } else if (author === "" && realease === "") {
+            setShowAuthErr(true);
+            setShowRealeaseErr(true);
+
+            setTimeout(() => setShowAuthErr(false), 5000);
+            setTimeout(() => setShowRealeaseErr(false), 5000);
+
+            throw new Error("author and realease are empty");
+          } else if (author === "") {
+            setShowAuthErr(true);
+            setTimeout(() => setShowAuthErr(false), 5000);
+          } else if (realease === "") {
+            setShowRealeaseErr(true);
+            setTimeout(() => setShowRealeaseErr(false), 5000);
+          } else {
+            throw new Error("form failure");
           }
-          return newClasses;
-        });
+        } catch (error) {
+          console.log(error.stack);
+        }
+        break;
 
-        setRegFormClasses((prevClasses) => {
-          let newClasses = new Array(prevClasses.length).fill(null);
-          const temp = prevClasses[0];
-          for (let n = 0; n < prevClasses.length; n++) {
-            if (n === prevClasses.length - 1) {
-              newClasses[prevClasses.length - 1] = temp;
-            } else {
-              newClasses[n] = prevClasses[n + 1];
-            }
-          }
-          return newClasses;
-        });
-
-        setCrFClasses((prevClasses) => {
-          let newClasses = new Array(prevClasses.length).fill(null);
-          const temp = prevClasses[0];
-          for (let n = 0; n < prevClasses.length; n++) {
-            if (n === prevClasses.length - 1) {
-              newClasses[prevClasses.length - 1] = temp;
-            } else {
-              newClasses[n] = prevClasses[n + 1];
-            }
-          }
-          return newClasses;
-        });
-
-        setCrBClasses((prevClasses) => {
-          let newClasses = new Array(prevClasses.length).fill(null);
-          const temp = prevClasses[0];
-          for (let n = 0; n < prevClasses.length; n++) {
-            if (n === prevClasses.length - 1) {
-              newClasses[prevClasses.length - 1] = temp;
-            } else {
-              newClasses[n] = prevClasses[n + 1];
-            }
-          }
-          return newClasses;
-        });
-
-        // startProg1to2Anim(false);
-      } else if (genre === "" && title === "") {
-        genreErrHandler("empty");
-        setShowTtlErr(true);
-
-        console.log("title error show");
-
-        setTimeout(() => setShowTtlErr(false), 5000);
-
-        throw new Error("ERROR: TITLE GENRE EMPTY");
-      } else if (genre === "") {
-        genreErrHandler("empty");
-        console.log("gen error show");
-
-        throw new Error("GENRE ERROR: GENRE FIELD NOT FULFILLED");
-      } else if (genre.split(",").length > 4) {
-        genreErrHandler("over");
-
-        throw new Error("GENRE ERROR : MORE THAN FOUR");
-      } else if (title === "") {
-        setShowTtlErr(true);
-        console.log("title error show");
-
-        setTimeout(() => setShowTtlErr(false), 5000);
-
-        throw new Error("TITLE ERROR: TITLE FIELD NOT FULLFILED");
-      } else if (genrePass) {
-        genreErrHandler("space");
-        console.log("gen error show");
-
-        throw new Error("GENRE ERROR : GENRE FIELD CONTAIN SPACE");
-      } else {
-        throw new Error("FORM FAILURE");
-      }
-    } catch (error) {
-      console.log(error.message);
+      default:
+        break;
     }
   };
 
-  const slideToCnfrm = () => {
-    try {
-      if (author !== "" && realease !== "") {
-        if (!progressFlow) setProgressFlow(true);
+  //   const toPrevFormStage = () => {
 
-        setProgressClasses((prevClasses) => {
-          let newClasses = new Array(prevClasses.length).fill(null);
-          const temp = prevClasses[0];
-          for (let n = 0; n < prevClasses.length; n++) {
-            if (n === prevClasses.length - 1) {
-              newClasses[prevClasses.length - 1] = temp;
-            } else {
-              newClasses[n] = prevClasses[n + 1];
-            }
-          }
-          return newClasses;
-        });
+  //   }
 
-        setProgressClassesR((prevClasses) => {
-          let newClasses = new Array(prevClasses.length).fill(null);
-          const temp = prevClasses[0];
-          for (let n = 0; n < prevClasses.length; n++) {
-            if (n === prevClasses.length - 1) {
-              newClasses[prevClasses.length - 1] = temp;
-            } else {
-              newClasses[n] = prevClasses[n + 1];
-            }
-          }
-          return newClasses;
-        });
-
-        setRegFormClasses((prevClasses) => {
-          let newClasses = new Array(prevClasses.length).fill(null);
-          const temp = prevClasses[0];
-          for (let n = 0; n < prevClasses.length; n++) {
-            if (n === prevClasses.length - 1) {
-              newClasses[prevClasses.length - 1] = temp;
-            } else {
-              newClasses[n] = prevClasses[n + 1];
-            }
-          }
-          return newClasses;
-        });
-
-        setCrFClasses((prevClasses) => {
-          let newClasses = new Array(prevClasses.length).fill(null);
-          const temp = prevClasses[0];
-          for (let n = 0; n < prevClasses.length; n++) {
-            if (n === prevClasses.length - 1) {
-              newClasses[prevClasses.length - 1] = temp;
-            } else {
-              newClasses[n] = prevClasses[n + 1];
-            }
-          }
-          return newClasses;
-        });
-
-        setCrBClasses((prevClasses) => {
-          let newClasses = new Array(prevClasses.length).fill(null);
-          const temp = prevClasses[0];
-          for (let n = 0; n < prevClasses.length; n++) {
-            if (n === prevClasses.length - 1) {
-              newClasses[prevClasses.length - 1] = temp;
-            } else {
-              newClasses[n] = prevClasses[n + 1];
-            }
-          }
-          return newClasses;
-        });
-      } else if (author === "" && realease === "") {
-        setShowAuthErr(true);
-        setShowRealeaseErr(true);
-
-        setTimeout(() => setShowAuthErr(false), 5000);
-        setTimeout(() => setShowRealeaseErr(false), 5000);
-
-        throw new Error("author and realease are empty");
-      } else if (author === "") {
-        setShowAuthErr(true);
-        setTimeout(() => setShowAuthErr(false), 5000);
-      } else if (realease === "") {
-        setShowRealeaseErr(true);
-        setTimeout(() => setShowRealeaseErr(false), 5000);
-      } else {
-        throw new Error("form failure");
-      }
-    } catch (error) {
-      console.log(error.stack);
-    }
-  };
-
-  const slideBack = () => {
+  const toPrevFormStage = () => {
     try {
       if (fillStages[0] !== "1") {
         if (progressFlow) setProgressFlow(false);
@@ -627,13 +660,14 @@ function RegisterPage() {
   };
 
   const back = () => {
-    if(editRequest){
+    if (editRequest) {
       ctx.editRequestHandler(null);
-    }else{}
+    } else {
+    }
     navigate(currPg);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setShowGenreErr(true);
     setTimeout(() => setShowGenreErr(false), 5000);
   }, [errGenreMsg]);
@@ -649,11 +683,15 @@ function RegisterPage() {
     window.scrollTo(0, 0);
     return function cleanUp() {
       setIsLoading(true);
-      if(editRequest){
+      if (editRequest) {
         resetEditRequest();
-      }else{}
-      
+      } else {
+      }
     };
+  }, []);
+
+  useEffect(() => {
+    setCover(images[Math.ceil(Math.random() * 100) % 20]);
   }, []);
 
   if (isLoading) {
@@ -672,149 +710,57 @@ function RegisterPage() {
               &lt; Back{" "}
             </button>
           </Link>
-          <div className={c.progressWrp}>
-            <div className={c.circle} id={c["cr1"]}>
-              <div className={c.fill} id={c["f1"]}></div>
-            </div>
-            <div className={c.circle} id={c["cr2"]}>
-              <div
-                className={fillStages[0] >= 2 ? c.fill : c.fillOff}
-                id={c["f2"]}
-              ></div>
-            </div>
-            <div className={c.circle} id={c["cr3"]}>
-              <div
-                className={fillStages[0] >= 3 ? c.fill : c.fillOff}
-                id={c["f3"]}
-              ></div>
-            </div>
-            <div className={c.progressGroup}>
-              <div className={c.progressBar}></div>
-              <div
-                id={c["progress"]}
-                className={
-                  progressFlow ? progressClasses[0] : progressClassesR[0]
-                }
-                onAnimationEnd={turnNextProgIdx}
-              ></div>
-            </div>
-          </div>
+          <Progression
+            idxStages={fillStages[0]}
+            barStages={progressFlow ? progressClasses : progressClassesR}
+            onBarAnimEnd={turnNextProgIdx}
+          />
           <h1 className={c.regTitle}>
             {editRequest ? "Edit Book" : "Book Registration"}
           </h1>
           <div id={c["formWrapper"]} className={c.formWrapper}>
             <form id={c["regForm"]} className={regFormClasses[0]}>
               <section className={c.ttlNgen}>
-                <div className={c.formCard}>
-                  <div id={c["inpGroup1"]} className={c.inpGroup}>
-                    <label className={c.regLabel} htmlFor="title">
-                      Book Title
-                    </label>
-                    <input
-                      className={c.regInp}
-                      type="text"
-                      name="title"
-                      id="inpTtl"
-                      value={title}
-                      onChange={onChange}
-                      maxLength="40"
-                      placeholder="Type here"
-                      required
-                    />
-                    <p id={c["ttlErr"]} className={c.errMessage}>
-                      {showTtlErr && "This field can't be empty"}
-                    </p>
-                  </div>
-                  <div id={c["inpGroup1"]} className={c.inpGroup}>
-                    <label className={c.regLabel} htmlFor="genre">
-                      Genre
-                    </label>
-                    <input
-                      className={c.regInp}
-                      type="text"
-                      name="genre"
-                      id={c["inpGen"]}
-                      required
-                      value={genre}
-                      onChange={onChange}
-                      placeholder="Type here"
-                      maxLength="40"
-                    />
-                    <p id={c["genErr"]} className={c.errMessage}>
-                      {showGenreErr && errGenreMsg.message}
-                    </p>
-                  </div>
-                  <div className={c.formBtnGroup}>
-                    <button
-                      type="button"
-                      className={c.regNext}
-                      onClick={slideToAutRls}
-                      id={c["titGenNBtn"]}
-                    >
-                      Next
-                    </button>
-                  </div>
-                </div>
+                <FormCard
+                  topLabel="Book Title"
+                  topInpType="text"
+                  topInpName="title"
+                  topVal={title}
+                  onChange={onChange}
+                  topAddressErr={showTtlErr}
+                  topErrMsg="This field can't be empty"
+                  botLabel="Genre"
+                  botInpType="text"
+                  botInpName="genre"
+                  botVal={genre}
+                  botAddressErr={showGenreErr}
+                  botErrMsg={errGenreMsg}
+                  slideBack={toPrevFormStage}
+                  slideNext={toNextFormStage}
+                  enableBack={false}
+                  nextTxt="Next"
+                />
               </section>
               <section className={c.autNrls}>
-                <div className={c.formCard}>
-                  <div id={c["inpGroup2"]} className={c.inpGroup}>
-                    <label className={c.regLabel} htmlFor="author">
-                      Author
-                    </label>
-                    <input
-                      className={c.regInp}
-                      type="text"
-                      name="author"
-                      id={c["inpAuth"]}
-                      required
-                      value={author}
-                      onChange={onChange}
-                      placeholder="Type here"
-                      maxLength="40"
-                    />
-                    <p id={c["authErr"]} className={c.errMessage}>
-                      {showAuthErr && `This field can't be empty`}
-                    </p>
-                  </div>
-                  <div id={c["inpGroup2"]} className={c.inpGroup}>
-                    <label className={c.regLabel} htmlFor="realese">
-                      Realease Year
-                    </label>
-                    <input
-                      className={c.regInp}
-                      type="number"
-                      name="realease"
-                      id={c["inpRls"]}
-                      required
-                      value={realease}
-                      placeholder="Type here"
-                      onChange={onChange}
-                      maxLength="4"
-                    />
-                    <p id={c["rlsErr"]} className={c.errMessage}>
-                      {showRealeaseErr && `This field can't be empty`}
-                    </p>
-                  </div>
-                </div>
-                <div className={c.formBtnGroup}>
-                  <button
-                    type="button"
-                    className={c.regBack}
-                    id={c["autRlsBBtn"]}
-                    onClick={slideBack}
-                  >
-                    Back
-                  </button>
-                  <button
-                    type="button"
-                    className={c.regNext}
-                    id={c["autRlsNBtn"]}
-                    onClick={slideToCnfrm}
-                  >
-                    Next
-                  </button>
-                </div>
+                <FormCard
+                  topLabel="Author"
+                  topInpType="text"
+                  topInpName="author"
+                  topVal={author}
+                  onChange={onChange}
+                  topAddressErr={showAuthErr}
+                  topErrMsg="This field can't be empty"
+                  botLabel="Release Year"
+                  botInpType="number"
+                  botInpName="realease"
+                  botVal={realease}
+                  botAddressErr={showRealeaseErr}
+                  botErrMsg="This field can't be empty"
+                  slideBack={toPrevFormStage}
+                  slideNext={toNextFormStage}
+                  enableBack={true}
+                  nextTxt="Next"
+                />
               </section>
               <section className={c.cnfrm}>
                 <div className={c.formCard} id={c["cnfrmCard"]}>
@@ -824,11 +770,7 @@ function RegisterPage() {
                         <img
                           id={c["bookCvr"]}
                           className={c.bookCvr}
-                          src={
-                            editRequest
-                              ? editBook.img
-                              : imgCover
-                          }
+                          src={editRequest ? editBook.img : cover}
                           alt="bookCover"
                           ref={bookCvr}
                         />
@@ -869,7 +811,7 @@ function RegisterPage() {
                         type="button"
                         className={c.regBack}
                         id={c["cnfrmBack"]}
-                        onClick={slideBack}
+                        onClick={toPrevFormStage}
                       >
                         Back
                       </button>
@@ -909,4 +851,4 @@ function RegisterPage() {
   }
 }
 
-export default RegisterPage;
+export default NewRegisterPage;

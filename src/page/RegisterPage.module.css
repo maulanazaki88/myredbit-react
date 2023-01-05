@@ -16,7 +16,7 @@
   overflow-y: hidden;
 }
 
-.loadingAnimation{
+.loadingAnimation {
   position: fixed;
   transform: scale(1);
   top: 300px;
@@ -325,7 +325,7 @@ button {
   align-items: center;
 }
 
-.inpGroup{
+.inpGroup {
   align-items: flex-start;
   width: 546px;
   height: 101px;
@@ -666,7 +666,7 @@ button {
     transform: scale(0.5) translate(10px, -550px);
   }
 
-  .loadingAnimation{
+  .loadingAnimation {
     transform: scale(0.67);
     top: 150px;
   }
@@ -709,19 +709,19 @@ button {
     font-size: 25px;
   }
 
-  .progressWrp{
+  .progressWrp {
     transform: scale(0.5) translate(0, 0);
   }
 
-  
+
 }
 
-@media screen and (max-width: 500px){
-  .formWrapper{
+@media screen and (max-width: 500px) {
+  .formWrapper {
     transform: scale(0.35) translate(0, -950px);
   }
 
-  .regBackBtn{
+  .regBackBtn {
     font-size: 12px;
   }
 

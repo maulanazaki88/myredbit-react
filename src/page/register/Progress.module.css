@@ -1,0 +1,102 @@
+.progressWrp {
+    height: 50px;
+    display: flex;
+    z-index: 10;
+    background-color: transparent;
+    position: absolute;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 325px;
+    top: 40px;
+}
+
+.circle {
+    height: 50px;
+    display: flex;
+    z-index: 10;
+    border-radius: 50%;
+    position: relative;
+    width: 50px;
+    background-color: #0f3460;
+    align-items: center;
+    justify-content: center;
+    margin: 0 30px;
+}
+
+.fill, .fillOff {
+    background-color: #e94560;
+    border-radius: 50%;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    transition: 0.3s ease-out;
+}
+
+.fillOff {
+    width: 0;
+    height: 0;
+}
+
+.progressGroup {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    left: 20px;
+}
+
+.progressBar {
+    position: absolute;
+    height: 15px;
+    width: 255px;
+    background-color: #0f3460;
+    left: 10px;
+    z-index: 5;
+}
+
+.progress,
+.progress2,
+.progress3,
+.progress_rev,
+.progress2_rev,
+.progress3_rev {
+    position: absolute;
+    height: 15px;
+    background-color: #e94560;
+    left: 10px;
+    z-index: 6;
+    transition: 0.3s ease-out;
+}
+
+.progress {
+    width: 2px;
+}
+
+.progress_rev {
+    width: 2px;
+}
+
+.progress2 {
+    width: 125px;
+    animation: prog1to2 0.3s 1 cubic-bezier(0, 0.87, 0.5, 1);
+}
+
+.progress2_rev {
+    width: 125px;
+}
+
+.progress3 {
+    width: 225px;
+    animation: prog2to3 0.3s 1 cubic-bezier(0, 0.87, 0.5, 1);
+}
+
+.progress3_rev {
+    width: 225px;
+}
+
+@media screen and (max-width: 810px) {
+    .progressWrp {
+        transform: scale(0.5) translate(0, 0);
+        position: absolute;
+    }
+}
