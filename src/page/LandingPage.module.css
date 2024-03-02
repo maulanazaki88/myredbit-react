@@ -109,7 +109,7 @@
 .brandBig {
     flex-direction: column;
     font-size: 80px;
-    margin: 0 0 50px 0px;
+    margin: 0 0 20px 0px;
     width: 353px;
     align-items: flex-start;
     justify-content: center;
@@ -135,6 +135,7 @@
     justify-content: center;
     top: 0px;
     margin-bottom: 50px;
+
 }
 
 .ldgBkdrop,
@@ -156,11 +157,12 @@
 
 .ttlDsc {
     position: relative;
-    color: #1a1a2e;
+    color: rgba(0, 0, 0, 0.7);
     font-family: "Times New Roman", Times, serif;
     font-size: 25px;
     width: 30vw;
     text-align: left;
+    line-height: 180%;
 }
 
 .ldgFg {

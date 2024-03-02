@@ -48,7 +48,7 @@ function LandingPage() {
                   navigate("/registerPage");
                 }}
               >
-                <div className={c.innerBtn}>Register Book</div>
+                <div className={c.innerBtn}>Read Book</div>
               </button>
             </div>
           </section>
